@@ -1,0 +1,6 @@
+/project-venv
+/test-venv
+/__pycache__
+/.vscode
+*.ipynb
+/data/rain
