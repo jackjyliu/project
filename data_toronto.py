@@ -3,6 +3,7 @@ collection of functions to pull toronto related data from public sources, cleane
 """
 
 from datetime import datetime
+import calendar
 import pandas as pd
 import requests
 from io import BytesIO
@@ -35,12 +36,40 @@ def toronto_power(start_year=datetime.today().year, end_year=datetime.today().ye
 
     return toronto_power_df
 
-def toronto_daylight(start_year=datetime.today().year, end_year=datetime.today().year,path='data/daylight/toronto_daylight.txt'):
+def toronto_daylight(start_year=datetime.today().year, end_year=datetime.today().year,path='data\daylight\\toronto_daylight.txt'):
     """
+    return pandas dataframe of toronto daylight hours
+    please enter start_year and end_year
+    """
+    # load daylight file
+    daylight_raw = pd.read_csv(path, skiprows=2, sep='\s+', header='infer')
+    daylight_raw['combined_date'] = daylight_raw.index.values +" "+ daylight_raw['Date'].map(str)
 
-    """
+    # empty list for cleaned dataframes
+    daylight_df_list = list()
+
+    for year in range(start_year, end_year + 1):
+        ys = str(year)
+        daylight_temp = daylight_raw.copy()
+        
+        # delete Feb 29 from daylight temp df to avoid errors
+        if not calendar.isleap(year):
+            daylight_temp = daylight_temp[daylight_temp['combined_date'] != 'Feb 29']
+
+        # covert to datetime format
+        daylight_temp['date'] = pd.to_datetime(ys + " " + daylight_temp['combined_date'], format='%Y %b %d')
+        daylight_temp['rise'] = pd.to_datetime(ys + " " + daylight_temp['combined_date'] + " " + daylight_temp['Rise'], format='%Y %b %d %H:%M')
+        daylight_temp['set'] = pd.to_datetime(ys + " " + daylight_temp['combined_date'] + " " + daylight_temp['Set'], format='%Y %b %d %H:%M')
+
+        daylight_clean = daylight_temp[['date', 'rise', 'set', 'Day']].copy()
+        daylight_clean.columns = ['date', 'rise', 'set', 'hours']
+        daylight_clean.reset_index(inplace=True, drop=True)
+
+        daylight_df_list.append(daylight_clean)
+
+    toronto_daylight_df = pd.concat(daylight_df_list)
     
-    return NotImplemented
+    return toronto_daylight_df
 
 def toronto_weather(start_year=datetime.today().year, end_year=datetime.today().year, station_id=31688):
     """
