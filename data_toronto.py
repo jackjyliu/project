@@ -8,6 +8,7 @@ import pandas as pd
 import requests
 from io import BytesIO
 
+
 def toronto_power(start_year=datetime.today().year, end_year=datetime.today().year):
     """
     enter years needed for as list, valid for years >= 2004
@@ -35,6 +36,7 @@ def toronto_power(start_year=datetime.today().year, end_year=datetime.today().ye
     toronto_power_df = pd.concat(power_df_list)
 
     return toronto_power_df
+
 
 def toronto_daylight(start_year=datetime.today().year, end_year=datetime.today().year,path='data\daylight\\toronto_daylight.txt'):
     """
@@ -70,6 +72,7 @@ def toronto_daylight(start_year=datetime.today().year, end_year=datetime.today()
     toronto_daylight_df = pd.concat(daylight_df_list)
     
     return toronto_daylight_df
+
 
 def toronto_weather(start_year=datetime.today().year, end_year=datetime.today().year, station_id=31688):
     """
