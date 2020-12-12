@@ -5,3 +5,4 @@
 *.ipynb
 /data/rain
 *test*
+/sql_bak

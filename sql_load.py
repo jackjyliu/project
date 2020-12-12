@@ -6,7 +6,7 @@ import data_toronto
 import pandas as pd
 import psycopg2
 from psycopg2.extras import execute_batch
-import sql_win_login as psql
+import sql_login as psql
 from datetime import datetime
 
 def sql_write(user, password, host, port, database, query, records):
