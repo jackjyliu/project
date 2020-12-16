@@ -7,7 +7,7 @@ import calendar
 import pandas as pd
 import requests
 from io import BytesIO
-
+import glob
 
 def toronto_power(start_year=datetime.today().year, end_year=datetime.today().year):
     """
@@ -103,3 +103,23 @@ def toronto_weather(start_year=datetime.today().year, end_year=datetime.today().
     toronto_weather = pd.concat(weather_df_list)
     
     return toronto_weather
+
+def toronto_rain():
+    """
+    returns toronto rainfall in mm
+    range start 2015 Jun to Current
+    """
+
+    # list of pandas dataframes
+    rain_dfs = [pd.read_csv(filename) for filename in glob.glob("./data/rain/*.csv")]
+    rain = pd.concat(rain_dfs, axis=0)
+    rain.drop(columns=['id', 'name', 'longitude', 'latitude'], inplace=True)
+    rain['date'] = pd.to_datetime(rain['date'], format='%Y-%m-%dT%H:%M:%S')
+
+    # avg 5 minute intervals from all rain gauges
+    avg_rain = rain.groupby('date', as_index=False).agg('mean')
+    # sum avged 5 min into 1 hour intervals
+    avg_rain['date'] = pd.to_datetime(avg_rain['date'], format='%Y-%m-%dT%H').dt.floor('H')
+    avg_rain = avg_rain.groupby('date', as_index=False).agg('sum')
+
+    return avg_rain
