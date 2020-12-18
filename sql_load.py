@@ -155,3 +155,25 @@ def update_toronto_rain():
     sql_write(psql.user, psql.password, psql.host, psql.port, write_db, query, records)
     
     return True
+
+def update_toronto_daylight(start_year=2000, end_year=2022):
+
+    # load daylight data
+    daylight_data = data_toronto.toronto_daylight(start_year=start_year, end_year=end_year)
+
+    # write records into table
+    write_db = 'toronto'
+    query = """ 
+                INSERT INTO daylight (cdate, rise, set, hours) 
+                VALUES (%s, %s, %s, %s)
+                ON CONFLICT (cdate) DO UPDATE
+                    SET 
+                        cdate = excluded.cdate,
+                        rise = excluded.rise,
+                        set = excluded.set,
+                        hours = excluded.hours;
+            """
+    records = [tuple(x) for x in daylight_data.to_numpy()]
+    sql_write(psql.user, psql.password, psql.host, psql.port, write_db, query, records)   
+    
+    return True
