@@ -122,4 +122,7 @@ def toronto_rain():
     avg_rain['date'] = pd.to_datetime(avg_rain['date'], format='%Y-%m-%dT%H').dt.floor('H')
     avg_rain = avg_rain.groupby('date', as_index=False).agg('sum')
 
+    avg_rain.columns = ['ts', 'rain_mm']
+    avg_rain['rain_mm'] = avg_rain['rain_mm'].round(2)
+
     return avg_rain
