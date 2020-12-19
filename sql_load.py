@@ -67,7 +67,11 @@ def update_toronto_power():
     
     # write records into table
     write_db = 'toronto'
-    query = 'INSERT INTO power (ts, power_use_mwh) VALUES (%s, %s);'
+    query = """
+                BEGIN;
+                INSERT INTO power (ts, power_use_mwh) VALUES (%s, %s);
+                COMMIT;
+            """
     records = [tuple(x) for x in new_power_data.to_numpy()]
     sql_write(psql.user, psql.password, psql.host, psql.port, write_db, query, records)
     
@@ -103,6 +107,7 @@ def update_toronto_temp():
     # write records into table
     write_db = 'toronto'
     query = """ 
+                BEGIN;
                 INSERT INTO weather (ts, temp_c, rel_hum_pct, pressure_kpa) 
                 VALUES (%s, %s, %s, %s)
                 ON CONFLICT (ts) DO UPDATE
@@ -110,6 +115,7 @@ def update_toronto_temp():
                         temp_c = excluded.temp_c,
                         rel_hum_pct = excluded.rel_hum_pct,
                         pressure_kpa = excluded.pressure_kpa;
+                COMMIT;
             """
     records = [tuple(x) for x in new_weather_data.to_numpy()]
     sql_write(psql.user, psql.password, psql.host, psql.port, write_db, query, records)
@@ -145,11 +151,13 @@ def update_toronto_rain():
     # write records into table
     write_db = 'toronto'
     query = """ 
+                BEGIN;
                 INSERT INTO rain (ts, rain_mm) 
                 VALUES (%s, %s)
                 ON CONFLICT (ts) DO UPDATE
                     SET 
                         rain_mm = excluded.rain_mm;
+                COMMIT;
             """
     records = [tuple(x) for x in new_rain_data.to_numpy()]
     sql_write(psql.user, psql.password, psql.host, psql.port, write_db, query, records)
@@ -164,6 +172,7 @@ def update_toronto_daylight(start_year=2000, end_year=2022):
     # write records into table
     write_db = 'toronto'
     query = """ 
+                BEGIN;
                 INSERT INTO daylight (cdate, rise, set, hours) 
                 VALUES (%s, %s, %s, %s)
                 ON CONFLICT (cdate) DO UPDATE
@@ -172,6 +181,7 @@ def update_toronto_daylight(start_year=2000, end_year=2022):
                         rise = excluded.rise,
                         set = excluded.set,
                         hours = excluded.hours;
+                COMMIT;
             """
     records = [tuple(x) for x in daylight_data.to_numpy()]
     sql_write(psql.user, psql.password, psql.host, psql.port, write_db, query, records)   
