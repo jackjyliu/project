@@ -33,6 +33,7 @@ Technologies
 Challenges
 ---
 *	Embedding dash in flask? Some tutorials online
+*   Need to cache toronto news twice a day due to limited API calls
 
 Architecture
 ---
