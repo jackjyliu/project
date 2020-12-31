@@ -55,5 +55,5 @@ Data
 *	Toronto Rainfall: use average of all stations sum over whole hour **DONE**
 *	Holiday data **DONE**
 *	TTC Data
-*	Local news (twitter or webscrapping) - Bing New API? 
+*	Local news (twitter or webscrapping) - Bing New API? (Toggle COVID and Non-COVID news)
 *	Weather forecast - Openweather API?

@@ -9,4 +9,4 @@
 /papp
 /rain
 sql_login.py
-credential.py
+credentials.py
