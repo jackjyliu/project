@@ -1,0 +1,11 @@
+/project-venv
+/test-venv
+/__pycache__
+/.vscode
+*.ipynb
+/data/rain
+*test*
+/sql_bak
+/papp
+/rain
+sql_login.py
