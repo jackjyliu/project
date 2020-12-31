@@ -19,6 +19,7 @@ def weather(lat=TORONTO_LAT, lon=TORONTO_LONG, part='', api_key=weather_api_key)
     response_json = response.json()
     return response_json
 
+
 def pollution(lat=TORONTO_LAT, lon=TORONTO_LONG, api_key=weather_api_key):
 
     # OpenWeather Pollution API
@@ -28,5 +29,3 @@ def pollution(lat=TORONTO_LAT, lon=TORONTO_LONG, api_key=weather_api_key):
     # convert json to dictionary
     response_json = response.json()
     return response_json
-
-

@@ -24,7 +24,7 @@ Technologies
 *	Python ETL, webscrapping, logic
 *	Dash + plotly for data viz
 *	Datashader for large viz
-*	FB Prophet for forecast - probably not uses too much cpu and ram
+*	<s>FB Prophet for forecast - probably not uses too much cpu and ram</s>
 *	Catboost for ML?
 *	With SHAP value explanations
 *	Github for version control
@@ -56,4 +56,4 @@ Data
 *	Holiday data **DONE**
 *	TTC Data
 *	Local news (twitter or webscrapping) - Bing New API? (Toggle COVID and Non-COVID news)
-*	Weather forecast - Openweather API?
+*	Weather forecast - Openweather API (**API DONE**, need to insert to database??)
