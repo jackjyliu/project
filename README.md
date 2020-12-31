@@ -1,12 +1,19 @@
 Build Website to show Toronto-related data visualization, forecasting, ML
 ===
 
+TODO
+---
+*   Get domain name
+*   Refactor login and api keys
+*   Gather more data
+*   Web page design
+
 Pages
 ---
 *	Toronto related dashboard: weather, events, TTC, road closures, local news?
 *	Select data viz
 *	Electricity use vs prices
-*	Impact of weather on TTC
+*	Impact of weather on TTC delays
 *	Forecasts
 *	ML example + sandbox
 *	Limited sample size (randomly select 10k rows?)
@@ -22,14 +29,6 @@ Technologies
 *	With SHAP value explanations
 *	Github for version control
 *	Host on AWS
-*	S3: store web files
-*	EC2: run code
-*	RDS: run postgresql
-*	Light sail + EC2 for ETL, ML tasks?
-
-Budget
----
-*	 $50/month
 
 Challenges
 ---
@@ -37,9 +36,12 @@ Challenges
 
 Architecture
 ---
+*   Amazon Route 53 for domain
+*   AWS Lightsail for Webserver + data processing
+*	AWS RDS: run postgresql
 *	Do bulk of data processing work over night
-*	Use EC2 to run ETL, webscrapping and push to RDS
-*	After load, use EC2 to update dashboards
+*	Use Lightsail to run ETL, webscrapping and push to RDS
+*	After load, use Lightsail to update dashboards
 
 Testing
 ---
