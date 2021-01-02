@@ -14,7 +14,7 @@ Pages
 *	Select data viz
 *	Electricity use vs prices
 *	Impact of weather on TTC delays
-*	Forecasts
+*	Forecasts?
 *	ML example + sandbox
 *	Limited sample size (randomly select 10k rows?)
 
@@ -22,7 +22,9 @@ Technologies
 ---
 *	Postgres database
 *	Python ETL, webscrapping, logic
-*	Dash + plotly for data viz
+*	<s>Dash +</s> difficult to integrate with flask
+*   plotly for data viz or maybe bokeh
+*   bootstrap for layout and css?
 *	Datashader for large viz
 *	<s>FB Prophet for forecast - probably not uses too much cpu and ram</s>
 *	Catboost for ML?
@@ -32,7 +34,7 @@ Technologies
 
 Challenges
 ---
-*	Embedding dash in flask? Some tutorials online
+<s>*	Embedding dash in flask? Some tutorials online</s>
 *   Need to cache toronto news twice a day due to limited API calls
 
 Architecture
@@ -55,5 +57,6 @@ Data
 *	Toronto Rainfall: use average of all stations sum over whole hour **DONE**
 *	Holiday data **DONE**
 *	TTC Data
-*	Local news (twitter or webscrapping) - Bing New API? (Toggle COVID and Non-COVID news)
+*	Local news (twitter or webscrapping) - Bing New API **API DONE**
 *	Weather forecast - Openweather API (**API DONE**, need to insert to database??)
+*   Is there toronto traffic data? for cars, transit, foot, retail?
