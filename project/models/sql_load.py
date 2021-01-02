@@ -2,11 +2,11 @@
 functions to load data into postgresql database
 """
 from datetime import datetime
-import data_toronto
+import project.models.data_toronto as data_toronto
 import pandas as pd
 import psycopg2
 from psycopg2.extras import execute_batch
-from credentials import WSL2_PSQL as psql
+from project.models.credentials import WSL2_PSQL as psql
 from datetime import datetime
 
 def sql_read(database, query, user=psql['user'], password=psql['password'], host=psql['host'], port=psql['port']):
