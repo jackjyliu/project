@@ -10,8 +10,11 @@ Model
 ---
 *   Move credentials to main root folder or swtich to environ?
 *   Schedule cron jobs to ETL (and maybe run models?)
-*   Setup catboost and shap?
 *   Build dashboards
+*   ML
+    *   Catboost + SHAP
+    *   Pycaret for simple ML?
+
 
 Data
 ---
@@ -21,6 +24,3 @@ Data
 *   New Sources
     *   TTC
     *   Traffic?
-*   ML
-    *   Catboost + SHAP
-    *   Pycaret for simple ML?
