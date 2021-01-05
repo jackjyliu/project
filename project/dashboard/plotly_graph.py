@@ -22,6 +22,11 @@ def plotly_test():
                         )
 
     fig = px.density_heatmap(power_df, x='hour', y='month', z='power_use_mwh', histfunc='avg')
+    fig.update_layout(
+            title='Toronto Power Use',
+            title_x=0.5,
+            legend_title='Mhw'
+            )
     html_plot = plotly.io.to_html(fig, full_html=False)
 
     return html_plot
