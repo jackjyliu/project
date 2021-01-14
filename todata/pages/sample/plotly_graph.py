@@ -23,9 +23,10 @@ def month_hour_heatmap():
 
     fig = px.density_heatmap(power_df, x='hour', y='month', z='power_use_mwh', histfunc='avg')
     fig.update_layout(
-            title='Toronto Power Use',
+            title='Average Toronto Power Use by Hour and Month',
             title_x=0.5,
-            legend_title_text='MegawattHour'
+            coloraxis_colorbar={'title': 'MegawattHour'},
+            yaxis={'autorange':'reversed'}
             )
     plot = plotly.io.to_html(fig, full_html=False)
 
