@@ -4,10 +4,10 @@ plotly module to test insert into flask views
 
 import plotly.express as px
 import plotly.io 
-from project.models.credentials import WSL2_PSQL as psql
-from project.models.sql_load import sql_read
+from todata.models.credentials import WSL2_PSQL as psql
+from todata.models.sql_load import sql_read
 
-def plotly_test():
+def month_hour_heatmap():
     power_df = sql_read('toronto',
                         """
                         SELECT  ts,
@@ -25,8 +25,8 @@ def plotly_test():
     fig.update_layout(
             title='Toronto Power Use',
             title_x=0.5,
-            legend_title='Mhw'
+            legend_title_text='MegawattHour'
             )
-    html_plot = plotly.io.to_html(fig, full_html=False)
+    plot = plotly.io.to_html(fig, full_html=False)
 
-    return html_plot
+    return plot

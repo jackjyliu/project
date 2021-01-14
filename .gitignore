@@ -3,7 +3,7 @@
 **/__pycache__/ 
 /.vscode
 *.ipynb
-project/models/data/rain
+todata/models/data/rain
 *test*
 /sql_bak
 /papp
