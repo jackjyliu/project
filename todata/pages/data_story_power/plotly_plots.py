@@ -29,6 +29,10 @@ def month_hour_heatmap():
             yaxis={'autorange':'reversed'},
             plot_bgcolor="white"
             )
+    fig.add_annotation(text="Source: Independent Electricity System Operator",
+                        
+                        )
+
     plot = plotly.io.to_html(fig, full_html=False)
 
     return plot
@@ -36,16 +40,25 @@ def month_hour_heatmap():
 def monthly_power_use():
     df = sql_read_pd('toronto',
                         """
-                        SELECT  DATE_TRUNC('month', ts) AS month, 
+                        WITH monthly_use AS(
+                        SELECT  DATE_TRUNC('month', ts) AS date, 
                                 SUM(power_use_mwh) AS power_use_mwh
                         FROM power
-                        WHERE power_use_mwh > 1
-                        GROUP BY Month
-                        ORDER BY Month
+                        WHERE power_use_mwh > 1 AND DATE_TRUNC('month', ts) < DATE_TRUNC('month', CURRENT_DATE)
+                        GROUP BY date
+                        ORDER BY date)
+
+                        SELECT  date,
+                                power_use_mwh,
+                                ROUND(AVG(power_use_mwh)
+                                OVER(ORDER BY date ASC ROWS BETWEEN 11 PRECEDING AND CURRENT ROW),0)
+                                AS moving_avg_12m
+                        FROM monthly_use
+                        ORDER BY date
                         """
                         )
 
-    fig = px.line(df, x='month', y='power_use_mwh')
+    fig = px.line(df, x='date', y=['power_use_mwh', 'moving_avg_12m'])
     fig.update_layout(
             title='Monthly Usage',
             title_x=0.5,
