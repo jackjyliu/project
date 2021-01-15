@@ -1,6 +1,34 @@
 Project TODO
 ===
 
+Power Story
+---
+*   Summer vs Winter Demand
+*   Catboost Factors
+*   Temperature
+*   Change Source Color to Light grey
+
+Data
+---
+*   <s>Break off sql_load into multiple functions</s>
+*   ETL pipelines (weather hourly, news 2x per day save to DB, dashboard will pull from DB)
+    *   Hourly open weather
+    *   Daily bing news
+*   Data Sources
+    *   TTC
+    *   Traffic?
+    *   Population Data for per capita calcs
+
+Dashboard (hourly cached?)
+---
+*   Current Weather
+*   Next Hour, Next Day Forecast
+*   Toronto Indicators
+    *   Last rainfall/snowfall
+    *   Traffic/TTC/Road Closures
+    *   Events
+    *   Other useful daily data
+
 Web
 ---
 *   Domain name
@@ -30,8 +58,6 @@ Web
 
 *   Data Exploration (visualization of different data from postgres database, user choice)
 
-*   ML Experiments (ML on datasets from postgres database, with PyCaret?)
-
 *   About Page
     *   Describe website purpose
     *   Website Architure
@@ -47,19 +73,3 @@ Model
 *   ML
     *   Catboost + SHAP
     *   Pycaret for simple ML?
-
-
-Data
----
-*   Break off sql_load into multiple functions
-*   ETL pipelines
-    *   Hourly open weather
-    *   Daily bing news
-*   Data Sources
-    *   TTC
-    *   Traffic?
-    *   Population Data for per capita calcs
-
-Power Story
----
-*   Moving 12 month avg for monthly power

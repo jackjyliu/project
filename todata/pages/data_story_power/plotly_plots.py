@@ -7,6 +7,7 @@ import plotly.io
 from todata.models.credentials import WSL2_PSQL as psql
 from todata.models.sql_functions import sql_read_pd
 
+
 def month_hour_heatmap():
     df = sql_read_pd('toronto',
                         """
@@ -29,8 +30,11 @@ def month_hour_heatmap():
             yaxis={'autorange':'reversed'},
             plot_bgcolor="white"
             )
-    fig.add_annotation(text="Source: Independent Electricity System Operator",
-                        
+    fig.add_annotation(text="Source: IESO",
+                        xref='paper', x=1,
+                        yref='paper', y=-0.15,
+                        showarrow=False,
+                        font={'color':'#A9A9A9'}
                         )
 
     plot = plotly.io.to_html(fig, full_html=False)
@@ -65,6 +69,13 @@ def monthly_power_use():
             showlegend=False,
             plot_bgcolor="white"
             )
+
+    fig.add_annotation(text="Source: IESO",
+                        xref='paper', x=1,
+                        yref='paper', y=-0.15,
+                        showarrow=False,
+                        font={'color':'#A9A9A9'}
+                        )
     plot = plotly.io.to_html(fig, full_html=False)
 
     return plot
