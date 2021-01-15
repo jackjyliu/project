@@ -59,3 +59,7 @@ Data
     *   TTC
     *   Traffic?
     *   Population Data for per capita calcs
+
+Power Story
+---
+*   Moving 12 month avg for monthly power

@@ -7,7 +7,7 @@ import calendar
 import pandas as pd
 import requests
 from io import BytesIO
-import glob
+import os, sys, glob
 
 def toronto_power(start_year=datetime.today().year, end_year=datetime.today().year):
     """
@@ -38,7 +38,7 @@ def toronto_power(start_year=datetime.today().year, end_year=datetime.today().ye
     return toronto_power_df
 
 
-def toronto_daylight(start_year=datetime.today().year, end_year=datetime.today().year,path='data/daylight/toronto_daylight.txt'):
+def toronto_daylight(start_year=datetime.today().year, end_year=datetime.today().year,path='todata/models/data/daylight/toronto_daylight.txt'):
     """
     return pandas dataframe of toronto daylight hours
     please enter start_year and end_year
@@ -74,7 +74,7 @@ def toronto_daylight(start_year=datetime.today().year, end_year=datetime.today()
     return toronto_daylight_df
 
 
-def toronto_weather(start_year=datetime.today().year, end_year=datetime.today().year, station_id=31688):
+def toronto_temperature(start_year=datetime.today().year, end_year=datetime.today().year, station_id=31688):
     """
     start_year and end_year
     returns Toronto City Centre weather station (default) as pandas dataframe
@@ -89,20 +89,20 @@ def toronto_weather(start_year=datetime.today().year, end_year=datetime.today().
     # get monthly weather 
     for year in range(start_year, end_year + 1):
         for month in range(1, 13): 
-            url = f"https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID={station_id}&Year={year}&Month={month}&Day=14&timeframe=1&submit= Download+Data"
+            url = f"https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID={station_id}&Year={year}&Month={month}&Day=1&timeframe=1&submit= Download+Data"
             req = requests.get(url)
             weather_raw = BytesIO(req.content)
             
             weather = pd.read_csv(weather_raw)
-            weather['DateTime'] = pd.to_datetime(weather['Date/Time'])
+            weather['DateTime'] = pd.to_datetime(weather['Date/Time (LST)'])
             weather = weather[['DateTime', 'Temp (°C)', 'Rel Hum (%)', 'Stn Press (kPa)']]
             weather.columns = ['ts', 'temp_c', 'rel_hum_pct', 'pressure_kpa']
             weather_df_list.append(weather)
     
     # concat pandas dataframes
-    toronto_weather = pd.concat(weather_df_list)
+    toronto_temperature = pd.concat(weather_df_list)
     
-    return toronto_weather
+    return toronto_temperature
 
 def toronto_rain():
     """
@@ -111,7 +111,10 @@ def toronto_rain():
     """
 
     # list of pandas dataframes
-    rain_dfs = [pd.read_csv(filename) for filename in glob.glob("./data/rain/*.csv")]
+    dirname = os.path.dirname(os.path.realpath('__file__'))
+    filenames = os.path.join(dirname, "todata/models/data/rain/*.csv")
+    rain_dfs = [pd.read_csv(filename) for filename in glob.glob(filenames)]
+
     rain = pd.concat(rain_dfs, axis=0)
     rain.drop(columns=['id', 'name', 'longitude', 'latitude'], inplace=True)
     rain['date'] = pd.to_datetime(rain['date'], format='%Y-%m-%dT%H:%M:%S')

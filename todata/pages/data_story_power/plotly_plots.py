@@ -5,10 +5,10 @@ plotly module to test insert into flask views
 import plotly.express as px
 import plotly.io 
 from todata.models.credentials import WSL2_PSQL as psql
-from todata.models.sql_load import sql_read
+from todata.models.sql_functions import sql_read_pd
 
 def month_hour_heatmap():
-    df = sql_read('toronto',
+    df = sql_read_pd('toronto',
                         """
                         SELECT  ts,
                                 power_use_mwh,
@@ -34,7 +34,7 @@ def month_hour_heatmap():
     return plot
 
 def monthly_power_use():
-    df = sql_read('toronto',
+    df = sql_read_pd('toronto',
                         """
                         SELECT  DATE_TRUNC('month', ts) AS month, 
                                 SUM(power_use_mwh) AS power_use_mwh

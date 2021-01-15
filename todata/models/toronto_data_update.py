@@ -2,65 +2,12 @@
 functions to load data into postgresql database
 """
 from datetime import datetime
-import todata.models.data_toronto as data_toronto
+import todata.models.toronto_data_source as toronto_data
 import pandas as pd
-import psycopg2
-from psycopg2.extras import execute_batch
-from todata.models.credentials import WSL2_PSQL as psql
-from datetime import datetime
-
-def sql_read(database, query, user=psql['user'], password=psql['password'], host=psql['host'], port=psql['port']):
-    
-    # connect to database
-    try: 
-        connection = psycopg2.connect(user=user,
-                                        password=password,
-                                        host=host,
-                                        port=port,
-                                        database=database)
-        cursor = connection.cursor()
-        
-        # run query with pandas
-        sql_result = pd.read_sql(query, con=connection)
-        return sql_result
-    
-    except (Exception, psycopg2.Error) as error:
-        if(connection):
-            print(error)
-    
-    finally:
-        if(connection):
-            cursor.close()
-            connection.close()
-
-
-def sql_write(database, query, records, user=psql['user'], password=psql['password'], host=psql['host'], port=psql['port']):
-    
-    # connect to database
-    try: 
-        connection = psycopg2.connect(user=user,
-                                        password=password,
-                                        host=host,
-                                        port=port,
-                                        database=database)
-        cursor = connection.cursor()
-        
-        # run query
-        sql_insert_query = query
-        insert_records = records
-        execute_batch(cursor, sql_insert_query, insert_records)
-        connection.commit()
-        
-        return cursor.rowcount
-    
-    except (Exception, psycopg2.Error) as error:
-        if(connection):
-            print(error)
-    
-    finally:
-        if(connection):
-            cursor.close()
-            connection.close()
+#import psycopg2
+#from psycopg2.extras import execute_batch
+#from todata.models.credentials import WSL2_PSQL as psql
+from todata.models.sql_functions import sql_read_pd, sql_write
 
 
 def update_toronto_power():
@@ -73,11 +20,11 @@ def update_toronto_power():
                     SELECT ts FROM power WHERE power_use_mwh IS NOT NULL ORDER BY ts DESC LIMIT 1
                     """
 
-    last_record = sql_read('toronto', read_query)
+    last_record = sql_read_pd('toronto', read_query)
     last_ts = last_record['ts'][0]
     
     # filter records to only new data
-    power_data = data_toronto.toronto_power(start_year=max(2004,last_ts.year))
+    power_data = toronto_data.toronto_power(start_year=max(2004,last_ts.year))
     new_power_data = power_data[power_data['ts'] > last_ts]
     new_power_data = new_power_data.where(pd.notnull(new_power_data), None)
     
@@ -101,11 +48,11 @@ def update_toronto_temp():
 
     # get last inserted timestamp
     read_query = 'SELECT ts FROM weather WHERE temp_c IS NOT NULL ORDER BY ts DESC LIMIT 1'
-    last_record = sql_read('toronto', read_query)
+    last_record = sql_read_pd('toronto', read_query)
     last_ts = last_record['ts'][0]
 
     # filter records to only new data
-    weather_data = data_toronto.toronto_weather(start_year=max(2004,last_ts.year))
+    weather_data = toronto_data.toronto_temperature(start_year=max(2004,last_ts.year))
     new_weather_data = weather_data[weather_data['ts'] > last_ts]
     new_weather_data = new_weather_data.where(pd.notnull(new_weather_data), None)
 
@@ -135,12 +82,12 @@ def update_toronto_rain():
 
     # get last inserted timestamp
     read_query = 'SELECT ts FROM rain WHERE rain_mm IS NOT NULL ORDER BY ts DESC LIMIT 1'
-    last_record = sql_read('toronto', read_query)
+    last_record = sql_read_pd('toronto', read_query)
     last_ts = last_record['ts'][0]
 
 
     # filter records to only new data
-    rain_data = data_toronto.toronto_rain()
+    rain_data = toronto_data.toronto_rain()
     new_rain_data = rain_data[rain_data['ts'] > last_ts]
     new_rain_data = new_rain_data.where(pd.notnull(new_rain_data), None) 
 
@@ -164,7 +111,7 @@ def update_toronto_rain():
 def update_toronto_daylight(start_year=2000, end_year=2022):
 
     # load daylight data
-    daylight_data = data_toronto.toronto_daylight(start_year=start_year, end_year=end_year)
+    daylight_data = toronto_data.toronto_daylight(start_year=start_year, end_year=end_year)
 
     # write records into table
     write_db = 'toronto'

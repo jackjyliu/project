@@ -1,6 +1,6 @@
 from todata import app
 from flask import render_template
-from todata.pages.data_story_power.plotly_graph import month_hour_heatmap, monthly_power_use
+from todata.pages.data_story_power.plotly_plots import month_hour_heatmap, monthly_power_use
 
 @app.route('/')
 def index():
