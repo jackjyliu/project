@@ -104,18 +104,17 @@ def toronto_temperature(start_year=datetime.today().year, end_year=datetime.toda
     
     return toronto_temperature
 
-def toronto_rain():
+def toronto_rain_2021():
     """
     returns toronto rainfall in mm
-    range start 2015 Jun to Current
     """
 
     # list of pandas dataframes
-    dirname = os.path.dirname(os.path.realpath('__file__'))
-    filenames = os.path.join(dirname, "todata/models/data/rain/*.csv")
-    rain_dfs = [pd.read_csv(filename) for filename in glob.glob(filenames)]
+    url = "https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/12135710-2246-4df8-8aef-9bff7ae45357"
+    req = requests.get(url)
+    rain_raw = BytesIO(req.content)
 
-    rain = pd.concat(rain_dfs, axis=0)
+    rain = pd.read_csv(rain_raw)
     rain.drop(columns=['id', 'name', 'longitude', 'latitude'], inplace=True)
     rain['date'] = pd.to_datetime(rain['date'], format='%Y-%m-%dT%H:%M:%S')
 

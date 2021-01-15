@@ -87,7 +87,7 @@ def update_toronto_rain():
 
 
     # filter records to only new data
-    rain_data = toronto_data.toronto_rain()
+    rain_data = toronto_data.toronto_rain_2021()
     new_rain_data = rain_data[rain_data['ts'] > last_ts]
     new_rain_data = new_rain_data.where(pd.notnull(new_rain_data), None) 
 
