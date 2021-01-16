@@ -3,7 +3,7 @@ Project TODO
 
 Power Story
 ---
-*   Summer vs Winter Demand
+*   <s>Summer vs Winter Demand</s>
 *   Catboost Factors
 *   Temperature
 *   Change Source Color to Light grey
