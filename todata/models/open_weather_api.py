@@ -4,7 +4,7 @@ default location = toronto
 """
 
 import requests
-from credentials import WEATHER_API_KEY
+from todata.models.credentials import WEATHER_API_KEY
 
 TORONTO_LAT = '43.6533'
 TORONTO_LONG = '-79.3841'

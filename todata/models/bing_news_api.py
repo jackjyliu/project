@@ -1,14 +1,15 @@
 """
 access news headlines from Bing News Search API
 return dictionary of news headlines, description, url
+use raw=True for raw json file
 """
 
 import requests
-from credentials import NEWS_API_KEY
+from todata.models.credentials import NEWS_API_KEY
 
 API_URL = 'https://api.bing.microsoft.com/v7.0/news/search'
 
-def bing_news(query='toronto', mkt='en-CA', count=10, freshness='week'):
+def bing_news(query='toronto', mkt='en-CA', count=10, freshness='day', raw=False):
 
     # build API request
     params = {
@@ -26,6 +27,10 @@ def bing_news(query='toronto', mkt='en-CA', count=10, freshness='week'):
         response = requests.get(API_URL, headers=headers, params=params)
         response.raise_for_status()
         results = response.json()
+        
+        # return raw json file if requested
+        if raw:
+            return results
 
     except Exception as ex:
         raise ex

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Toronto Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container-xxl">
+    <div class="row">
+        <div class="col">
+            <div class="card border-light mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Dashboard</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Latest Toronto News, Weather, Traffic, Other Facts</h6>
+                  <p class="card-text text-muted">{{ toronto_time }}</p>
+                </div>
+            </div>   
+        </div>
+        
+        <div class="col">
+            <div class="card border-light mb-3"> 
+                <div class="card-body">
+                    <h5 class="card-title">Weather</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"></h6>
+                    <p class="card-text text-muted"></p>
+                </div>
+                </div>   
+        </div>
+    
+    <div class="row">
+        <div class="col">
+            <div class="card border-light mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Local News</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for item in local_news %}
+                        <li class="list-group_item">{{ item.headline }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+            
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
