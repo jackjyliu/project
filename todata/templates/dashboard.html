@@ -7,36 +7,48 @@
 <div class="container-xxl">
     <div class="row">
         <div class="col">
-            <div class="card border-light mb-3">
+            <div class="card border-light mb-1">
                 <div class="card-body">
                   <h5 class="card-title">Dashboard</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Latest Toronto News, Weather, Traffic, Other Facts</h6>
-                  <p class="card-text text-muted">{{ toronto_time }}</p>
+                  <h6 class="card-subtitle mb-1 text-muted">Latest Toronto News, Weather, Traffic, Other Facts</h6>
+                  <p class="card-text mb-1 text-muted">{{ toronto_time }}</p>
                 </div>
             </div>   
         </div>
         
         <div class="col">
-            <div class="card border-light mb-3"> 
+            <div class="card border-light mb-1"> 
                 <div class="card-body">
                     <h5 class="card-title">Weather</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"></h6>
-                    <p class="card-text text-muted"></p>
+                    <h6 class="card-subtitle mb-1 text-muted"></h6>
+                    <p class="card-text mb-1 text-muted"></p>
                 </div>
                 </div>   
         </div>
     
     <div class="row">
         <div class="col">
-            <div class="card border-light mb-3">
+            <div class="card border-light mb-0">
                 <div class="card-body">
                     <h5 class="card-title">Local News</h5>
                 </div>
-                <ul class="list-group list-group-flush">
-                    {% for item in local_news %}
-                        <li class="list-group_item">{{ item.headline }}</li>
-                    {% endfor %}
-                </ul>
+
+                <div class="accordion accordion-flush mb-0" id="accordionNews">
+                {% for item in local_news %}
+                    <div class="accordion-item">
+                      <h6 class="accordion-header" id="flush-heading{{ loop.index }}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ loop.index }}" aria-expanded="false" aria-controls="flush-collapse{{ loop.index }}">
+                          {{ item.headline }}
+                        </button>
+                    </h6>
+                      <div id="flush-collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ loop.index }}" data-bs-parent="#accordionNews">
+                        <div class="accordion-body text-muted">{{ item.description }}...</div>
+                      </div>
+                    </div>
+                {% endfor %}
+                </div>
+                
+
             </div>
         </div>
     </div>
