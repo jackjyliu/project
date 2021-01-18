@@ -6,25 +6,67 @@
 
 <div class="container-xxl">
     <div class="row">
-        <div class="col">
+        <div class="col-4">
             <div class="card border-light mb-1">
                 <div class="card-body">
                   <h5 class="card-title">Dashboard</h5>
-                  <h6 class="card-subtitle mb-1 text-muted">Latest Toronto News, Weather, Traffic, Other Facts</h6>
+                  <h6 class="card-subtitle mb-1 text-muted">Latest Toronto Information</h6>
                   <p class="card-text mb-1 text-muted">{{ toronto_time }}</p>
                 </div>
             </div>   
         </div>
         
-        <div class="col">
-            <div class="card border-light mb-1"> 
-                <div class="card-body">
-                    <h5 class="card-title">Weather</h5>
-                    <h6 class="card-subtitle mb-1 text-muted"></h6>
-                    <p class="card-text mb-1 text-muted"></p>
+        <div class="col-8">
+            <div class="row no-gutters">
+
+                <div class="card-group">
+                    <div class="card border-light mb-1">
+                        <div class="card-body">
+                            <h6 class="card-subtitle">Current</h6>
+                            <p class="card-text"><small class="text-muted">
+                                {{ dw.current.weather }}<br>
+                                {{ dw.current.temp_c }} c<br>
+                                wind {{ dw.current.wind_speed_kmh }} km/h<br>
+                            </small></p>
+                        </div>
+                    </div>    
+                    <div class="card border-light mb-1">
+                        <div class="card-body">
+                            <h6 class="card-subtitle">Next Hour</h6>
+                            <p class="card-text"><small class="text-muted">
+                                {{ dw.next_hour.weather }}<br>
+                                {{ dw.next_hour.temp_c }} c<br>
+                                wind {{ dw.next_hour.wind_speed_kmh }} km/h<br>
+                                {{ dw.next_hour.PoP }} % precipitation
+                            </small></p>
+                        </div>
+                    </div>    
+                    <div class="card border-light mb-1">
+                        <div class="card-body">
+                            <h6 class="card-subtitle">Next Day</h6>
+                            <p class="card-text"><small class="text-muted">
+                                {{ dw.next_day.weather }}<br>
+                                high {{ dw.next_day.max_temp_c }} low {{ dw.next_day.min_temp_c }} c<br>
+                                wind {{ dw.next_day.wind_speed_kmh }} km/h<br>
+                                {{ dw.next_day.PoP }} % precipitation
+                            </small></p>
+                        </div>    
+                    </div>
+                    <div class="card border-light mb-1">
+                        <div class="card-body">
+                            <h6 class="card-subtitle">Alerts</h6>
+                            <p class="card-text"><small class="text-muted">
+                              N/A <br>
+                        
+                            </small></p>
+                        </div>    
+                    </div>
                 </div>
-                </div>   
-        </div>
+
+            </div>
+
+        </div>   
+    </div>
     
     <div class="row">
         <div class="col">
