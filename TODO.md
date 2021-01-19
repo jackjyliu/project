@@ -14,6 +14,7 @@ Data
 *   ETL pipelines (weather hourly, news 2x per day save to DB, dashboard will pull from DB)
     *   Hourly open weather
     *   Daily bing news
+    *   cron tab for task scheduling
 *   Data Sources
     *   TTC
     *   Traffic?
@@ -57,6 +58,8 @@ Web
         *   tf-idf for most common words?
 
 *   Data Exploration (visualization of different data from postgres database, user choice)
+
+*   Neighbourhoods of Toronto (with mapping)
 
 *   About Page
     *   Describe website purpose
