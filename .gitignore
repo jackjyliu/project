@@ -10,6 +10,7 @@ todata/models/data/rain
 /rain
 sql_login.py
 credentials.py
+*.env
 
 # Flask gitignores
 *.pyc
