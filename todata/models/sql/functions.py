@@ -5,7 +5,7 @@ import pandas as pd
 import psycopg2
 from psycopg2.extras import execute_batch
 from todata.models.credentials import WSL2_PSQL as psql
-from datetime import datetime
+
 
 def sql_read(database, query, user=psql['user'], password=psql['password'], host=psql['host'], port=psql['port']):
     

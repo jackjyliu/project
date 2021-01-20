@@ -2,8 +2,8 @@
 get live weather data from open weather api and format for dictionary for dashbaord
 """
 
-
 from todata.models.api.open_weather import current_weather
+
 
 def dashboard_weather():
     

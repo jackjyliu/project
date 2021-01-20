@@ -4,7 +4,6 @@ plotly module to test insert into flask views
 
 import plotly.express as px
 import plotly.io as pio 
-#from todata.models.credentials import WSL2_PSQL as psql
 from todata.models.sql.functions import sql_read_pd
 import pandas as pd
 

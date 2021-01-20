@@ -1,8 +1,8 @@
-from numpy.lib.function_base import insert
 from todata.models.api.open_weather import current_weather, current_pollution
 from todata.models.api.bing_news import bing_news
 from todata.models.sql.functions import sql_write
 import json
+
 
 def update_weather():
     
@@ -24,6 +24,7 @@ def update_weather():
     
     return True
 
+
 def update_pollution():
     
     # call api
@@ -43,6 +44,7 @@ def update_pollution():
     sql_write(write_db, query, records, single_insert=True)
     
     return True
+
 
 def update_news():
     

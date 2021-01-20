@@ -9,6 +9,7 @@ from todata.models.credentials import WEATHER_API_KEY
 TORONTO_LAT = '43.6533'
 TORONTO_LONG = '-79.3841'
 
+
 def current_weather(lat=TORONTO_LAT, lon=TORONTO_LONG, part='', api_key=WEATHER_API_KEY):
     
     try:
