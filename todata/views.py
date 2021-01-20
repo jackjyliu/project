@@ -1,15 +1,12 @@
 from todata import app
 from flask import render_template
 from todata.pages.data_story_power.plotly_plots import daily_power_usage, day_hour_heatmap, seasonal_power_usage
-from todata.models.bing_news_api import bing_news as news_api
-from todata.models.open_weather_api import dashboard_weather
+from todata.models.api.bing_news import bing_news as news_api
+from todata.models.api.open_weather import dashboard_weather
 from datetime import datetime
 
 
 @app.route('/')
-def index():
-    return render_template('index.html')
-
 @app.route('/dashboard')
 def dashboard():
     # current date and time

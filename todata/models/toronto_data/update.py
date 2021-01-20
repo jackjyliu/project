@@ -2,12 +2,12 @@
 functions to load data into postgresql database
 """
 from datetime import datetime
-import todata.models.toronto_data_source as toronto_data
+import todata.models.toronto_data.source as toronto_data
 import pandas as pd
 #import psycopg2
 #from psycopg2.extras import execute_batch
 #from todata.models.credentials import WSL2_PSQL as psql
-from todata.models.sql_functions import sql_read_pd, sql_write
+from todata.models.sql.functions import sql_read_pd, sql_write
 
 
 def update_toronto_power():
