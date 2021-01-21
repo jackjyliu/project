@@ -1,20 +1,23 @@
 Project TODO
 ===
 
+This Week
+---
+Flask Cache
+Redis Server + Celery or Redis Queue
+Webscrapping
+Maps
+
 Power Story
 ---
-*   <s>Summer vs Winter Demand</s>
 *   Catboost Factors
 *   Temperature
 *   Change Source Color to Light grey
 
 Data
 ---
-*   <s>Break off sql_load into multiple functions</s>
 *   ETL pipelines (weather hourly, news 2x per day save to DB, dashboard will pull from DB)
-    *   Hourly open weather
-    *   Daily bing news
-    *   cron tab for task scheduling
+    *   redis queue for task scheduling
 *   Data Sources
     *   TTC
     *   Traffic?
@@ -22,8 +25,7 @@ Data
 
 Dashboard (hourly cached?)
 ---
-*   Current Weather
-*   Next Hour, Next Day Forecast
+
 *   Toronto Indicators
     *   Last rainfall/snowfall
     *   Traffic/TTC/Road Closures
@@ -71,8 +73,6 @@ Web
 Model
 ---
 *   Move credentials to main root folder or swtich to environ?
-*   Schedule cron jobs to ETL (and maybe run models?)
-*   Build dashboards
 *   ML
     *   Catboost + SHAP
     *   Pycaret for simple ML?

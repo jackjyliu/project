@@ -2,7 +2,6 @@
 /test-venv
 **/__pycache__/ 
 /.vscode
-*.ipynb
 todata/models/data/rain
 *test*
 /sql_bak
@@ -25,3 +24,5 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+catboost_info
+*.log
