@@ -6,6 +6,9 @@ Web
 *   Flask
 *   Flask-Caching
 *   Requests
+*   Celery
+*   Redis
+*   (Webscrapping)
 
 
 Data
@@ -13,11 +16,13 @@ Data
 *   Pandas
 *   Numpy
 *   Plotly
-*   Catboost or Pycaret
+*   Maybe Catboost
 *   SQLAlchemy
 *   psycopg2-binary
 
 
-Other
+Non-python
 ---
-*   Python Crontab
+*   Redis Server
+*   Web Server
+*   Postgres

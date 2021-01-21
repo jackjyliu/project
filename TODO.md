@@ -3,7 +3,7 @@ Project TODO
 
 This Week
 ---
-Flask Cache
+Bash script to config: venv, start servers, flask configs
 Redis Server + Celery or Redis Queue
 Webscrapping
 Maps
