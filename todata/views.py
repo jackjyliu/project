@@ -1,4 +1,4 @@
-from todata import app
+from todata import app, cache
 from flask import render_template
 from datetime import datetime
 
@@ -10,6 +10,7 @@ from todata.pages.data_story_power.plotly_plots import daily_power_usage, day_ho
 
 @app.route('/')
 @app.route('/dashboard')
+@cache.cached(timeout=60)
 def dashboard():
     # current date and time
     current_time = datetime.now()
@@ -21,6 +22,7 @@ def dashboard():
                             dw=dashboard_weather())
 
 @app.route('/data_story_power')
+@cache.cached(timeout=3600)
 def data_story_power():
     return render_template('data_story_power.html',
                             graph_1=day_hour_heatmap(),
