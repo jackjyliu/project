@@ -3,11 +3,12 @@ Project TODO
 
 This Week
 ---
-Bash script to config: venv, start servers, flask configs
-Cleanup Celery
-Daemon tool
-Webscrapping
-Maps
+*   Bash script to config: venv, start servers, flask configs
+*   web server: gunicorn + nginx
+*   Daemon tool
+*   Webscrapping: beautiful soup for selenium
+*   download bootstrap .js and .css to run locally?
+*   Mapbox api
 
 Power Story
 ---
@@ -26,7 +27,6 @@ Data
 
 Dashboard (hourly cached?)
 ---
-
 *   Toronto Indicators
     *   Last rainfall/snowfall
     *   Traffic/TTC/Road Closures
@@ -42,12 +42,8 @@ Web
 *   Colour Choice: Black, Blue, Grey
 *   Page Layout: grid + responsive
         *   add scrollspy for progress tracking + section jumping
-*   Template Design (with bootstrap?)
-    *   Tabs with dropdown menu
 
 *   Dashboard (hourly cached?)
-    *   Current Weather
-    *   Current Weather
     *   Toronto Indicators
         *   Last rainfall/snowfall
         *   Traffic/TTC/Road Closures

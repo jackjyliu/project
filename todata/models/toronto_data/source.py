@@ -38,7 +38,7 @@ def toronto_power(start_year=datetime.today().year, end_year=datetime.today().ye
     return toronto_power_df
 
 
-def toronto_daylight(start_year=datetime.today().year, end_year=datetime.today().year,path='todata/models/data/daylight/toronto_daylight.txt'):
+def toronto_daylight(start_year=datetime.today().year, end_year=datetime.today().year,path='todata/models/data_files/daylight/toronto_daylight.txt'):
     """
     return pandas dataframe of toronto daylight hours
     please enter start_year and end_year

@@ -1,9 +1,8 @@
-import celery
-
-
 """
 celery tasks to pass to main __init__ flask function
 """
+import celery
+
 import todata.models.toronto_data.update as to
 import todata.models.api.update as api
 
