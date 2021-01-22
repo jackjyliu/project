@@ -16,10 +16,16 @@ def hourly_load():
 
 @celery.task(name='tasks.daily_load')
 def daily_load():
-    api.update_news()
     to.update_toronto_power()
     to.update_toronto_temp()
     return True
+
+
+@celery.task(name='tasks.three_daily_load')
+def three_daily_load():
+    api.update_news()
+    return True
+
 
 @celery.task(name='tasks.weekly_load')
 def weekly_load():

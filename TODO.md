@@ -4,7 +4,8 @@ Project TODO
 This Week
 ---
 Bash script to config: venv, start servers, flask configs
-Redis Server + Celery or Redis Queue
+Cleanup Celery
+Daemon tool
 Webscrapping
 Maps
 
