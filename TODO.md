@@ -6,7 +6,7 @@ This Week
 *   Bash script to config: venv, start servers, flask configs
 *   web server: gunicorn + nginx
 *   Daemon tool
-*   Webscrapping: beautiful soup for selenium
+*   Webscrapping: beautiful soup for selenium (for local events next week)
 *   download bootstrap .js and .css to run locally?
 *   Mapbox api
 

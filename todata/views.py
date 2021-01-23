@@ -4,6 +4,7 @@ from datetime import datetime
 
 from todata.pages.dashboard.news_psql import latest_news
 from todata.pages.dashboard.weather_live import dashboard_weather
+from todata.pages.dashboard.mapbox import points_of_interest
 
 from todata.pages.data_story_power.plotly_plots import daily_power_usage, day_hour_heatmap, seasonal_power_usage
 
@@ -19,7 +20,8 @@ def dashboard():
     return render_template('dashboard.html',
                             toronto_time=toronto_time,
                             local_news=latest_news(),
-                            dw=dashboard_weather())
+                            dw=dashboard_weather(),
+                            points_of_interest=points_of_interest())
 
 @app.route('/data_story_power')
 @cache.cached(timeout=3600)

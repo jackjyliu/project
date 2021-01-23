@@ -14,6 +14,7 @@ Web
 Data
 ---
 *   Pandas
+*   Geopandas
 *   Numpy
 *   Plotly
 *   Maybe Catboost

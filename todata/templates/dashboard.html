@@ -10,7 +10,8 @@
             <div class="card border-light mb-1">
                 <div class="card-body">
                   <h5 class="card-title">Dashboard</h5>
-                  <h6 class="card-subtitle mb-1 text-muted">Latest Toronto Information</h6>
+                  <h6 class="card-subtitle mb-1 text-muted">Latest Toronto Information<br> News, Weather, Events
+                  </h6>
                   <p class="card-text mb-1 text-muted">{{ toronto_time }}</p>
                 </div>
             </div>   
@@ -80,7 +81,7 @@
                     <div class="accordion-item">
                       <h6 class="accordion-header" id="flush-heading{{ loop.index }}">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ loop.index }}" aria-expanded="false" aria-controls="flush-collapse{{ loop.index }}">
-                          {{ item.headline }}
+                         {{ item.headline }}
                         </button>
                     </h6>
                       <div id="flush-collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ loop.index }}" data-bs-parent="#accordionNews">
@@ -93,12 +94,20 @@
 
             </div>
         </div>
-    </div>
 
-    
-            
+        <div class="col">
+            <div class="card border-light mb-0">
+                <div class="card-body">
+                    <h5 class="card-title">Points of Interest</h5>
+                    {{ points_of_interest|safe }}
+                
+                </div>
+
+            </div>
+
         </div>
-    </div>
+
+   </div>
 
 </div>
 

@@ -4,10 +4,9 @@ Pages
 ---
 *	Toronto related dashboard: weather, events, TTC, road closures, local news?
 *	Select data viz
-*	Electricity use vs prices
+*	Electricity use
 *	Impact of weather on TTC delays
-*	Forecasts?
-*	ML example + sandbox
+*	ML examples + ML Forecasts
 *	Limited sample size (randomly select 10k rows?)
 
 Technologies
