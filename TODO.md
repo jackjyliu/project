@@ -17,8 +17,6 @@ Power Story
 
 Data
 ---
-*   ETL pipelines (weather hourly, news 2x per day save to DB, dashboard will pull from DB)
-    *   redis queue for task scheduling
 *   Data Sources
     *   TTC
     *   Traffic?

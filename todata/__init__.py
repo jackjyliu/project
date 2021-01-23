@@ -11,7 +11,7 @@ import todata.tasks.celery_config as celery_config
 
 app = Flask(__name__)
 
-cache = Cache(config={'CACHE_TYPE': 'simple'})
+cache = Cache(config={"CACHE_TYPE": "simple"})
 cache.init_app(app)
 
 celery = Celery(app.name, broker=celery_config.CELERY_BROKER_URL)
