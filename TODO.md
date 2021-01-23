@@ -8,7 +8,6 @@ This Week
 *   Daemon tool
 *   Webscrapping: beautiful soup for selenium (for local events next week)
 *   download bootstrap .js and .css to run locally?
-*   Mapbox api
 
 Power Story
 ---
@@ -28,9 +27,8 @@ Data
 Dashboard (hourly cached?)
 ---
 *   Toronto Indicators
-    *   Last rainfall/snowfall
     *   Traffic/TTC/Road Closures
-    *   Events
+    *   Events Next Week
     *   Other useful daily data
 
 Web
@@ -42,13 +40,6 @@ Web
 *   Colour Choice: Black, Blue, Grey
 *   Page Layout: grid + responsive
         *   add scrollspy for progress tracking + section jumping
-
-*   Dashboard (hourly cached?)
-    *   Toronto Indicators
-        *   Last rainfall/snowfall
-        *   Traffic/TTC/Road Closures
-        *   Events
-        *   Other useful daily data
 
 *   Data Stories (interesting stories about Toronto data)
     *   Power usage vs weather and weekly cycle
@@ -72,4 +63,3 @@ Model
 *   Move credentials to main root folder or swtich to environ?
 *   ML
     *   Catboost + SHAP
-    *   Pycaret for simple ML?
