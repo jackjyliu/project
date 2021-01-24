@@ -16,7 +16,7 @@ def update_weather():
     write_db = "toronto"
     query = """
                 BEGIN;
-                INSERT INTO open_weather (ts, data_type, result) VALUES (CURRENT_TIMESTAMP, %s, %s);
+                INSERT INTO weather_open_api (ts, data_type, result) VALUES (CURRENT_TIMESTAMP, %s, %s);
                 COMMIT;
             """
     records = ("weather", insert_weather)
@@ -37,7 +37,7 @@ def update_pollution():
     write_db = "toronto"
     query = """
                 BEGIN;
-                INSERT INTO open_weather (ts, data_type, result) VALUES (CURRENT_TIMESTAMP, %s, %s);
+                INSERT INTO weather_open_api (ts, data_type, result) VALUES (CURRENT_TIMESTAMP, %s, %s);
                 COMMIT;
             """
     records = ("pollution", insert_records)
@@ -58,7 +58,7 @@ def update_news():
     write_db = "toronto"
     query = """
                 BEGIN;
-                INSERT INTO bing_news (ts, result) VALUES (CURRENT_TIMESTAMP, %s);
+                INSERT INTO news_bing (ts, result) VALUES (CURRENT_TIMESTAMP, %s);
                 COMMIT;
             """
     records = (insert_records,)

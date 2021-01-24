@@ -14,7 +14,7 @@ def update_toronto_power():
 
     # get last inserted timestamp
     read_query =    """
-                    SELECT ts FROM power WHERE power_use_mwh IS NOT NULL ORDER BY ts DESC LIMIT 1
+                    SELECT ts FROM power_demand WHERE power_use_mwh IS NOT NULL ORDER BY ts DESC LIMIT 1
                     """
 
     last_record = sql_read_pd('toronto', read_query)
@@ -29,7 +29,7 @@ def update_toronto_power():
     write_db = 'toronto'
     query = """
                 BEGIN;
-                INSERT INTO power (ts, power_use_mwh) VALUES (%s, %s);
+                INSERT INTO power_demand (ts, power_use_mwh) VALUES (%s, %s);
                 COMMIT;
             """
     records = [tuple(x) for x in new_power_data.to_numpy()]
@@ -44,7 +44,7 @@ def update_toronto_temp():
     """
 
     # get last inserted timestamp
-    read_query = 'SELECT ts FROM weather WHERE temp_c IS NOT NULL ORDER BY ts DESC LIMIT 1'
+    read_query = 'SELECT ts FROM weather_temperature WHERE temp_c IS NOT NULL ORDER BY ts DESC LIMIT 1'
     last_record = sql_read_pd('toronto', read_query)
     last_ts = last_record['ts'][0]
 
@@ -57,7 +57,7 @@ def update_toronto_temp():
     write_db = 'toronto'
     query = """ 
                 BEGIN;
-                INSERT INTO weather (ts, temp_c, rel_hum_pct, pressure_kpa) 
+                INSERT INTO weather_temperature (ts, temp_c, rel_hum_pct, pressure_kpa) 
                 VALUES (%s, %s, %s, %s)
                 ON CONFLICT (ts) DO UPDATE
                     SET 
@@ -74,11 +74,11 @@ def update_toronto_temp():
 
 def update_toronto_rain():
     """
-    insert latest toronto rain data
+    insert latest toronto weather_rain data
     """
 
     # get last inserted timestamp
-    read_query = 'SELECT ts FROM rain WHERE rain_mm IS NOT NULL ORDER BY ts DESC LIMIT 1'
+    read_query = 'SELECT ts FROM weather_rain WHERE rain_mm IS NOT NULL ORDER BY ts DESC LIMIT 1'
     last_record = sql_read_pd('toronto', read_query)
     last_ts = last_record['ts'][0]
 
@@ -92,7 +92,7 @@ def update_toronto_rain():
     write_db = 'toronto'
     query = """ 
                 BEGIN;
-                INSERT INTO rain (ts, rain_mm) 
+                INSERT INTO weather_rain (ts, rain_mm) 
                 VALUES (%s, %s)
                 ON CONFLICT (ts) DO UPDATE
                     SET 
@@ -114,7 +114,7 @@ def update_toronto_daylight(start_year=2000, end_year=2022):
     write_db = 'toronto'
     query = """ 
                 BEGIN;
-                INSERT INTO daylight (cdate, rise, set, hours) 
+                INSERT INTO dt_daylight (cdate, rise, set, hours) 
                 VALUES (%s, %s, %s, %s)
                 ON CONFLICT (cdate) DO UPDATE
                     SET 

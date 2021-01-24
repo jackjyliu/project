@@ -21,7 +21,7 @@ def day_hour_heatmap():
                                 --EXTRACT(MONTH FROM ts) AS month,
                                 EXTRACT(ISODOW FROM ts ) AS day_of_week,
                                 EXTRACT(HOUR FROM ts) as hour
-                        FROM power
+                        FROM power_demand
                         WHERE power_use_mwh > 1
                         """,
     )
@@ -63,7 +63,7 @@ def daily_power_usage():
                         WITH daily_use AS(
                         SELECT  DATE_TRUNC('day', ts) AS date, 
                                 SUM(power_use_mwh) AS power_use_mwh
-                        FROM power
+                        FROM power_demand
                         WHERE power_use_mwh > 10
                         GROUP BY date
                         ORDER BY date)
@@ -124,7 +124,7 @@ def seasonal_power_usage():
                         SELECT  ROUND(AVG(power_use_mwh)) AS avg_power_usage,
                                 EXTRACT(MONTH FROM ts) AS month,
                                 EXTRACT(HOUR FROM ts) as hour
-                        FROM power
+                        FROM power_demand
                         WHERE power_use_mwh > 1
                         GROUP BY month, hour
                         ORDER BY month, hour                        
