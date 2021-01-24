@@ -1,7 +1,7 @@
 source /home/jliu/project/test-venv/bin/activate
 
 sudo service postgresql start
-/home/jliu/redis/redis-6.0.10/src/redis-server --daemonize yes
+/home/jliu/redis/redis-6.0.10/src/redis-server
 
 export FLASK_APP=todata
 export FLASK_ENV=development

@@ -13,7 +13,7 @@ CELERYBEAT_SCHEDULE = {
     },
     'daily_load': {
         'task': 'tasks.daily_load',
-        'schedule': crontab(hour=6, minute=15)
+        'schedule': crontab(hour=9, minute=15)
     },
     'three_daily_load': {
         'task': 'tasks.three_daily_load',

@@ -25,5 +25,6 @@ Data
 Non-python
 ---
 *   Redis Server
-*   Web Server
+*   Web Server (gunicorn + nginx)
 *   Postgres
+*   Supervisor
