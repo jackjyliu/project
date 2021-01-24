@@ -15,7 +15,7 @@ from todata.pages.data_story_power.plotly_plots import (
 
 @app.route("/")
 @app.route("/dashboard")
-@cache.cached(timeout=60)
+@cache.cached(timeout=1)
 def dashboard():
     toronto_time = datetime.now().strftime("%Y/%m/%d %H:%M")
 
@@ -29,7 +29,7 @@ def dashboard():
 
 
 @app.route("/data_story_power")
-@cache.cached(timeout=3600)
+@cache.cached(timeout=1)
 def data_story_power():
     return render_template(
         "data_story_power.html",

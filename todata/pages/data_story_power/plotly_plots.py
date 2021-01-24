@@ -88,6 +88,7 @@ def daily_power_usage():
         title_x=0.5,
         showlegend=True,
         plot_bgcolor="white",
+        legend=dict(x=0.9, y=1)
     )
 
     # Add range slider
@@ -167,6 +168,7 @@ def seasonal_power_usage():
         showlegend=True,
         plot_bgcolor="white",
         hovermode="x unified",
+        legend=dict(x=0.9, y=1)
     )
 
     plot = pio.to_html(fig, full_html=False)

@@ -7,7 +7,6 @@ This Week
 *   web server: gunicorn + nginx
 *   Webscrapping: beautiful soup for selenium (for local events next week)
 *   download bootstrap .js and .css to run locally?
-*   rename database tables
 *   write test?
 
 Power Story

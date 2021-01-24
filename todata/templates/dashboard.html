@@ -7,7 +7,7 @@
 <div class="container-xxl">
     <div class="row">
         <div class="col-4">
-            <div class="card border-light mb-1">
+            <div class="card border-0 mb-1">
                 <div class="card-body">
                   <h5 class="card-title">Dashboard</h5>
                   <h6 class="card-subtitle mb-1 text-muted">Latest Toronto Information<br> News, Weather, Events
@@ -21,7 +21,7 @@
             <div class="row no-gutters">
 
                 <div class="card-group">
-                    <div class="card border-light mb-1">
+                    <div class="card border-0 mb-1">
                         <div class="card-body">
                             <h6 class="card-subtitle">Current Weather</h6>
                             <p class="card-text"><small class="text-muted">
@@ -31,7 +31,7 @@
                             </small></p>
                         </div>
                     </div>    
-                    <div class="card border-light mb-1">
+                    <div class="card border-0 mb-1">
                         <div class="card-body">
                             <h6 class="card-subtitle">Next Hour</h6>
                             <p class="card-text"><small class="text-muted">
@@ -42,7 +42,7 @@
                             </small></p>
                         </div>
                     </div>    
-                    <div class="card border-light mb-1">
+                    <div class="card border-0 mb-1">
                         <div class="card-body">
                             <h6 class="card-subtitle">Next Day</h6>
                             <p class="card-text"><small class="text-muted">
@@ -53,7 +53,7 @@
                             </small></p>
                         </div>    
                     </div>
-                    <div class="card border-light mb-1">
+                    <div class="card border-0 mb-1">
                         <div class="card-body">
                             <h6 class="card-subtitle">Alerts</h6>
                             <p class="card-text"><small class="text-muted">
@@ -71,7 +71,7 @@
     
     <div class="row">
         <div class="col-6">
-            <div class="card border-light mb-0">
+            <div class="card border-0 mb-1">
                 <div class="card-body">
                     <h5 class="card-title">Local News</h5>
                 </div>
@@ -81,9 +81,9 @@
                     <div class="accordion-item">
                       <h6 class="accordion-header" id="flush-heading{{ loop.index }}">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ loop.index }}" aria-expanded="false" aria-controls="flush-collapse{{ loop.index }}">
-                         {{ item.headline }}
+                            {{ item.headline }}
                         </button>
-                    </h6>
+                      </h6>
                       <div id="flush-collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ loop.index }}" data-bs-parent="#accordionNews">
                         <div class="accordion-body text-muted">{{ item.description }}...</div>
                       </div>
@@ -96,7 +96,7 @@
         </div>
 
         <div class="col-6">
-            <div class="card border-light mb-0">
+            <div class="card border-0 mb-1">
                 <div class="card-body">
                     <h5 class="card-title">Points of Interest</h5>
                     {{ points_of_interest|safe }}
