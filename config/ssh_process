@@ -1,0 +1,3 @@
+ssh-keygen -R 3.97.176.238
+sudo chmod 600 /home/jliu/lightsail-b1.pem
+ssh -i /home/jliu/lightsail-b1.pem ubuntu@3.97.176.238
