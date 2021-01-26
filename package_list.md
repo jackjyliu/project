@@ -18,7 +18,7 @@ Data
 *   Numpy
 *   Plotly
 *   Maybe Catboost
-*   SQLAlchemy
+*   SQLAlchemy (not needed?)
 *   psycopg2-binary
 
 

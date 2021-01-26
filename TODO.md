@@ -8,6 +8,8 @@ This Week
 *   Webscrapping: beautiful soup for selenium (for local events next week)
 *   download bootstrap .js and .css to run locally?
 *   write test?
+*   update celery to v5 + changes to scheduler (long term)
+*   load pqsl into aws rds
 
 Power Story
 ---

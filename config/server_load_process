@@ -8,4 +8,4 @@ export FLASK_ENV=development
 
 celery -A todata.celery worker --loglevel=INFO
 celery -A todata.celery beat --loglevel=INFO
-celery flower -A todata.celery --address=127.0.0.1 --port=5555
+celery flower -A todata.celery --address=127.0.0.1 --port=5555sudo
