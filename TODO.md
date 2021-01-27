@@ -4,12 +4,10 @@ Project TODO
 This Week
 ---
 *   Bash script to config: venv, start servers, flask configs
-*   web server: gunicorn + nginx
 *   Webscrapping: beautiful soup for selenium (for local events next week)
 *   download bootstrap .js and .css to run locally?
 *   write test?
 *   update celery to v5 + changes to scheduler (long term)
-*   load pqsl into aws rds
 
 Power Story
 ---
@@ -33,7 +31,7 @@ Dashboard (hourly cached?)
 
 Web
 ---
-*   Domain name
+*   Domain name .com name
 *   Logo Design
 *   How to make website mobile friendly
 *   Font Choice: sans serif
