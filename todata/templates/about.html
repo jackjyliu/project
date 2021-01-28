@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<div class="container-xxl">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card border-0">
+                <div class="card-body">
+                    <h5 class="card-title">Goal</h5>
+                    <p class="card-text">To bring easier access to data about Toronto</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-0"><strong>Dashboard</strong> with latest information</li>
+                    <li class="list-group-item border-0"><strong>Stories</strong> highlighting interesting facts about Toronto</li>
+                    <li class="list-group-item border-0">Area to <strong>explore</strong> the vast amount of Toronto public data</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card border-0">
+                <div class="card-body">
+                    <h5 class="card-title">Technologies</h5>
+                    <p class="card-text">Hosted on AWS</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-0"><strong>Frontend</strong> Nginx + Gunicorn + Flask + Bootstrap</li>
+                    <li class="list-group-item border-0"><strong>Middleware</strong> Python + Pandas + Plotly + Celery</li>
+                    <li class="list-group-item border-0"><strong>Backend</strong> Postgres + Redis</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

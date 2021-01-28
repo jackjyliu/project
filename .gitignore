@@ -8,7 +8,7 @@ todata/models/data/rain
 /papp
 /rain
 sql_login.py
-credentials.py
+*credentials*.py
 *.env
 
 # Flask gitignores

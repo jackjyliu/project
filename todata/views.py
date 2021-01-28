@@ -1,6 +1,7 @@
 from todata import app, cache
 from flask import render_template
 from datetime import datetime
+import pytz
 
 from todata.pages.dashboard.news_psql import latest_news
 from todata.pages.dashboard.weather_live import dashboard_weather
@@ -17,7 +18,9 @@ from todata.pages.data_story_power.plotly_plots import (
 @app.route("/dashboard")
 @cache.cached(timeout=1)
 def dashboard():
-    toronto_time = datetime.now().strftime("%Y/%m/%d %H:%M")
+    
+    tz = pytz.timezone('America/Toronto')
+    toronto_time = datetime.now(tz).strftime("%Y/%m/%d %H:%M")
 
     return render_template(
         "dashboard.html",
@@ -37,3 +40,8 @@ def data_story_power():
         graph_2=daily_power_usage(),
         graph_3=seasonal_power_usage(),
     )
+
+@app.route("/about")
+@cache.cached(timeout=1)
+def about():
+    return render_template("about.html")
