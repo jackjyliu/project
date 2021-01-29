@@ -17,6 +17,6 @@ def points_of_interest():
                             hover_name="NAME",
                             zoom=9)
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-    plot = pio.to_html(fig, full_html=False)
+    plot = pio.to_html(fig, full_html=False, config={'displayModeBar':False})
 
     return plot

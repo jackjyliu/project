@@ -8,6 +8,41 @@ from todata.models.sql.functions import sql_read_pd
 import pandas as pd
 
 
+def temperature_scatter():
+
+    pio.templates.default = "simple_white"
+
+    df = sql_read_pd(
+        "toronto",
+        """
+        SELECT p.power_use_mwh, t.temp_c
+        FROM power_demand p TABLESAMPLE BERNOULLI(5)
+        LEFT JOIN weather_temperature t ON p.ts = t.ts
+        WHERE power_use_mwh > 1 AND t.temp_c IS NOT NULL
+        """
+    )
+
+    fig = px.scatter(
+        df,
+        x="temp_c",
+        y="power_use_mwh",
+        opacity=0.2,
+        trendline="lowess",
+        trendline_color_override="#111111"
+    )
+
+    fig.update_layout(
+        title="Power vs Temperature",
+        title_x=0.5,
+        xaxis_title="Temperature C",
+        yaxis_title="MegawattHour"
+    )
+
+    plot = pio.to_html(fig, full_html=False, config={"displayModeBar": False})
+
+    return plot
+
+
 def day_hour_heatmap():
 
     pio.templates.default = "simple_white"
@@ -15,15 +50,15 @@ def day_hour_heatmap():
     df = sql_read_pd(
         "toronto",
         """
-                        SELECT  ts,
-                                power_use_mwh,
-                                --EXTRACT(YEAR FROM ts) AS year,
-                                --EXTRACT(MONTH FROM ts) AS month,
-                                EXTRACT(ISODOW FROM ts ) AS day_of_week,
-                                EXTRACT(HOUR FROM ts) as hour
-                        FROM power_demand
-                        WHERE power_use_mwh > 1
-                        """,
+        SELECT  --ts,
+                power_use_mwh,
+                --EXTRACT(YEAR FROM ts) AS year,
+                --EXTRACT(MONTH FROM ts) AS month,
+                EXTRACT(ISODOW FROM ts ) AS day_of_week,
+                EXTRACT(HOUR FROM ts) as hour
+        FROM power_demand
+        WHERE power_use_mwh > 1
+        """
     )
 
     fig = px.density_heatmap(
@@ -36,7 +71,7 @@ def day_hour_heatmap():
         yaxis_title="Day (1=Monday)",
         coloraxis_colorbar={"title": "MegawattHour"},
         yaxis={"autorange": "reversed"},
-        plot_bgcolor="white",
+        plot_bgcolor="white"
     )
     fig.add_annotation(
         text="Source: IESO",
@@ -45,10 +80,10 @@ def day_hour_heatmap():
         yref="paper",
         y=-0.15,
         showarrow=False,
-        font={"color": "#A9A9A9"},
+        font={"color": "#A9A9A9"}
     )
 
-    plot = pio.to_html(fig, full_html=False)
+    plot = pio.to_html(fig, full_html=False, config={"displayModeBar": False})
 
     return plot
 
@@ -75,7 +110,7 @@ def daily_power_usage():
                                 AS moving_avg
                         FROM daily_use
                         ORDER BY date
-                        """,
+                        """
     )
 
     fig = px.line(df, x="date", y=["power_use_mwh", "moving_avg"])
@@ -88,7 +123,7 @@ def daily_power_usage():
         title_x=0.5,
         showlegend=True,
         plot_bgcolor="white",
-        legend=dict(x=0.9, y=1)
+        legend=dict(x=0.05, y=1)
     )
 
     # Add range slider
@@ -106,11 +141,11 @@ def daily_power_usage():
                 )
             ),
             rangeslider=dict(visible=True),
-            type="date",
+            type="date"
         )
     )
 
-    plot = pio.to_html(fig, full_html=False)
+    plot = pio.to_html(fig, full_html=False, config={"displayModeBar": False})
 
     return plot
 
@@ -129,7 +164,7 @@ def seasonal_power_usage():
                         WHERE power_use_mwh > 1
                         GROUP BY month, hour
                         ORDER BY month, hour                        
-                        """,
+                        """
     )
 
     # group hourly use into 4 seasons
@@ -145,7 +180,7 @@ def seasonal_power_usage():
         9: "Sep-Nov",
         10: "Sep-Nov",
         11: "Sep-Nov",
-        12: "Dec-Feb",
+        12: "Dec-Feb"
     }
 
     df["season"] = df["month"].map(season_map)
@@ -168,9 +203,9 @@ def seasonal_power_usage():
         showlegend=True,
         plot_bgcolor="white",
         hovermode="x unified",
-        legend=dict(x=0.9, y=1)
+        legend=dict(x=0.05, y=1)
     )
 
-    plot = pio.to_html(fig, full_html=False)
+    plot = pio.to_html(fig, full_html=False, config={"displayModeBar": False})
 
     return plot

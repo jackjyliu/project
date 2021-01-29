@@ -10,7 +10,7 @@ from todata.pages.dashboard.mapbox import points_of_interest
 from todata.pages.data_story_power.plotly_plots import (
     daily_power_usage,
     day_hour_heatmap,
-    seasonal_power_usage,
+    temperature_scatter
 )
 
 
@@ -36,9 +36,9 @@ def dashboard():
 def data_story_power():
     return render_template(
         "data_story_power.html",
-        graph_1=day_hour_heatmap(),
-        graph_2=daily_power_usage(),
-        graph_3=seasonal_power_usage(),
+        graph_1=daily_power_usage(),
+        graph_2=temperature_scatter(),
+        graph_3=day_hour_heatmap()
     )
 
 @app.route("/about")
