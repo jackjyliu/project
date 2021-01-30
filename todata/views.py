@@ -16,7 +16,7 @@ from todata.pages.data_story_power.plotly_plots import (
 
 @app.route("/")
 @app.route("/dashboard")
-@cache.cached(timeout=1)
+@cache.cached(timeout=60)
 def dashboard():
     
     tz = pytz.timezone('America/Toronto')
@@ -32,7 +32,7 @@ def dashboard():
 
 
 @app.route("/data_story_power")
-@cache.cached(timeout=1)
+@cache.cached(timeout=60)
 def data_story_power():
     return render_template(
         "data_story_power.html",

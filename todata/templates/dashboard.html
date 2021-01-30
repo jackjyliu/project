@@ -10,7 +10,9 @@
             <div class="card border-0 mb-1">
                 <div class="card-body">
                   <h5 class="card-title">Dashboard</h5>
-                  <p class="card-subtitle mb-1 text-muted">Latest Toronto Information<br> News, Weather, Events
+                  <p class="card-subtitle mb-1 text-muted">
+                    Latest Toronto Information<br>
+                    News, Weather, Events
                   </p>
                   <p class="card-text mb-1 text-muted">{{ toronto_time }}</p>
                 </div>
@@ -62,12 +64,10 @@
                     <h6 class="card-subtitle">Alerts</h6>
                     <p class="card-text"><small class="text-muted">
                         N/A <br>
-                
                     </small></p>
                 </div>    
             </div>
         </div>
-   
     </div>
     
     <div class="row">
@@ -75,9 +75,15 @@
             <div class="card border-0 mb-1">
                 <div class="card-body">
                     <h5 class="card-title">Local News</h5>
+                    <ul class="list-group-flush text-muted p-0">
+                        {% for item in local_news %}
+                        <li class="list-group-item p-0 py-2"><small>{{ item.headline }}</small></li>
+                        {% endfor %}
+                    </ul>
                 </div>
-
-                <div class="accordion accordion-flush mb-0" id="accordionNews">
+                
+                <!--
+                <div class="accordion accordion-flush" id="accordionNews">
                 {% for item in local_news %}
                     <div class="accordion-item">
                       <h6 class="accordion-header" id="flush-heading{{ loop.index }}">
@@ -91,8 +97,7 @@
                     </div>
                 {% endfor %}
                 </div>
-                
-
+                -->
             </div>
         </div>
 
@@ -101,15 +106,10 @@
                 <div class="card-body">
                     <h5 class="card-title">Points of Interest</h5>
                     {{ points_of_interest|safe }}
-                
                 </div>
-
             </div>
-
         </div>
-
    </div>
-
 </div>
 
 {% endblock %}
