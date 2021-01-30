@@ -20,7 +20,7 @@ from todata.pages.data_story_power.plotly_plots import (
 def dashboard():
     
     tz = pytz.timezone('America/Toronto')
-    toronto_time = datetime.now(tz).strftime("%Y/%m/%d %H:%M")
+    toronto_time = datetime.now(tz).strftime("%Y.%m.%d %H.%M")
 
     return render_template(
         "dashboard.html",
@@ -42,6 +42,6 @@ def data_story_power():
     )
 
 @app.route("/about")
-@cache.cached(timeout=1)
+@cache.cached(timeout=60)
 def about():
     return render_template("about.html")
