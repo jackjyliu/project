@@ -33,3 +33,5 @@ logs/
 *.log
 
 *.rdb
+
+CENTRELINE_WGS84.geojson
