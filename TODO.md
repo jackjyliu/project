@@ -12,6 +12,7 @@ This Week
     *   past week weather history
     *   weather forecast
 *   Contact Form
+*   Main page of mini cards for story + explore
 
 Power Story
 ---
