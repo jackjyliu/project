@@ -3,11 +3,15 @@ Project TODO
 
 This Week
 ---
-*   Bash script to config: venv, start servers, flask configs
 *   Webscrapping: beautiful soup for selenium (for local events next week)
 *   download bootstrap .js and .css to run locally?
 *   write test?
 *   update celery to v5 + changes to scheduler (long term)
+*   trail condition dashboard
+    *   sunrise, sunset
+    *   past week weather history
+    *   weather forecast
+*   Contact Form
 
 Power Story
 ---
@@ -44,6 +48,8 @@ Web
     *   Traffic / TTC Data
     *   News word analysis
         *   tf-idf for most common words?
+        *   trending words
+    *   Trail Conditions
 
 *   Data Exploration (visualization of different data from postgres database, user choice)
 

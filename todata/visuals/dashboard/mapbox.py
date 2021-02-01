@@ -15,6 +15,7 @@ def points_of_interest():
                             lat=poi.geometry.y,
                             lon=poi.geometry.x,
                             hover_name="NAME",
+                            mapbox_style='carto-positron',
                             zoom=9)
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
     plot = pio.to_html(fig, full_html=False, config={'displayModeBar':False})
