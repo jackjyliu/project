@@ -1,24 +1,26 @@
 """
-plotly module to test insert into flask views
+plotly visuals for toronto power data
 """
 
 import plotly.express as px
 import plotly.io as pio
-from todata.models.sql.functions import sql_read_pd
-import pandas as pd
+import plotly.graph_objects as go
+import todata.visuals.custom_theme
 
+from todata.models.sql.functions import sql_read_pd
+
+
+pio.templates.default = "simple_white+custom"
 
 def temperature_scatter():
-
-    pio.templates.default = "simple_white"
 
     df = sql_read_pd(
         "toronto",
         """
         SELECT p.power_use_mwh, t.temp_c
-        FROM power_demand p TABLESAMPLE BERNOULLI(5)
+        FROM power_demand p TABLESAMPLE BERNOULLI(10)
         LEFT JOIN weather_temperature t ON p.ts = t.ts
-        WHERE power_use_mwh > 1 AND t.temp_c IS NOT NULL
+        WHERE power_use_mwh > 1 AND t.temp_c IS NOT NULL AND p.ts > '2018-01-01'
         """
     )
 
@@ -28,7 +30,7 @@ def temperature_scatter():
         y="power_use_mwh",
         opacity=0.2,
         trendline="lowess",
-        trendline_color_override="#111111"
+        trendline_color_override="#555555"
     )
 
     fig.update_layout(
@@ -44,8 +46,6 @@ def temperature_scatter():
 
 
 def day_hour_heatmap():
-
-    pio.templates.default = "simple_white"
 
     df = sql_read_pd(
         "toronto",
@@ -90,8 +90,6 @@ def day_hour_heatmap():
 
 def daily_power_usage():
 
-    pio.templates.default = "simple_white"
-
     df = sql_read_pd(
         "toronto",
         """
@@ -99,7 +97,7 @@ def daily_power_usage():
                         SELECT  DATE_TRUNC('day', ts) AS date, 
                                 SUM(power_use_mwh) AS power_use_mwh
                         FROM power_demand
-                        WHERE power_use_mwh > 10
+                        WHERE power_use_mwh > 100
                         GROUP BY date
                         ORDER BY date)
 
@@ -127,6 +125,7 @@ def daily_power_usage():
     )
 
     # Add range slider
+    
     fig.update_layout(
         xaxis=dict(
             rangeselector=dict(
@@ -151,8 +150,6 @@ def daily_power_usage():
 
 
 def seasonal_power_usage():
-
-    pio.templates.default = "simple_white"
 
     df = sql_read_pd(
         "toronto",

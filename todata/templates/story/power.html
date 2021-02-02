@@ -12,22 +12,59 @@
             <h4>Which factors drive power usage in Toronto?</h4>
             </div>
             <ul class="list-group">
-                <li class="list-group-item border-0">1. Temperature</li>
-                <li class="list-group-item border-0">2. Hour of Day</li>
-                <li class="list-group-item border-0">3. Day of Week</li>
+                <li class="list-group-item border-0 text-muted">1. Temperature</li>
+                <li class="list-group-item border-0 text-muted">2. Hour of Day</li>
+                <li class="list-group-item border-0 text-muted">3. Day of Week</li>
               </ul>
         </div>
     </div>
 
     <div class="row">
-        {{ graph_1|safe }}
+        <div class="col">
+            <div class="card border-0">
+                <div class="card-body">
+                    <h5 class="card-title">Daily Power Use in Toronto</h5>
+                    <p class="card-text text-muted">There are different cyclical patterns to explore. But what are they?</p>
+                    <div>
+                        {{ graph_1|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="row">
-        {{ graph_2|safe }}
+        <div class="col">
+            <div class="card border-0">
+                <div class="card-body">
+                    <h5 class="card-title">The most important factor is temperature</h5>
+                    <p class="card-text text-muted">Power use during the hottest afternoons of summer can triple the average use.</p>
+                    <div>
+                        {{ graph_2|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="row">
+        <div class="col">
+            <div class="card border-0">
+                <div class="card-body">
+                    <h5 class="card-title">2 main cycles drive power use</h5>
+                    <p class="card-text text-muted">
+                        1. <strong>Hour of day</strong> power use tends to peak at 5pm and drops to a low at 3am
+                        <br>
+                        2. <strong>Day of week</strong> power use is higher during the work week vs weekends
+                    </p>
+                    <div>
+                        {{ graph_3|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
         {{ graph_3|safe }}
     </div>
 
