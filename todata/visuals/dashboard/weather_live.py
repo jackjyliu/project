@@ -2,13 +2,25 @@
 get live weather data from open weather api and format for dictionary for dashbaord
 """
 
-from todata.models.api.open_weather import current_weather
+#from todata.models.api.open_weather import current_weather
+from todata.models.sql.functions import sql_read
 
 
 def dashboard_weather():
 
+    # load current + forecast weather from RDS
+    sql_raw = sql_read('toronto',
+                        """
+                        SELECT result
+                        FROM weather_open_api
+                        WHERE data_type = 'weather'
+                        ORDER BY ts DESC
+                        LIMIT 1
+                        """) 
+    
+    w = sql_raw[0][0]
     # load current + forecast weather from api
-    w = current_weather()
+    #w = current_weather()
 
     # select parts of weather file
     dw = {
