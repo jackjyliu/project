@@ -57,13 +57,14 @@ def update_toronto_temp():
     write_db = 'toronto'
     query = """ 
                 BEGIN;
-                INSERT INTO weather_temperature (ts, temp_c, rel_hum_pct, pressure_kpa) 
-                VALUES (%s, %s, %s, %s)
+                INSERT INTO weather_temperature (ts, temp_c, rel_hum_pct, pressure_kpa, rain_mm) 
+                VALUES (%s, %s, %s, %s, %s)
                 ON CONFLICT (ts) DO UPDATE
                     SET 
                         temp_c = excluded.temp_c,
                         rel_hum_pct = excluded.rel_hum_pct,
-                        pressure_kpa = excluded.pressure_kpa;
+                        pressure_kpa = excluded.pressure_kpa,
+                        rain_mm = excluded.rain_mm;
                 COMMIT;
             """
     records = [tuple(x) for x in new_weather_data.to_numpy()]

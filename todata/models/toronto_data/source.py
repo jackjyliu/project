@@ -117,9 +117,9 @@ def toronto_temperature(
             weather = pd.read_csv(weather_raw)
             weather["DateTime"] = pd.to_datetime(weather["Date/Time (LST)"])
             weather = weather[
-                ["DateTime", "Temp (°C)", "Rel Hum (%)", "Stn Press (kPa)"]
+                ["DateTime", "Temp (°C)", "Rel Hum (%)", "Stn Press (kPa)", "Precip. Amount (mm)"]
             ]
-            weather.columns = ["ts", "temp_c", "rel_hum_pct", "pressure_kpa"]
+            weather.columns = ["ts", "temp_c", "rel_hum_pct", "pressure_kpa", 'rain_mm']
             weather_df_list.append(weather)
 
     # concat pandas dataframes

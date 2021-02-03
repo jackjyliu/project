@@ -5,16 +5,39 @@
 {% block content %}
 
 <div class="container-xxl">
+    
     <div class="row">
         <div class="col">
             <div class="card border-0 mb-1">
                 <div class="card-body">
                     <h5 class="card-title">Toronto Trails</h5>
+                    <p class="card-subtitle text-muted">Map of trails and larger parks</p>
                     {{ toronto_trails|safe }}
                 </div>
             </div>
         </div>
-    </div>        
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card border-0 mb-1">
+                <div class="card-body">
+                    <h5 class="card-title"> Current Conditions</h5>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card border-0 mb-1">
+                <div class="card-body">
+                    <h5 class="card-title"> Next 2 Days</h5>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>     
+    
 </div>
 
 {% endblock %}
