@@ -19,24 +19,26 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <div class="card border-0 mb-1">
                 <div class="card-body">
-                    <h5 class="card-title"> Current Conditions</h5>
+                    <h5 class="card-title">Current Conditions</h5>
+                    <p class="card-subtitle text-muted">based on past week weather</p>
                     <div>{{ current_condition|safe }}</div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-8">
             <div class="card border-0 mb-1">
                 <div class="card-body">
-                    <h5 class="card-title"> Next 2 Days</h5>
+                    <h5 class="card-title">Next 2 Days</h5>
+                    <p class="card-subtitle text-muted">to help plan trips</p>
                     <div>{{ next_two_days|safe }}</div>
                 </div>
             </div>
         </div>
-
-    </div>     
+    </div>    
+    <!--add recommendation for trails--> 
     
 </div>
 

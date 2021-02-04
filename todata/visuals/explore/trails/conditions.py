@@ -29,7 +29,7 @@ def current_condition():
                             LIMIT 168) as last_week_weather
                         ORDER BY ts ASC
                         """)
-    fig = make_subplots(rows=2, cols=1, subplot_titles=('Temperature', 'Precipitation'))
+    fig = make_subplots(rows=2, cols=1, subplot_titles=('Temperature C', 'Precipitation mm'))
     fig.add_trace(go.Scatter(x=past_weather.ts, y=past_weather.temp_c), row=1, col=1)
     fig.add_trace(go.Scatter(x=past_weather.ts, y=past_weather.rain_mm), row=2, col=1)
     fig.update_layout(showlegend=False, hovermode=False, margin={"r": 0, "l": 0, "b": 0})
@@ -86,7 +86,7 @@ def next_two_days():
     forecast = pd.DataFrame(forecast_raw)
     
     # create plot
-    fig = make_subplots(rows=2, cols=2, subplot_titles=('Temperature', 'Wind', 'Precipitation', 'Sun Strength'),)
+    fig = make_subplots(rows=2, cols=2, subplot_titles=('Temperature C', 'Wind Km/h', 'Precipitation %', 'Sun Strength'),)
     fig.add_trace(go.Scatter(x=forecast.ts, y=forecast.temp), row=1, col=1)
     fig.add_trace(go.Scatter(x=forecast.ts, y=forecast.wind), row=1, col=2)
     fig.add_trace(go.Scatter(x=forecast.ts, y=forecast.precip), row=2, col=1)

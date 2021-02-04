@@ -9,8 +9,10 @@ This Week
 *   update celery to v5 + changes to scheduler (long term)
 *   trail condition dashboard
     *   sunrise, sunset
-    *   past week weather history
-    *   weather forecast
+    *   condition status
+        *   temperature use weighted method to bias more recent datetime
+        *   precipition use 
+    *   trail descriptions?
 *   Contact Form
 *   Main page of mini cards for story + explore
 
