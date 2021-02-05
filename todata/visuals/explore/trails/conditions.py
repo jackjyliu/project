@@ -113,7 +113,7 @@ def condition_check(past_weather=past_weather(), weather_forecast=weather_foreca
     avg_temp = weather['temp'].mean()
     is_rain = weather['precip'].sum() > 1
     is_windy = weather['wind'].mean() > 30
-    is_humid = weather['humidity'].mean() > 60 and avg_temp > 21
+    is_humid = weather['humidity'].mean() > 60 and avg_temp > 20
         
     # calculate temp warnings
     is_hot = avg_temp > 25
@@ -130,7 +130,7 @@ def condition_check(past_weather=past_weather(), weather_forecast=weather_foreca
 
     # add to description
     if is_hot: description = description + ", hot day"
-    if is_rain: description = description + ", precipiation"
+    if is_rain: description = description + ", precipitation"
     if is_ice or past_is_ice: description = description + ", icy conditions"
     else:
         if is_cold: description = description + ", chilly day"
