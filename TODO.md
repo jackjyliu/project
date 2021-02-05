@@ -3,10 +3,6 @@ Project TODO
 
 This Week
 ---
-*   Webscrapping: beautiful soup for selenium (for local events next week)
-*   download bootstrap .js and .css to run locally?
-*   write test?
-*   update celery to v5 + changes to scheduler (long term)
 *   trail condition dashboard
     *   sunrise, sunset
     *   condition status
@@ -14,7 +10,11 @@ This Week
         *   precipition use 
     *   trail descriptions?
 *   Contact Form
+*   Webscrapping: beautiful soup for selenium (for local events next week)
+*   download bootstrap .js and .css to run locally?
+*   write test?
 *   Main page of mini cards for story + explore
+*   update celery to v5 + changes to scheduler (long term)
 
 Power Story
 ---

@@ -37,7 +37,8 @@ def temperature_scatter():
         title="Power vs Temperature",
         title_x=0.5,
         xaxis_title="Temperature C",
-        yaxis_title="MegawattHour"
+        yaxis_title="MegawattHour",
+        margin={"r": 0, "l": 0, "b": 0}
     )
 
     plot = pio.to_html(fig, full_html=False, config={"displayModeBar": False})
@@ -71,7 +72,8 @@ def day_hour_heatmap():
         yaxis_title="Day (1=Monday)",
         coloraxis_colorbar={"title": "MegawattHour"},
         yaxis={"autorange": "reversed"},
-        plot_bgcolor="white"
+        plot_bgcolor="white",
+        margin={"r": 0, "l": 0, "b": 0}
     )
     fig.add_annotation(
         text="Source: IESO",
@@ -121,7 +123,8 @@ def daily_power_usage():
         title_x=0.5,
         showlegend=True,
         plot_bgcolor="white",
-        legend=dict(x=0.05, y=1)
+        legend=dict(x=0.05, y=1),
+        margin={"r": 0, "l": 0, "b": 0}
     )
 
     # Add range slider
@@ -200,7 +203,8 @@ def seasonal_power_usage():
         showlegend=True,
         plot_bgcolor="white",
         hovermode="x unified",
-        legend=dict(x=0.05, y=1)
+        legend=dict(x=0.05, y=1),
+        margin={"r": 0, "l": 0, "b": 0}
     )
 
     plot = pio.to_html(fig, full_html=False, config={"displayModeBar": False})

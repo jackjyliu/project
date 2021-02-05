@@ -19,21 +19,14 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-4">
-            <div class="card border-0 mb-1">
-                <div class="card-body">
-                    <h5 class="card-title">Current Conditions</h5>
-                    <p class="card-subtitle text-muted">based on past week weather</p>
-                    <div>{{ current_condition|safe }}</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-8">
+        <div class="col">
             <div class="card border-0 mb-1">
                 <div class="card-body">
                     <h5 class="card-title">Next 2 Days</h5>
-                    <p class="card-subtitle text-muted">to help plan trips</p>
-                    <div>{{ next_two_days|safe }}</div>
+                    <p class="text-muted">
+                        {{ next_two_days.condition }}
+                        <br>sunrise <strong>{{ next_two_days.sunrise }}</strong> sunset <strong>{{ next_two_days.sunset }}</strong></p>
+                    <div>{{ next_two_days.plot|safe }}</div>
                 </div>
             </div>
         </div>
