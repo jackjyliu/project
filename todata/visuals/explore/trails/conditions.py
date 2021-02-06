@@ -112,7 +112,7 @@ def condition_check(past_weather=past_weather(), weather_forecast=weather_foreca
     weather = weather_forecast['forecast']
     avg_temp = weather['temp'].mean()
     is_rain = weather['precip'].sum() > 1
-    is_windy = weather['wind'].mean() > 30
+    is_windy = weather['wind'].max() > 30
     is_humid = weather['humidity'].mean() > 60 and avg_temp > 20
         
     # calculate temp warnings
@@ -157,7 +157,7 @@ def next_two_days():
     fig.add_trace(go.Scatter(x=forecast.ts, y=forecast.wind), row=1, col=2)
     fig.add_trace(go.Scatter(x=forecast.ts, y=forecast.precip), row=2, col=1)
     fig.add_trace(go.Scatter(x=forecast.ts, y=forecast.uvi), row=2, col=2)
-    fig.update_layout(showlegend=False, hovermode=False, margin={"r": 0, "l": 0, "b": 0})
+    fig.update_layout(showlegend=False, hovermode=False, margin={"r": 0, "l": 0, "b": 0, "t":20})
     plot = pio.to_html(fig, full_html=False, config={"displayModeBar": False})
 
     plot_pkg = {

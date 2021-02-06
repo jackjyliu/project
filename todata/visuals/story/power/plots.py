@@ -124,7 +124,7 @@ def daily_power_usage():
         showlegend=True,
         plot_bgcolor="white",
         legend=dict(x=0.05, y=1),
-        margin={"r": 0, "l": 0, "b": 0}
+        margin={"r": 15, "l": 0, "b": 0}
     )
 
     # Add range slider
