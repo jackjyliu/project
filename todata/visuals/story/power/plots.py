@@ -63,7 +63,7 @@ def day_hour_heatmap():
     )
 
     fig = px.density_heatmap(
-        df, x="hour", y="day_of_week", z="power_use_mwh", histfunc="avg"
+        df, x="hour", y="day_of_week", z="power_use_mwh", histfunc="avg", color_continuous_scale=px.colors.sequential.Blues
     )
     fig.update_layout(
         title="Average Usage by Hour and Day of Week",
@@ -73,8 +73,9 @@ def day_hour_heatmap():
         coloraxis_colorbar={"title": "MegawattHour"},
         yaxis={"autorange": "reversed"},
         plot_bgcolor="white",
-        margin={"r": 0, "l": 0, "b": 0}
+        margin={"r": 0, "l": 0, "b": 0},
     )
+    """
     fig.add_annotation(
         text="Source: IESO",
         xref="paper",
@@ -84,7 +85,7 @@ def day_hour_heatmap():
         showarrow=False,
         font={"color": "#A9A9A9"}
     )
-
+    """
     plot = pio.to_html(fig, full_html=False, config={"displayModeBar": False})
 
     return plot

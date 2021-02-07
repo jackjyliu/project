@@ -152,12 +152,12 @@ def next_two_days():
     forecast = forecast_raw['forecast']
        
     # create plot
-    fig = make_subplots(rows=2, cols=2, subplot_titles=('Temperature C', 'Wind Km/h', 'Precipitation %', 'Sun Strength'),)
+    fig = make_subplots(rows=2, cols=2, subplot_titles=('Temperature C', 'Wind km/h', 'Precipitation %', 'Humidity %'),)
     fig.add_trace(go.Scatter(x=forecast.ts, y=forecast.temp), row=1, col=1)
     fig.add_trace(go.Scatter(x=forecast.ts, y=forecast.wind), row=1, col=2)
     fig.add_trace(go.Scatter(x=forecast.ts, y=forecast.precip), row=2, col=1)
-    fig.add_trace(go.Scatter(x=forecast.ts, y=forecast.uvi), row=2, col=2)
-    fig.update_layout(showlegend=False, hovermode=False, margin={"r": 0, "l": 0, "b": 0, "t":20})
+    fig.add_trace(go.Scatter(x=forecast.ts, y=forecast.humidity), row=2, col=2)
+    fig.update_layout(showlegend=False, hovermode=False, margin={"r": 0, "l": 0, "b": 0, "t":20},)
     plot = pio.to_html(fig, full_html=False, config={"displayModeBar": False})
 
     plot_pkg = {

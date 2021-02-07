@@ -4,12 +4,9 @@ Project TODO
 This Week
 ---
 *   trail condition dashboard
-    *   sunrise, sunset
-    *   condition status
-        *   temperature use weighted method to bias more recent datetime
-        *   precipition use 
     *   trail descriptions?
-*   Contact Form
+    *   longest trails, largest parks
+*   update power use
 *   Webscrapping: beautiful soup for selenium (for local events next week)
 *   download bootstrap .js and .css to run locally?
 *   write test?
