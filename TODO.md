@@ -3,9 +3,6 @@ Project TODO
 
 This Week
 ---
-*   trail condition dashboard
-    *   trail descriptions?
-    *   longest trails, largest parks
 *   explore neighbourhoods view
 *   update power use
 *   look into rest API to serve raw data
@@ -18,7 +15,7 @@ This Week
 
 Power Story
 ---
-*   Catboost Factors
+*   Deep dive into each factor?
 
 Data
 ---
@@ -27,7 +24,7 @@ Data
     *   Traffic?
     *   Population Data for per capita calcs
 
-Dashboard (hourly cached?)
+Dashboard
 ---
 *   Toronto Indicators
     *   Traffic/TTC/Road Closures
@@ -37,7 +34,6 @@ Dashboard (hourly cached?)
 Web
 ---
 *   Domain name .com name
-*   How to make website mobile friendly
 *   Page Layout: grid + responsive
         *   add scrollspy for progress tracking + section jumping
 
@@ -46,7 +42,6 @@ Web
     *   News word analysis
         *   tf-idf for most common words?
         *   trending words
-    *   Trail Conditions
 
 *   Data Exploration (visualization of different data from postgres database, user choice)
 
@@ -55,5 +50,3 @@ Web
 Model
 ---
 *   Move credentials to main root folder or swtich to environ?
-*   ML
-    *   Catboost + SHAP

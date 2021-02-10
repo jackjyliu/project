@@ -7,7 +7,7 @@ from todata.visuals.explore.trails.trail_notes import TRAIL_NOTES
 
 
 @app.route("/explore/trails")
-@cache.cached(timeout=60)
+#@cache.cached(timeout=60)
 def explore_trails():
     return render_template(
         "explore/trails.html",

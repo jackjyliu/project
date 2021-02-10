@@ -65,7 +65,7 @@ def weather_forecast():
 
         fct_dt.append(utc_to_local_time(hour['dt']))
         temp.append(round(hour['temp'] - 273.15, 1))
-        precip.append(hour['pop'])
+        precip.append(hour['pop']*100)
         wind.append(round(hour['wind_speed'] * 3.6, 0))
         humidity.append(hour['humidity'])
         uvi.append(hour['uvi'])
@@ -111,7 +111,7 @@ def condition_check(past_weather=past_weather(), weather_forecast=weather_foreca
     # calculate future weather variables
     weather = weather_forecast['forecast']
     avg_temp = weather['temp'].mean()
-    is_rain = weather['precip'].sum() > 1
+    is_rain = weather['precip'].sum() > 100
     is_windy = weather['wind'].max() > 30
     is_humid = weather['humidity'].mean() > 60 and avg_temp > 20
         

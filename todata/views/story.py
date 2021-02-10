@@ -9,7 +9,7 @@ from todata.visuals.story.power.plots import (
 
 
 @app.route("/story/power")
-@cache.cached(timeout=60)
+#@cache.cached(timeout=60)
 def story_power():
     return render_template(
         "story/power.html",

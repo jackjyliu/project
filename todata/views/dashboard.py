@@ -10,7 +10,7 @@ from todata.visuals.dashboard.mapbox import points_of_interest
 
 @app.route("/")
 @app.route("/dashboard")
-@cache.cached(timeout=60)
+#@cache.cached(timeout=60)
 def dashboard():
     
     tz = pytz.timezone('America/Toronto')
