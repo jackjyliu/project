@@ -31,7 +31,29 @@
         </div>
     </div>    
     <!--add recommendation for trails--> 
-    
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mb-1">
+                <div class="card-body">
+                    <h5 class="card-title">Select Trails</h5>
+                    <div class="accordion accordion-flush" id="accordionNews">
+                        {% for item in trail_notes %}
+                            <div class="accordion-item">
+                                <h6 class="accordion-header" id="flush-heading{{ loop.index }}">
+                                    <button class="accordion-button collapsed text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ loop.index }}" aria-expanded="false" aria-controls="flush-collapse{{ loop.index }}">
+                                        {{ item.name }}
+                                    </button>
+                                </h6>
+                                <div id="flush-collapse{{ loop.index }}" class="accordion-collapse collapse text-muted" aria-labelledby="flush-heading{{ loop.index }}" data-bs-parent="#accordionNews">
+                                    <div class="accordion-body text-muted">{{ item.description }}</div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
