@@ -107,14 +107,14 @@ def daily_power_usage():
                         SELECT  date,
                                 power_use_mwh,
                                 ROUND(AVG(power_use_mwh)
-                                OVER(ORDER BY date ASC ROWS BETWEEN 30 PRECEDING AND CURRENT ROW),0)
-                                AS moving_avg
+                                OVER(ORDER BY date ASC ROWS BETWEEN 15 PRECEDING AND 15 FOLLOWING),0)
+                                AS smoothed_avg
                         FROM daily_use
                         ORDER BY date
                         """
     )
 
-    fig = px.line(df, x="date", y=["power_use_mwh", "moving_avg"])
+    fig = px.line(df, x="date", y=["power_use_mwh", "smoothed_avg"])
     fig.update_traces(hovertemplate=None)
     fig.update_layout(
         title="Daily Usage",

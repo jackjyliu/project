@@ -6,7 +6,10 @@ This Week
 *   trail condition dashboard
     *   trail descriptions?
     *   longest trails, largest parks
+*   explore neighbourhoods view
 *   update power use
+*   look into rest API to serve raw data
+*   traffic stats?
 *   Webscrapping: beautiful soup for selenium (for local events next week)
 *   download bootstrap .js and .css to run locally?
 *   write test?
@@ -16,8 +19,6 @@ This Week
 Power Story
 ---
 *   Catboost Factors
-*   Temperature
-*   Change Source Color to Light grey
 
 Data
 ---
@@ -36,15 +37,11 @@ Dashboard (hourly cached?)
 Web
 ---
 *   Domain name .com name
-*   Logo Design
 *   How to make website mobile friendly
-*   Font Choice: sans serif
-*   Colour Choice: Black, Blue, Grey
 *   Page Layout: grid + responsive
         *   add scrollspy for progress tracking + section jumping
 
 *   Data Stories (interesting stories about Toronto data)
-    *   Power usage vs weather and weekly cycle
     *   Traffic / TTC Data
     *   News word analysis
         *   tf-idf for most common words?
@@ -54,13 +51,6 @@ Web
 *   Data Exploration (visualization of different data from postgres database, user choice)
 
 *   Neighbourhoods of Toronto (with mapping)
-
-*   About Page
-    *   Describe website purpose
-    *   Website Architure
-    *   Contact Info
-        *   Internal Message
-        *   Gmail address?
 
 Model
 ---

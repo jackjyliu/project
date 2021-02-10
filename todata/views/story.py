@@ -13,7 +13,7 @@ from todata.visuals.story.power.plots import (
 def story_power():
     return render_template(
         "story/power.html",
-        graph_1=daily_power_usage(),
-        graph_2=temperature_scatter(),
-        graph_3=day_hour_heatmap()
+        daily_power_usage=daily_power_usage(),
+        temperature_scatter=temperature_scatter(),
+        day_hour_heatmap=day_hour_heatmap()
     )

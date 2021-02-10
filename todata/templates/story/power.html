@@ -6,6 +6,7 @@
 
 <div class="container-xxl">
     
+    <!--
     <div class="row">
         <div class="card border-0 text-left mb-3">
             <div class="card-body">
@@ -18,6 +19,7 @@
               </ul>
         </div>
     </div>
+    -->
 
     <div class="row">
         <div class="col">
@@ -26,21 +28,7 @@
                     <h5 class="card-title">Daily Power Use in Toronto</h5>
                     <p class="card-text text-muted">There are different cyclical patterns to explore. But what are they?</p>
                     <div>
-                        {{ graph_1|safe }}
-                    </div>   
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <div class="card border-0">
-                <div class="card-body">
-                    <h5 class="card-title">The most important factor is temperature</h5>
-                    <p class="card-text text-muted">Power use during the hottest afternoons of summer can triple the average use.</p>
-                    <div>
-                        {{ graph_2|safe }}
+                        {{ daily_power_usage|safe }}
                     </div>   
                 </div>
             </div>
@@ -53,20 +41,63 @@
                 <div class="card-body">
                     <h5 class="card-title">2 main cycles drive power use</h5>
                     <p class="card-text text-muted">
-                        1. <strong>Hour of day</strong> power use tends to peak at 5pm and drops to a low at 3am
+                        1. power use tends to peak at 5pm and drops to a low at 3am
                         <br>
-                        2. <strong>Day of week</strong> power use is higher during the work week vs weekends
+                        2. power use is higher during the work week vs weekends
                     </p>
                     <div>
-                        {{ graph_3|safe }}
+                        {{ day_hour_heatmap|safe }}
                     </div>   
                 </div>
             </div>
         </div>
     </div>
 
-        {{ graph_3|safe }}
+    <div class="row">
+        <div class="col">
+            <div class="card border-0">
+                <div class="card-body">
+                    <h5 class="card-title">The other major factor is temperature</h5>
+                    <p class="card-text text-muted">Power use during the hottest afternoons of summer can triple the average use.</p>
+                    <div>
+                        {{ temperature_scatter|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-0">
+                <div class="card-body">
+                    <h5 class="card-title">Let's feed this data into a ML model and try to isolate the different factors</h5>
+                    <p class="card-text text-muted">
+                        Here's a summary of how each factor impacts power use.
+                        <strong>SHAP</strong> values attempt to capture the effect of each factor independantly.
+                        <br>
+                        <i>Factors with the greatest impact are listed top to buttom.
+                        <br>
+                        Red dots = higher value for the factor (higher temperature, later hours in the day), Blue = lower.
+                        <br>
+                        Dots to the right = factor increases power use.</i>
+                        <br>     
+                    </p>
+
+                    <img src="/static/stories/power/shap_summary.svg" alt="" width="" height="" class="card-img-top">   
+                    
+                    <ul class='card-text text-muted'>
+                        <li><strong>Hour</strong> of day is the most important factor in determining power use with evening hours (17:00-20:00) 
+                        increasing power use by up to 1000 MWh vs midnight (1:00-4:00) decreasing power use by over 1000 MWh</li>
+                        <li>The next most impactful factor is <strong>temperature</strong>. The hotest days can increase power use by 2500 MWh.</li>
+                        <li>Finally, the third major factor is weekday vs weekend, with high weekday values 6-7 (Sat-Sun) using up to 1500 MWh vs weekdays.</li>
+                    </ul>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 </div>
 
