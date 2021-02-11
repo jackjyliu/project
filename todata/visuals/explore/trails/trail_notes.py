@@ -11,7 +11,7 @@ TRAIL_NOTES = [
     
     {
         'name': 'Habourfront Trail'
-        ,'description': 'Paved, Flat | High Traffic| Runs along Lake Ontario from Humber Bay to Balmy and passes thru Downtown Toronto. Intersects with Humber River, High Park, Woodbine Beach, near Tommy Thompson Park'
+        ,'description': 'Paved, Flat | High Traffic | Runs along Lake Ontario from Humber Bay to Balmy and passes thru Downtown Toronto. Intersects with Humber River, High Park, Woodbine Beach, near Tommy Thompson Park'
     },
     
     {

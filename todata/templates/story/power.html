@@ -73,13 +73,20 @@
                 <div class="card-body">
                     <h5 class="card-title">Let's feed this data into a ML model and try to isolate the different factors</h5>
                     <p class="card-text text-muted">
-                        Here's a summary of how each factor impacts power use.
+                        Top 3 factors impacting power use
                     </p>
                     <ul class='card-text text-muted'>
-                        <li><strong>Hour</strong> of day is the most important factor in determining power use with evening hours (17:00-20:00) 
+                        <li><strong>Hour</strong> of day is the most important factor with evening hours (17:00-20:00) 
                         increasing power use by up to 1000 MWh vs midnight (1:00-4:00) decreasing power use by over 1000 MWh</li>
-                        <li>The next most impactful factor is <strong>temperature</strong>. The hotest days can increase power use by 2500 MWh.</li>
+                        <li><strong>Temperature</strong> . The warmest days can increase power use by 2500 MWh.</li>
                         <li>Finally, the third major factor is <strong>weekday vs weekend</strong>, with high weekday values 6-7 (Sat-Sun) using up to 1500 MWh vs weekdays.</li>
+                    </ul>
+                    <p class="card-text text-muted">
+                        There's a few minor factors that also have some impact
+                    </p>
+                    <ul class='card-text text-muted'>
+                        <li><strong>Holidays</strong>(red) shows significant power reduction. Workplaces are closed, and people may be enjoying the outdoors</li>
+                        <li>Rain or Snow also appears increase power use. Perhaps people are staying indoors using up more power.</li>
                     </ul>   
 
                     <img src="/static/stories/power/shap_summary.svg" alt="" width="" height="" class="card-img-top">   
