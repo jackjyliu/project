@@ -5,7 +5,7 @@ import pytz
 
 from todata.visuals.dashboard.news_psql import latest_news
 from todata.visuals.dashboard.weather_live import dashboard_weather
-from todata.visuals.dashboard.mapbox import points_of_interest
+from todata.visuals.dashboard.road_closure import road_closure_map
 
 
 @app.route("/")
@@ -21,5 +21,5 @@ def dashboard():
         toronto_time=toronto_time,
         local_news=latest_news(),
         dw=dashboard_weather(),
-        points_of_interest=points_of_interest(),
+        road_closure=road_closure_map(),
     )

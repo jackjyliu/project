@@ -1,6 +1,5 @@
 import pandas as pd
-from datetime import datetime, timezone
-import pytz
+from todata.models.utils.datetime import utc_to_local_time
 from todata.models.sql.functions import sql_read_pd, sql_read
 
 import plotly.express as px
@@ -10,16 +9,6 @@ import plotly.graph_objects as go
 
 import todata.visuals.custom_theme
 pio.templates.default = "simple_white+custom"
-
-def utc_to_local_time(utc_raw):
-    """
-    convert utc datetime string to toronto time
-    """
-    local_timezone = pytz.timezone("America/Toronto")
-    utc_datetime = datetime.fromtimestamp(utc_raw, tz=timezone.utc)  
-    local_datetime = utc_datetime.astimezone(local_timezone)
-
-    return local_datetime
 
 
 def past_weather():
