@@ -4,7 +4,7 @@ Project TODO
 This Week
 ---
 *   add traffic data to dashboard
-*   indictators (business licenses, fire, police, other) YoY MoM WoW
+*   indictators (business licenses, fire, police, electicity use, water use? other) YoY MoM WoW
 *   explore neighbourhoods view
 *   update power use
 *   look into rest API to serve raw data

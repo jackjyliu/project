@@ -9,10 +9,14 @@ def toronto_trails():
     trails = pd.read_csv("./todata/models/data_files/maps/trails.csv")
 
     px.set_mapbox_access_token(MAPBOX_API_KEY)
-    fig = px.line_mapbox(
+    fig = px.line_mapbox(trails,
         lat=trails.lat,
         lon=trails.lon,
         hover_name=trails.names,
+        hover_data={
+            'lat': False,
+            'lon': False
+        },
         mapbox_style="carto-positron",
         zoom=9,
     )

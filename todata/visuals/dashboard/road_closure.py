@@ -9,9 +9,13 @@ import pandas as pd
 import requests
 from todata.models.utils.datetime import utc_to_local_time, current_local_time
 from datetime import datetime, timedelta, timezone
-import pytz
+# import pytz
 
 def road_closure_api():
+    """
+    get live toronto road closure data from api,
+    return python dictionary
+    """
     try:
         # OpenWeather One Call API
         api_call = "https://secure.toronto.ca/opendata/cart/road_restrictions.json?v=2.0"
@@ -26,7 +30,10 @@ def road_closure_api():
 
 
 def road_closure_data(api_data=road_closure_api()):
-
+    """
+    clean, format road closure api data and filter for active road closures,
+    return pandas dataframe
+    """
     road_pd = pd.DataFrame(api_data['Closure'])
     road_close = road_pd[['id', 'road', 'latitude', 'longitude', 'startTime', 'endTime', 'description', 'type']]
     road_close['startTime'] = road_close['startTime'].astype('int').apply(lambda x: utc_to_local_time(x/1000))
@@ -43,7 +50,9 @@ def road_closure_data(api_data=road_closure_api()):
 
 
 def road_closure_map(active_closure=road_closure_data()):
-
+    """
+    input road closure dataframe and returns plotly map with road closure locations
+    """
     px.set_mapbox_access_token(MAPBOX_API_KEY)
     fig = px.scatter_mapbox(active_closure,
                             lat=active_closure.latitude,
