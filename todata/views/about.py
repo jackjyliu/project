@@ -1,6 +1,6 @@
 from todata import app
 from flask import render_template, request
-from todata.models.sql.functions import sql_write
+from todata.data.sql.functions import sql_write
 
 
 @app.route("/about", methods=['POST', 'GET'])

@@ -2,7 +2,7 @@
 pull the latest bing news record from psql database and convert to list of dictionaries for dashboard
 """
 
-from todata.models.sql.functions import sql_read
+from todata.data.sql.functions import sql_read
 
 
 def latest_news():

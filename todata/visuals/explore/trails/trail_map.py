@@ -1,12 +1,12 @@
 import pandas as pd
 import plotly.express as px
 import plotly.io as pio
-from todata.models.credentials import MAPBOX_API_KEY
+from todata.data.credentials import MAPBOX_API_KEY
 
 
 def toronto_trails():
 
-    trails = pd.read_csv("./todata/models/data_files/maps/trails.csv")
+    trails = pd.read_csv("./todata/data/files/maps/trails.csv")
 
     px.set_mapbox_access_token(MAPBOX_API_KEY)
     fig = px.line_mapbox(trails,

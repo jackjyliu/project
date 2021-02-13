@@ -7,7 +7,7 @@ import plotly.io as pio
 import plotly.graph_objects as go
 import todata.visuals.custom_theme
 
-from todata.models.sql.functions import sql_read_pd
+from todata.data.sql.functions import sql_read_pd
 
 
 pio.templates.default = "simple_white+custom"

@@ -5,7 +5,7 @@ use raw=True for raw json file
 """
 
 import requests
-from todata.models.credentials import NEWS_API_KEY
+from todata.data.credentials import NEWS_API_KEY
 
 API_URL = "https://api.bing.microsoft.com/v7.0/news/search"
 

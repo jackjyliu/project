@@ -4,7 +4,7 @@ functions to load data into postgresql database
 import pandas as pd
 import psycopg2
 from psycopg2.extras import execute_batch
-from todata.models.credentials import WSL2_PSQL as psql
+from todata.data.credentials import WSL2_PSQL as psql
 
 
 def sql_read(

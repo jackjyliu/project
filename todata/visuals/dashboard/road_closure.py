@@ -3,11 +3,11 @@ displays mapbox data with plotly
 """
 import plotly.express as px
 import plotly.io as pio
-from todata.models.credentials import MAPBOX_API_KEY
+from todata.data.credentials import MAPBOX_API_KEY
 
 import pandas as pd
 import requests
-from todata.models.utils.datetime import utc_to_local_time, current_local_time
+from todata.data.utils.datetime import utc_to_local_time, current_local_time
 from datetime import datetime, timedelta, timezone
 # import pytz
 

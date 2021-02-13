@@ -1,6 +1,6 @@
-from todata.models.api.open_weather import current_weather, current_pollution
-from todata.models.api.bing_news import bing_news
-from todata.models.sql.functions import sql_write
+from todata.data.api.open_weather import current_weather, current_pollution
+from todata.data.api.bing_news import bing_news
+from todata.data.sql.functions import sql_write
 import json
 
 

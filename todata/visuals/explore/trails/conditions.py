@@ -1,6 +1,6 @@
 import pandas as pd
-from todata.models.utils.datetime import utc_to_local_time
-from todata.models.sql.functions import sql_read_pd, sql_read
+from todata.data.utils.datetime import utc_to_local_time
+from todata.data.sql.functions import sql_read_pd, sql_read
 
 import plotly.express as px
 import plotly.io as pio

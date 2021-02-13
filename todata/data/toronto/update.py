@@ -2,9 +2,9 @@
 functions to load data into postgresql database
 """
 from datetime import datetime
-import todata.models.toronto_data.source as toronto_data
+import todata.data.toronto.source as toronto_data
 import pandas as pd
-from todata.models.sql.functions import sql_read_pd, sql_write
+from todata.data.sql.functions import sql_read_pd, sql_write
 
 
 def update_toronto_power():

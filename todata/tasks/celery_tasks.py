@@ -3,8 +3,8 @@ celery tasks to pass to main __init__ flask function
 """
 import celery
 
-import todata.models.toronto_data.update as to
-import todata.models.api.update as api
+import todata.data.toronto.update as to
+import todata.data.api.update as api
 
 
 @celery.task(name="tasks.hourly_load")
