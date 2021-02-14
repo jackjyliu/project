@@ -154,3 +154,16 @@ def toronto_rain_2021():
     avg_rain["rain_mm"] = avg_rain["rain_mm"].round(2)
 
     return avg_rain
+
+
+def toronto_business_licence():
+    """
+    get toronto business license data as pandas dataframe
+    """
+
+    licence = pd.read_csv("https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/173e493c-31da-48db-85dd-60b2b6ce8f66",
+        encoding='latin1', 
+        parse_dates=['Issued', 'Cancel Date'],
+        dtype={'Business Phone': 'object'})
+
+    return licence

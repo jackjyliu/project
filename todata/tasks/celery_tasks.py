@@ -30,4 +30,5 @@ def three_daily_load():
 @celery.task(name="tasks.weekly_load")
 def weekly_load():
     to.update_toronto_rain()
+    to.update_business_licence()
     return True

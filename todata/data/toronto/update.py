@@ -129,3 +129,57 @@ def update_toronto_daylight(start_year=2000, end_year=2022):
     sql_write(write_db, query, records)   
     
     return True
+
+def update_business_licence():
+
+    # reformat data to sql insertion
+    licence = toronto_data.toronto_business_licence()
+    licence['Cancel Date'] = licence['Cancel Date'].astype(object)
+    licence = licence.where(pd.notnull(licence), None)
+
+    # write records into table
+    write_db = 'toronto'
+    query = """ 
+            BEGIN;
+                INSERT INTO business_licence (
+                    category,
+                    licence_no,
+                    operating_name,
+                    issued_date,
+                    client_name,
+                    phone,
+                    phone_ext,
+                    address,
+                    city,
+                    postal_code,
+                    conditions,
+                    conditions_1,
+                    conditions_2,
+                    plate_no,
+                    endorsements,
+                    cancel_date) 
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                ON CONFLICT (licence_no) DO UPDATE
+                    SET 
+                        category = excluded.category,
+                        licence_no = excluded.licence_no,
+                        operating_name = excluded.operating_name,
+                        issued_date = excluded.issued_date,
+                        client_name = excluded.client_name,
+                        phone = excluded.phone,
+                        phone_ext = excluded.phone_ext,
+                        address = excluded.address,
+                        city = excluded.city,
+                        postal_code = excluded.postal_code,
+                        conditions = excluded.conditions,
+                        conditions_1 = excluded.conditions_1,
+                        conditions_2 = excluded.conditions_2,
+                        plate_no = excluded.plate_no,
+                        endorsements = excluded.endorsements,
+                        cancel_date = excluded.cancel_date;
+                COMMIT;
+            """
+    records = [tuple(x) for x in licence.to_numpy()]
+    sql_write(write_db, query, records)
+
+    return True
