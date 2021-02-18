@@ -3,21 +3,27 @@ Project TODO
 
 This Week
 ---
+*   expand statcan api
 *   add traffic data to dashboard
 *   indictators (business licenses, fire, police, electicity use, water use? other) YoY MoM WoW
 *   explore neighbourhoods view
 *   update power use
-*   look into rest API to serve raw data
 *   traffic stats?
 *   Webscrapping: beautiful soup for selenium (for local events next week)
 *   download bootstrap .js and .css to run locally?
 *   write test?
 *   Main page of mini cards for story + explore
+*   look into rest API to serve raw data
 *   update celery to v5 + changes to scheduler (long term)
 
 Power Story
 ---
 *   Deep dive into each factor?
+
+Business Activity
+---
+*   New licenses
+*   Construction Permits
 
 Data
 ---
