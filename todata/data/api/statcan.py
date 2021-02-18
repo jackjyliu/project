@@ -11,28 +11,36 @@ SOURCE = {
         'info': 'manufacturing sales amounts for GTA',
         'unit': 'CAD',
         'productID': 16100011,
-        'coordinate': '10.1.1.1.0.0.0.0.0.0'
+        'coordinate': '10.1.1.1.0.0.0.0.0.0',
+        'table': 'statcan_manufacture',
+        'column': 'sales'
     },
     'population':{
         'info': 'population estimates of Toronto on July 1 of each year',
         'unit': 'person',
         'productID': 17100139,
-        'coordinate': '166.1.1.0.0.0.0.0.0.0'
+        'coordinate': '166.1.1.0.0.0.0.0.0.0',
+        'table': 'statcan_population',
+        'column': 'persons'
     },
     'gas_price':{
         'info': 'gas price of unleaded regular gasoline',
         'unit': 'cents',
         'productID': 18100001,
-        'coordinate': '9.2.0.0.0.0.0.0.0.0'
+        'coordinate': '9.2.0.0.0.0.0.0.0.0',
+        'table': 'statcan_gas_price',
+        'column': 'cents'
     },
     'ei':{
         'info': 'number of people on income support in Toronto',
         'unit': 'person',
         'productID': 14100323,
-        'coordinate': '167.1.1.1.0.0.0.0.0.0'
+        'coordinate': '167.1.1.1.0.0.0.0.0.0',
+        'table': 'statcan_ei',
+        'column': 'persons'
     }
-
 }
+
 
 def get_data_series(source=SOURCE, series=None, productID=None, coordinate=None, latestN=99999, raw=False):
     """
@@ -68,7 +76,6 @@ def get_data_series(source=SOURCE, series=None, productID=None, coordinate=None,
         # return raw json file if requested
         if raw:
             return results
-
 
     except Exception as ex:
         raise ex

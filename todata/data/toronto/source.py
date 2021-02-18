@@ -164,6 +164,7 @@ def toronto_business_licence():
     licence = pd.read_csv("https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/173e493c-31da-48db-85dd-60b2b6ce8f66",
         encoding='latin1', 
         parse_dates=['Issued', 'Cancel Date'],
-        dtype={'Business Phone': 'object'})
+        dtype={'Business Phone': 'object'},
+        low_memory=False)
 
     return licence
