@@ -3,13 +3,13 @@ Project TODO
 
 This Week
 ---
+*   Webscrapping: beautiful soup for selenium (for local events next week)
 *   expand statcan api
 *   add traffic data to dashboard
 *   indictators (business licenses, fire, police, electicity use, water use? other) YoY MoM WoW
 *   explore neighbourhoods view
 *   update power use
 *   traffic stats?
-*   Webscrapping: beautiful soup for selenium (for local events next week)
 *   download bootstrap .js and .css to run locally?
 *   write test?
 *   Main page of mini cards for story + explore
