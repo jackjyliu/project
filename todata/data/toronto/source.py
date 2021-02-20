@@ -168,3 +168,15 @@ def toronto_business_licence():
         low_memory=False)
 
     return licence
+
+
+def toronto_water_use():
+    """
+    Get Toronto Daily Water Use Data Starting 2017
+    Return as dataframe
+    """
+    url = 'https://www.toronto.ca/data/water/consumption/waterConsumption.json'
+    water_raw = pd.read_json(url, convert_dates=['POSTED_DATE'])
+    water = water_raw[['POSTED_DATE', 'TOR_DY_TOTAL']]
+    
+    return water

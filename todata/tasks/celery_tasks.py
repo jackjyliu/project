@@ -18,6 +18,7 @@ def hourly_load():
 def daily_load():
     to.update_toronto_power()
     to.update_toronto_temp()
+    to.update_toronto_water()
     return True
 
 

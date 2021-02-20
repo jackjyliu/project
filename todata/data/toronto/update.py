@@ -183,3 +183,26 @@ def update_business_licence():
     sql_write(write_db, query, records)
 
     return True
+
+
+def update_toronto_water():
+
+    water = toronto_data.toronto_water_use()
+
+    # write records into table
+    write_db = 'toronto'
+    query = """ 
+            BEGIN;
+                INSERT INTO water_use (
+                    ts,
+                    water_megalitre)
+                VALUES (%s, %s)
+                ON CONFLICT (ts) DO UPDATE
+                    SET 
+                        water_megalitre = excluded.water_megalitre;
+            COMMIT;
+            """
+    records = [tuple(x) for x in water.to_numpy()]
+    sql_write(write_db, query, records)
+
+    return True
