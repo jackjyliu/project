@@ -11,6 +11,8 @@ from todata.data.utils.datetime import utc_to_local_time, current_local_time
 from datetime import datetime, timedelta, timezone
 # import pytz
 
+pd.set_option("mode.chained_assignment", None)
+
 def road_closure_api():
     """
     get live toronto road closure data from api,

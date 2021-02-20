@@ -4,6 +4,7 @@ Project TODO
 This Week
 ---
 *   Webscrapping: beautiful soup for selenium (for local events next week)
+*   Flight Info YYZ
 *   expand statcan api
 *   add traffic data to dashboard
 *   indictators (business licenses, fire, police, electicity use, water use? other) YoY MoM WoW

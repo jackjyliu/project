@@ -206,3 +206,56 @@ def update_toronto_water():
     sql_write(write_db, query, records)
 
     return True
+
+
+def update_development_application():
+
+        # reformat data to sql insertion
+    dev = toronto_data.development_applications()
+    dev = dev.where(pd.notnull(dev), None)
+
+    # write records into table
+    write_db = 'toronto'
+    records = [tuple(x) for x in dev.to_numpy()]
+    query = """ 
+            BEGIN;
+                INSERT INTO development_application (
+                    id,
+                    app_type,
+                    date_sumbit,
+                    description,
+                    date_hearing,
+                    postal,
+                    status,
+                    street_direction,
+                    street_name,
+                    street_num,
+                    street_type,
+                    x,
+                    y,
+                    application_num,
+                    reference_num)
+
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                ON CONFLICT (id) DO UPDATE
+                    SET 
+                        app_type = excluded.app_type,
+                        date_sumbit = excluded.date_sumbit,
+                        description = excluded.description,
+                        date_hearing = excluded.date_hearing,
+                        postal = excluded.postal,
+                        status = excluded.status,
+                        street_direction = excluded.street_direction,
+                        street_name = excluded.street_name,
+                        street_num = excluded.street_num,
+                        street_type = excluded.street_type,
+                        x = excluded.x,
+                        y = excluded.y,
+                        application_num = excluded.application_num,
+                        reference_num = excluded.reference_num;
+                COMMIT;
+            """
+
+    sql_write(write_db, query, records)
+
+    return True

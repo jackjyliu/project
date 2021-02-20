@@ -6,7 +6,7 @@ from datetime import datetime
 import calendar
 import pandas as pd
 import requests
-from io import BytesIO
+#from io import BytesIO
 
 
 def toronto_power(start_year=datetime.today().year, end_year=datetime.today().year):
@@ -127,11 +127,8 @@ def toronto_temperature(
 
     return toronto_temperature
 
-
+""" remove rain function, toronto weather temp function already contains rain data
 def toronto_rain_2021():
-    """
-    returns toronto rainfall in mm
-    """
 
     # list of pandas dataframes
     url = "https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/12135710-2246-4df8-8aef-9bff7ae45357"
@@ -154,6 +151,7 @@ def toronto_rain_2021():
     avg_rain["rain_mm"] = avg_rain["rain_mm"].round(2)
 
     return avg_rain
+"""
 
 
 def toronto_business_licence():
@@ -180,3 +178,13 @@ def toronto_water_use():
     water = water_raw[['POSTED_DATE', 'TOR_DY_TOTAL']]
     
     return water
+
+def development_applications():
+    """
+    return toronto development applications data as dataframe
+    """
+    url = 'https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/e16af182-c64f-46a8-a1db-45542f527d55?format=csv'
+    dev = pd.read_csv(url)
+    dev.drop(columns=['APPLICATION#', 'REFERENCE_FILE#'], inplace=True)
+
+    return dev

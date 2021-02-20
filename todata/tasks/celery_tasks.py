@@ -31,5 +31,6 @@ def three_daily_load():
 @celery.task(name="tasks.weekly_load")
 def weekly_load():
     to.update_business_licence()
+    to.update_development_application()
     api.update_statcan()
     return True
