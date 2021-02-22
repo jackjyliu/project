@@ -6,7 +6,7 @@ import pytz
 from todata.visuals.dashboard.news_psql import latest_news
 from todata.visuals.dashboard.weather_live import dashboard_weather
 from todata.visuals.dashboard.road_closure import road_closure_map
-
+from todata.visuals.dashboard.kpi import kpi_package
 
 @app.route("/")
 @app.route("/dashboard")
@@ -22,4 +22,5 @@ def dashboard():
         local_news=latest_news(),
         dw=dashboard_weather(),
         road_closure=road_closure_map(),
+        kpi_package = kpi_package()
     )

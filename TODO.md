@@ -17,6 +17,19 @@ This Week
 *   look into rest API to serve raw data
 *   update celery to v5 + changes to scheduler (long term)
 
+Indicators (current, MoM, YoY)
+---
+*   power use
+*   water
+*   temp
+*   rain
+*   gas price
+*   business licence
+*   development application
+*   manufacture
+*   retail
+*   news topics
+
 Power Story
 ---
 *   Deep dive into each factor?

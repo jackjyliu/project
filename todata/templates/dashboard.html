@@ -68,6 +68,23 @@
             </div>
         </div>
     </div>
+
+    <div class="row row-cols-2 row-cols-md-2"> 
+        {% for kpi in kpi_package %}
+            <div class="col-lg-2">
+                <div class="card border-0 mb-1">
+                    <div class="card-body">
+                        <h6 class="card-subtitle">{{ kpi.title }}</h6>
+                        <p class="card-text"><small class="text-muted">
+                            {{ kpi.kpi_date }}<br>
+                            {{ kpi.latest_kpi }} {{ kpi.unit }}<br>
+                            MoM {{ kpi.mom }} YoY {{ kpi.yoy }}<br>
+                        </small></p>
+                    </div>
+                </div>
+            </div> 
+        {% endfor %}
+    </div>    
     
     <div class="row">
         <div class="col-lg-6">
@@ -109,6 +126,9 @@
             </div>
         </div>
    </div>
+
+
+   
 </div>
 
 {% endblock %}
