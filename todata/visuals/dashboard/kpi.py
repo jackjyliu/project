@@ -29,7 +29,7 @@ KPI_SUM = {
         "measure": "persons",
     },
     "manufacture": {
-        "kpi_title": "GTA Manufacture Sales",
+        "kpi_title": "GTA Manufacturer Sales",
         "unit": "Million$",
         "scaling": -6,
         "table": "statcan_manufacture",
@@ -54,6 +54,25 @@ KPI_SUM = {
     },
 }
 
+KPI_COUNT = {
+    "business licence": {
+        "kpi_title": "New Business Licence",
+        "unit": "licences issued",
+        "scaling": 0,
+        "table": "business_licence",
+        "date": "issued_date",
+        "measure": "licence_no",
+    },
+    "development application": {
+        "kpi_title": "Development Application",
+        "unit": "applications",
+        "scaling": 0,
+        "table": "development_application",
+        "date": "date_sumbit",
+        "measure": "id",
+    },
+}
+
 
 def percent_format(decimal):
 
@@ -71,6 +90,16 @@ def month_format(kpi_date):
 
     return month
 
+def trend(mom):
+    if mom > 0:
+        trend = 'up'
+    elif mom < 0:
+        trend = 'down'
+    else:
+        trend = 'flat'
+
+    return trend
+
 
 def kpi_month_sum(table, date, measure, database="toronto"):
 
@@ -79,6 +108,7 @@ def kpi_month_sum(table, date, measure, database="toronto"):
         f"""
         SELECT date_trunc('month', {date}) as month, SUM({measure}) as measure
         FROM {table}
+        WHERE {date} < CURRENT_TIMESTAMP
         GROUP BY date_trunc('month', {date})
         ORDER BY month DESC
         LIMIT 14
@@ -87,7 +117,7 @@ def kpi_month_sum(table, date, measure, database="toronto"):
 
     # check if latest data is from current incomplete month
     now = current_local_time()
-    if datetime(year=now.year, month=now.month, day=1) == datetime(
+    if datetime(year=now.year, month=now.month, day=1) <= datetime(
         year=record["month"][0].year, month=record["month"][0].month, day=1
     ):
         record = record[1:]
@@ -109,9 +139,62 @@ def kpi_month_sum(table, date, measure, database="toronto"):
     return kpi
 
 
+def kpi_month_count(table, date, measure, database="toronto"):
+
+    record = sql_read_pd(
+        database,
+        f"""
+        SELECT date_trunc('month', {date}) as month, COUNT({measure}) as measure
+        FROM {table}
+        WHERE {date} < CURRENT_TIMESTAMP
+        GROUP BY date_trunc('month', {date})
+        ORDER BY month DESC
+        LIMIT 14
+        """,
+    )
+
+    # check if latest data is from current incomplete month
+    now = current_local_time()
+    if datetime(year=now.year, month=now.month, day=1) <= datetime(
+        year=record["month"][0].year, month=record["month"][0].month, day=1
+        ):
+        record = record[1:]
+
+    latest_kpi = record["measure"].iloc[0]
+    kpi_date = record["month"].iloc[0]
+    mom = record["measure"].iloc[0] / record["measure"].iloc[1] - 1
+    yoy = record["measure"].iloc[0] / record["measure"].iloc[12] - 1
+    
+    kpi = {
+        "series": table,
+        "measure": measure,
+        "kpi_date": kpi_date,
+        "latest_kpi": latest_kpi,
+        "mom": mom,
+        "yoy": yoy,
+    }
+
+    return kpi
+
+
 def kpi_package():
 
     package = list()
+
+    for kpi in KPI_COUNT.values():
+        result = kpi_month_count(kpi["table"], kpi["date"], kpi["measure"])
+        kpi_items = {
+            "title": kpi["kpi_title"],
+            "latest_kpi": int(result["latest_kpi"] * 10 ** kpi["scaling"]),
+            "unit": kpi["unit"],
+            "kpi_date": month_format(result["kpi_date"]),
+            "mom": percent_format(result["mom"]),
+            "yoy": percent_format(result["yoy"]),
+            'trend': trend(result["mom"])
+        }
+
+        package.append(kpi_items)
+
 
     for kpi in KPI_SUM.values():
         result = kpi_month_sum(kpi["table"], kpi["date"], kpi["measure"])
@@ -122,6 +205,7 @@ def kpi_package():
             "kpi_date": month_format(result["kpi_date"]),
             "mom": percent_format(result["mom"]),
             "yoy": percent_format(result["yoy"]),
+            'trend': trend(result["mom"])
         }
 
         package.append(kpi_items)

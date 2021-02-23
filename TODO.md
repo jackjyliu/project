@@ -19,25 +19,13 @@ This Week
 
 Indicators (current, MoM, YoY)
 ---
-*   power use
-*   water
 *   temp
 *   rain
-*   gas price
-*   business licence
-*   development application
-*   manufacture
-*   retail
 *   news topics
 
 Power Story
 ---
 *   Deep dive into each factor?
-
-Business Activity
----
-*   New licenses
-*   Construction Permits
 
 Data
 ---
