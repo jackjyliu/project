@@ -7,7 +7,6 @@ This Week
 *   Flight Info YYZ
 *   expand statcan api
 *   add traffic data to dashboard
-*   indictators (business licenses, fire, police, electicity use, water use? other) YoY MoM WoW
 *   explore neighbourhoods view
 *   update power use
 *   traffic stats?
@@ -17,11 +16,19 @@ This Week
 *   look into rest API to serve raw data
 *   update celery to v5 + changes to scheduler (long term)
 
+Latest City Developments
+---
+*   New Business Licences
+*   New Development Applications
+*   City Politics
+*   Events
+
 Indicators (current, MoM, YoY)
 ---
 *   temp
 *   rain
 *   news topics
+*   traffic
 
 Power Story
 ---

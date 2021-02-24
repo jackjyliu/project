@@ -16,10 +16,12 @@ def dashboard():
     tz = pytz.timezone('America/Toronto')
     toronto_time = datetime.now(tz).strftime("%Y.%m.%d %H:%M")
 
+    local_news = latest_news()[:10]
+
     return render_template(
         "dashboard.html",
         toronto_time=toronto_time,
-        local_news=latest_news(),
+        local_news=local_news,
         dw=dashboard_weather(),
         road_closure=road_closure_map(),
         kpi_package = kpi_package()

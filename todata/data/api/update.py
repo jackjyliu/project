@@ -83,7 +83,10 @@ def update_statcan(source=SOURCE, single_series=False, periods=12):
         write_db = "toronto"
         query = f"""
                     BEGIN;
-                    INSERT INTO {series_info['table']} (series_date, {series_info['column']}) VALUES (%s, %s);
+                    INSERT INTO {series_info['table']} (series_date, {series_info['column']}) VALUES (%s, %s)
+                    ON CONFLICT (series_date) DO UPDATE
+                        SET
+                            {series_info['column']} = excluded.{series_info['column']};
                     COMMIT;
                 """
         sql_write(write_db, query, records)

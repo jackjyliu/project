@@ -1,7 +1,7 @@
 from datetime import datetime
 from todata.data.utils.datetime import current_local_time
 from todata.data.sql.functions import sql_read_pd
-import pandas as pd
+
 
 KPI_SUM = {
     "power use": {

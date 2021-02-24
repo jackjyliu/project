@@ -21,6 +21,6 @@ CELERYBEAT_SCHEDULE = {
     },
     'weekly_load': {
         'task': 'tasks.weekly_load',
-        'schedule': crontab(day_of_week=2, hour=4, minute=15)
+        'schedule': crontab(day_of_week=2, hour=5, minute=30)
     }
 }

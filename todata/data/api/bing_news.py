@@ -10,7 +10,7 @@ from todata.data.credentials import NEWS_API_KEY
 API_URL = "https://api.bing.microsoft.com/v7.0/news/search"
 
 
-def bing_news(query="toronto", mkt="en-CA", count=11, freshness="day", raw=False):
+def bing_news(query="toronto", mkt="en-CA", count=20, freshness="day", raw=False):
 
     # build API request
     params = {

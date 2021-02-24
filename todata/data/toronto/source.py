@@ -6,7 +6,7 @@ from datetime import datetime
 import calendar
 import pandas as pd
 import requests
-#from io import BytesIO
+from io import BytesIO
 
 
 def toronto_power(start_year=datetime.today().year, end_year=datetime.today().year):
