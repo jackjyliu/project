@@ -46,7 +46,31 @@ SOURCE = {
         'coordinate': '9.1.1.0.0.0.0.0.0.0',
         'table': 'statcan_retail',
         'column': 'sales'
-    }
+    },
+    'flights':{
+        'info': 'YYZ aircraft movements',
+        'unit': 'flights',
+        'productID': 23100002,
+        'coordinate': '1.35.1.2.0.0.0.0.0.0',
+        'table': 'statcan_flights',
+        'column': 'flights',   
+    },
+    'housing_starts':{
+        'info': 'housing starts GTA',
+        'unit': 'units',
+        'productID': 34100143,
+        'coordinate': '13.1.1.0.0.0.0.0.0.0',
+        'table': 'statcan_housing_starts',
+        'column': 'units',
+    },
+    'housing_completion':{
+        'info': 'housing starts GTA',
+        'unit': 'units',
+        'productID': 34100143,
+        'coordinate': '13.3.1.0.0.0.0.0.0.0',
+        'table': 'statcan_housing_completion',
+        'column': 'units',
+    },
 }
 
 

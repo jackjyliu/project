@@ -44,13 +44,21 @@ KPI_SUM = {
         "date": "series_date",
         "measure": "sales",
     },
-    "gas_price": {
-        "kpi_title": "GTA Gas Price",
-        "unit": "cents",
+    "housing_starts": {
+        "kpi_title": "GTA Housing Starts",
+        "unit": "units",
         "scaling": 0,
-        "table": "statcan_gas_price",
+        "table": "statcan_housing_starts",
         "date": "series_date",
-        "measure": "cents",
+        "measure": "units",
+    },
+    "flights": {
+        "kpi_title": "YYZ Flights",
+        "unit": "flights",
+        "scaling": 0,
+        "table": "statcan_flights",
+        "date": "series_date",
+        "measure": "flights",
     },
 }
 
