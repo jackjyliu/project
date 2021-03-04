@@ -76,7 +76,7 @@ KPI_COUNT = {
         "unit": "applications",
         "scaling": 0,
         "table": "development_application",
-        "date": "date_sumbit",
+        "date": "date_submit",
         "measure": "id",
     },
 }

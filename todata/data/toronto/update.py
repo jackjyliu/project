@@ -222,7 +222,7 @@ def update_development_application():
                 INSERT INTO development_application (
                     id,
                     app_type,
-                    date_sumbit,
+                    date_submit,
                     description,
                     date_hearing,
                     postal,
@@ -240,7 +240,7 @@ def update_development_application():
                 ON CONFLICT (id) DO UPDATE
                     SET 
                         app_type = excluded.app_type,
-                        date_sumbit = excluded.date_sumbit,
+                        date_submit = excluded.date_submit,
                         description = excluded.description,
                         date_hearing = excluded.date_hearing,
                         postal = excluded.postal,

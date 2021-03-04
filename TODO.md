@@ -8,12 +8,10 @@ This Week
 *   expand statcan api
 *   add traffic data to dashboard
 *   explore neighbourhoods view
-*   update power use
 *   traffic stats?
 *   download bootstrap .js and .css to run locally?
 *   write test?
 *   Main page of mini cards for story + explore
-*   look into rest API to serve raw data
 *   update celery to v5 + changes to scheduler (long term)
 
 Latest City Developments
@@ -30,16 +28,25 @@ Indicators (current, MoM, YoY)
 *   news topics
 *   traffic
 
-Power Story
+Data Stories (interesting stories about Toronto data)
 ---
-*   Deep dive into each factor?
+*   Traffic / TTC Data
+*   News word analysis
+    *   tf-idf for most common words?
+    *   trending words
+*   Power
+    *   deep dive into each factor
+*   Neighbourhood Transition
+    *   Age
+    *   Children
+    *   Language
+    *   Income
 
-Data
+Data Sources
 ---
-*   Data Sources
-    *   TTC
-    *   Traffic?
-    *   Population Data for per capita calcs
+*   TTC
+*   Traffic?
+*   Population Data for per capita calcs
 
 Dashboard
 ---
@@ -52,18 +59,8 @@ Web
 ---
 *   Domain name .com name
 *   Page Layout: grid + responsive
-        *   add scrollspy for progress tracking + section jumping
+    *   add scrollspy for progress tracking + section jumping
 
-*   Data Stories (interesting stories about Toronto data)
-    *   Traffic / TTC Data
-    *   News word analysis
-        *   tf-idf for most common words?
-        *   trending words
-
-*   Data Exploration (visualization of different data from postgres database, user choice)
-
-*   Neighbourhoods of Toronto (with mapping)
-
-Model
+Code
 ---
 *   Move credentials to main root folder or swtich to environ?
