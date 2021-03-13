@@ -38,6 +38,7 @@ def road_closure_data(api_data=road_closure_api()):
     """
     road_pd = pd.DataFrame(api_data['Closure'])
     road_close = road_pd[['id', 'road', 'latitude', 'longitude', 'startTime', 'endTime', 'description', 'type']]
+    road_close = road_close[road_close['type'] == 'HAZARD']
     road_close['startTime'] = road_close['startTime'].astype('int').apply(lambda x: utc_to_local_time(x/1000))
     road_close['endTime'] = road_close['endTime'].astype('int').apply(lambda x: utc_to_local_time(x/1000))
     road_close['latitude'] = road_close['latitude'].astype(float)
@@ -55,6 +56,10 @@ def road_closure_map(active_closure=road_closure_data()):
     """
     input road closure dataframe and returns plotly map with road closure locations
     """
+    
+    active_closure['description'] = active_closure['description'].str.wrap(30)
+    active_closure['description'] = active_closure['description'].apply(lambda x: x.replace('\n', '<br>'))
+
     px.set_mapbox_access_token(MAPBOX_API_KEY)
     fig = px.scatter_mapbox(active_closure,
                             lat=active_closure.latitude,
@@ -63,7 +68,7 @@ def road_closure_map(active_closure=road_closure_data()):
                             hover_data={
                                 'StartTime': active_closure['startTime'].apply(lambda x: datetime.strftime(x,"%y.%m.%d %H:%M")),
                                 'EndTime': active_closure['endTime'].apply(lambda x: datetime.strftime(x,"%y.%m.%d %H:%M")),
-                                'type': True,
+                                'description': True,
                                 'latitude': False,
                                 'longitude': False
                                 },

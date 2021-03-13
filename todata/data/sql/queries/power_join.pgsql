@@ -1,4 +1,4 @@
-SELECT p.ts, p.power_use_mwh, w.temp_c, w.rel_hum_pct, w.pressure_kpa, r.rain_mm,
+SELECT p.ts, p.power_use_mwh, w.temp_c, w.rel_hum_pct, w.pressure_kpa, w.rain_mm,
         EXTRACT(YEAR FROM p.ts)::text AS year,
         EXTRACT(MONTH FROM p.ts)::text AS month,
         EXTRACT(ISODOW FROM p.ts)::text AS day_of_week,
@@ -12,9 +12,8 @@ SELECT p.ts, p.power_use_mwh, w.temp_c, w.rel_hum_pct, w.pressure_kpa, r.rain_mm
             ELSE 1
         END is_holiday
 
-FROM power AS p
-LEFT JOIN daylight AS d ON date_trunc('day', p.ts) = date_trunc('day', d.cdate)
-LEFT JOIN weather AS w ON p.ts = w.ts
-LEFT JOIN rain as r ON p.ts = r.ts
-LEFT JOIN holiday as h ON date_trunc('day', p.ts) = date_trunc('day', h.hdate)
+FROM power_demand AS p
+LEFT JOIN dt_daylight AS d ON date_trunc('day', p.ts) = date_trunc('day', d.cdate)
+LEFT JOIN weather_temperature AS w ON p.ts = w.ts
+LEFT JOIN dt_holiday as h ON date_trunc('day', p.ts) = date_trunc('day', h.hdate)
 ORDER BY p.ts

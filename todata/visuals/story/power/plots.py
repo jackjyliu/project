@@ -58,7 +58,7 @@ def day_hour_heatmap():
                 EXTRACT(ISODOW FROM ts ) AS day_of_week,
                 EXTRACT(HOUR FROM ts) as hour
         FROM power_demand
-        WHERE power_use_mwh > 1
+        WHERE power_use_mwh > 1 AND ts > '2010-01-01'
         """
     )
 
@@ -100,7 +100,7 @@ def daily_power_usage():
                         SELECT  DATE_TRUNC('day', ts) AS date, 
                                 SUM(power_use_mwh) AS power_use_mwh
                         FROM power_demand
-                        WHERE power_use_mwh > 100
+                        WHERE power_use_mwh > 100 AND ts > '2010-01-01'
                         GROUP BY date
                         ORDER BY date)
 
