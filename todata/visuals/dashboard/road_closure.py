@@ -57,7 +57,7 @@ def road_closure_map(active_closure=road_closure_data()):
     input road closure dataframe and returns plotly map with road closure locations
     """
     
-    active_closure['description'] = active_closure['description'].str.wrap(30)
+    active_closure['description'] = active_closure['description'].str.wrap(50)
     active_closure['description'] = active_closure['description'].apply(lambda x: x.replace('\n', '<br>'))
 
     px.set_mapbox_access_token(MAPBOX_API_KEY)
