@@ -14,7 +14,7 @@ from todata.visuals.dashboard.kpi import kpi_package
 def dashboard():
     
     tz = pytz.timezone('America/Toronto')
-    toronto_time = datetime.now(tz).strftime("%Y.%m.%d %H:%M")
+    toronto_time = datetime.now(tz).strftime("%Y.%m.%d")
 
     local_news = latest_news()[:10]
 
