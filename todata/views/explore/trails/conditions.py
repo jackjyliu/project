@@ -7,7 +7,7 @@ import plotly.io as pio
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 
-import todata.visuals.custom_theme
+import todata.views.plotly_custom_theme
 pio.templates.default = "simple_white+custom"
 
 

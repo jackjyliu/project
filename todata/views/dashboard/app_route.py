@@ -3,10 +3,10 @@ from flask import render_template
 from datetime import datetime
 import pytz
 
-from todata.visuals.dashboard.news_psql import latest_news
-from todata.visuals.dashboard.weather_live import dashboard_weather
-from todata.visuals.dashboard.road_closure import road_closure_map
-from todata.visuals.dashboard.kpi import kpi_package
+from todata.views.dashboard.news_psql import latest_news
+from todata.views.dashboard.weather_live import dashboard_weather
+from todata.views.dashboard.road_closure import road_closure_map
+from todata.views.dashboard.kpi import kpi_package
 
 @app.route("/")
 @app.route("/dashboard")

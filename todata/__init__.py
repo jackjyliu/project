@@ -19,10 +19,10 @@ celery.config_from_object(celery_config)
 
 import todata.tasks.celery_tasks
 
-import todata.views.dashboard
-import todata.views.story
-import todata.views.explore
-import todata.views.about
+import todata.views.dashboard.app_route
+import todata.views.story.app_route
+import todata.views.explore.app_route
+import todata.views.about.app_route
 
 if __name__ == "__main__":
     app.run()

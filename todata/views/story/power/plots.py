@@ -5,7 +5,7 @@ plotly visuals for toronto power data
 import plotly.express as px
 import plotly.io as pio
 import plotly.graph_objects as go
-import todata.visuals.custom_theme
+import todata.views.plotly_custom_theme
 
 from todata.data.sql.functions import sql_read_pd
 

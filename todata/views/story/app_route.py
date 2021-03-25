@@ -1,7 +1,7 @@
 from todata import app, cache
 from flask import render_template
 
-from todata.visuals.story.power.plots import (
+from todata.views.story.power.plots import (
     daily_power_usage,
     day_hour_heatmap,
     temperature_scatter

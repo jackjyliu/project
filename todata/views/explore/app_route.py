@@ -1,9 +1,9 @@
 from todata import app, cache
 from flask import render_template
 
-from todata.visuals.explore.trails.trail_map import toronto_trails
-from todata.visuals.explore.trails.conditions import next_two_days
-from todata.visuals.explore.trails.trail_notes import TRAIL_NOTES
+from todata.views.explore.trails.trail_map import toronto_trails
+from todata.views.explore.trails.conditions import next_two_days
+from todata.views.explore.trails.trail_notes import TRAIL_NOTES
 
 
 @app.route("/explore/trails")

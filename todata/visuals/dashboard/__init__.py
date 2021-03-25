@@ -1,3 +1,0 @@
-"""
-create module from directory
-"""
