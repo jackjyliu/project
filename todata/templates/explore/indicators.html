@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Toronto Indicators{% endblock %}
+
+{% block content %}
+
+<div class="container-xxl">
+    
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mb-1">
+                <div class="card-body">
+                    <h5 class="card-title">Toronto Monthly Indicators</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mb-1">
+                <div class="card-body">
+                    <h5 class="card-title">Line Plot</h5>
+                    <h6 class="card-subtitle text-muted">Select Indicator</h6>
+                    <div>{{ line_plot|safe }}</div>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+</div>
+
+{% endblock %}
