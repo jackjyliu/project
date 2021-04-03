@@ -3,14 +3,15 @@ displays mapbox data with plotly
 """
 import plotly.express as px
 import plotly.io as pio
+import todata.views.plotly_custom_theme
 from todata.data.credentials import MAPBOX_API_KEY
 
 import pandas as pd
 import requests
 from todata.data.utils.datetime import utc_to_local_time, current_local_time
 from datetime import datetime, timedelta, timezone
-# import pytz
 
+pio.templates.default = "simple_white+custom"
 pd.set_option("mode.chained_assignment", None)
 
 def road_closure_api():
@@ -31,10 +32,9 @@ def road_closure_api():
         raise ex
 
 
-def road_closure_data(api_data=road_closure_api()):
+def road_closure_map(api_data=road_closure_api()):
     """
-    clean, format road closure api data and filter for active road closures,
-    return pandas dataframe
+    input road closure api data as pandas dictionary and returns plotly map with recent road closure locations
     """
     road_pd = pd.DataFrame(api_data['Closure'])
     road_close = road_pd[['id', 'road', 'latitude', 'longitude', 'startTime', 'endTime', 'description', 'type']]
@@ -48,14 +48,6 @@ def road_closure_data(api_data=road_closure_api()):
     one_day_after = current_local_time() + timedelta(hours=24)
 
     active_closure = road_close[(road_close['endTime'] > two_hr_before) & (road_close['startTime'] < one_day_after)]
-
-    return active_closure
-
-
-def road_closure_map(active_closure=road_closure_data()):
-    """
-    input road closure dataframe and returns plotly map with road closure locations
-    """
     
     active_closure['description'] = active_closure['description'].str.wrap(40)
     active_closure['description'] = active_closure['description'].apply(lambda x: x.replace('\n', '<br>'))

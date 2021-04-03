@@ -43,9 +43,9 @@ def multi_plot(df, addAll=True):
             buttons = ([button_all] * addAll) + list(df.columns.map(lambda column: create_layout_button(column))),
             direction="down",
             showactive=True,
-            x=0.1,
+            x=0,
             xanchor="left",
-            y=1.1,
+            y=1,
             yanchor="top",
             )
         ],
@@ -56,7 +56,8 @@ def multi_plot(df, addAll=True):
         xaxis=dict(
             rangeslider=dict(visible=True),
             type="date"
-        )
+        ),
+        margin={"r": 5, "l": 0, "b": 0, "t":20},
     )
 
     # convert to html code
@@ -109,7 +110,7 @@ def line_plot():
             
         FROM 
             generate_series(timestamp '2000-01-01'
-                            , timestamp '2021-02-01'
+                            , CURRENT_TIMESTAMP - INTERVAL '1 month'
                             , interval '1 month'
                             ) AS tm
 

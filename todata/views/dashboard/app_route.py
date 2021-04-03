@@ -24,5 +24,5 @@ def dashboard():
         local_news=local_news,
         dw=dashboard_weather(),
         road_closure=road_closure_map(),
-        kpi_package = kpi_package()
+        kpi_package=kpi_package()
     )
