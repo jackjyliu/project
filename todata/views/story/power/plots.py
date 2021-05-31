@@ -107,7 +107,7 @@ def daily_power_usage():
                         SELECT  date,
                                 power_use_mwh,
                                 ROUND(AVG(power_use_mwh)
-                                OVER(ORDER BY date ASC ROWS BETWEEN 15 PRECEDING AND 15 FOLLOWING),0)
+                                OVER(ORDER BY date ASC ROWS BETWEEN 30 PRECEDING AND 30 FOLLOWING),0)
                                 AS smoothed_avg
                         FROM daily_use
                         ORDER BY date
