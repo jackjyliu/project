@@ -1,5 +1,9 @@
 Project TODO
 ===
+*   Flask Asnyc
+*   SQL Class vs Function
+*   Ploty 5
+*   Update Packages
 
 This Week
 ---
