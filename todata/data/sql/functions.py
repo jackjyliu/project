@@ -6,6 +6,56 @@ import psycopg2
 from psycopg2.extras import execute_batch
 from todata.data.credentials import WSL2_PSQL as psql
 
+class sql:
+
+    # init psql with defaults
+    def __init__(
+        self,
+        database,
+        user=psql["user"],
+        password=psql["password"],
+        host=psql["host"],
+        port=psql["port"]):
+
+        self.database = database
+        self.user = user
+        self.password = password
+        self.host = host
+        self.port = port
+
+        try:
+            self.connection = psycopg2.connect(
+                user=self.user, password=self.password, host=self.host, port=self.port, database=self.database
+            )
+            self.cursor = self.connection.cursor()
+
+        except (Exception, psycopg2.Error) as error:
+            if self.connection:
+                print(error)
+
+    def close(self):
+        if self.connection:
+            self.cursor.close()
+            self.connection.close()
+
+    def read(self, query):
+        self.cursor.execute(query)
+        return self.cursor.fetchall()
+        
+    def read_pd(self, query):
+        sql_result = pd.read_sql(query, con=self.connection)
+        return sql_result
+
+    def write(self, query, records):
+        execute_batch(self.cursor, query, records)
+        self.connection.commit()
+        return self.cursor.rowcount
+
+    def write_single(self, query, records):
+        self.cursor.execute(query, records)
+        self.connection.commit()
+        return self.cursor.rowcount
+
 
 def sql_read(
     database,

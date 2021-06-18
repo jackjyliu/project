@@ -1,6 +1,6 @@
 from datetime import datetime
 from todata.data.utils.datetime import current_local_time
-from todata.data.sql.functions import sql_read_pd
+from todata.data.sql.functions import sql as psql
 
 
 KPI_SUM = {
@@ -109,10 +109,9 @@ def trend(mom):
     return trend
 
 
-def kpi_month_sum(table, date, measure, database="toronto"):
-
-    record = sql_read_pd(
-        database,
+def kpi_month_sum(sql, table, date, measure, database="toronto"):
+    
+    record = sql.read_pd(
         f"""
         SELECT date_trunc('month', {date}) as month, SUM({measure}) as measure
         FROM {table}
@@ -120,7 +119,7 @@ def kpi_month_sum(table, date, measure, database="toronto"):
         GROUP BY date_trunc('month', {date})
         ORDER BY month DESC
         LIMIT 14
-        """,
+        """
     )
 
     # check if latest data is from current incomplete month
@@ -147,10 +146,9 @@ def kpi_month_sum(table, date, measure, database="toronto"):
     return kpi
 
 
-def kpi_month_count(table, date, measure, database="toronto"):
+def kpi_month_count(sql, table, date, measure, database="toronto"):
 
-    record = sql_read_pd(
-        database,
+    record = sql.read_pd(
         f"""
         SELECT date_trunc('month', {date}) as month, COUNT({measure}) as measure
         FROM {table}
@@ -158,7 +156,7 @@ def kpi_month_count(table, date, measure, database="toronto"):
         GROUP BY date_trunc('month', {date})
         ORDER BY month DESC
         LIMIT 14
-        """,
+        """
     )
 
     # check if latest data is from current incomplete month
@@ -188,9 +186,10 @@ def kpi_month_count(table, date, measure, database="toronto"):
 def kpi_package():
 
     package = list()
+    sql = psql('toronto')
 
     for kpi in KPI_COUNT.values():
-        result = kpi_month_count(kpi["table"], kpi["date"], kpi["measure"])
+        result = kpi_month_count(sql, kpi["table"], kpi["date"], kpi["measure"])
         kpi_items = {
             "title": kpi["kpi_title"],
             "latest_kpi": int(result["latest_kpi"] * 10 ** kpi["scaling"]),
@@ -205,7 +204,7 @@ def kpi_package():
 
 
     for kpi in KPI_SUM.values():
-        result = kpi_month_sum(kpi["table"], kpi["date"], kpi["measure"])
+        result = kpi_month_sum(sql, kpi["table"], kpi["date"], kpi["measure"])
         kpi_items = {
             "title": kpi["kpi_title"],
             "latest_kpi": int(result["latest_kpi"] * 10 ** kpi["scaling"]),
@@ -217,5 +216,7 @@ def kpi_package():
         }
 
         package.append(kpi_items)
+    
+    sql.close()
 
     return package
