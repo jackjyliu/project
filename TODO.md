@@ -1,9 +1,9 @@
 Project TODO
 ===
-*   Flask Asnyc
-*   SQL Class vs Function
-*   Ploty 5
+*   Flask Asnyc (Long Term)
+*   Loading Screen
 *   Update Packages
+    *   Pandas 1.3.0
 
 This Week
 ---
