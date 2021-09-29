@@ -30,6 +30,7 @@ def temperature_scatter():
         y="power_use_mwh",
         opacity=0.2,
         trendline="lowess",
+        trendline_options=dict(frac=0.5),
         trendline_color_override="#555555"
     )
 

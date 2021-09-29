@@ -8,6 +8,10 @@ from todata.views.dashboard.weather_live import dashboard_weather
 from todata.views.dashboard.road_closure import road_closure_map
 from todata.views.dashboard.kpi import kpi_package
 
+@cache.cached(timeout=86400, key_prefix='kpi_cache')
+def kpi_view():
+    return kpi_package()
+
 @app.route("/")
 @app.route("/dashboard")
 #@cache.cached(timeout=60)
@@ -24,5 +28,5 @@ def dashboard():
         local_news=local_news,
         dw=dashboard_weather(),
         road_closure=road_closure_map(),
-        kpi_package=kpi_package()
+        kpi_package=kpi_view()
     )

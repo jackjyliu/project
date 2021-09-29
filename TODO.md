@@ -2,8 +2,16 @@ Project TODO
 ===
 *   Flask Asnyc (Long Term)
 *   Loading Screen
-*   Update Packages
-    *   Pandas 1.3.0
+*   Forecasting
+*   Daily cached refresh of tables used for web content
+*   Flask Cache refresh
+*   Software Updates
+    *   Plotly
+    *   Flask Cache
+    *   Flask
+    *   Bootstrap
+    *   Git Auth
+
 
 This Week
 ---
