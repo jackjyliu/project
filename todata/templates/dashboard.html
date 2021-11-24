@@ -76,7 +76,7 @@
         <div class="col-lg-6"> 
             <div class="card border-0 mb-1">
                 <div class="card-body">
-                    <h5 class="card-title">Indicators</h5>
+                    <h5 class="card-title">Monthly Indicators</h5>
                 </div>
             </div>
             <div class="row row-cols-2 row-cols-md-2"> 
@@ -86,7 +86,7 @@
                             <div class="card-body">
                                 <h6 class="card-subtitle">{{ kpi.title }}</h6>
                                 <p class="card-text"><small class="text-muted">
-                                    <img src="/static/icons/{{ kpi.trend }}.svg" alt="" width="18" height="18"> {{ kpi.kpi_date }}<br>
+                                    {{ kpi.kpi_date }} <img src="/static/icons/{{ kpi.trend }}.svg" alt="" width="18" height="18"><br>
                                     {{ kpi.latest_kpi }} {{ kpi.unit }}<br>
                                     MoM {{ kpi.mom }} YoY {{ kpi.yoy }}<br>
                                 </small></p>
