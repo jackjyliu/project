@@ -3,8 +3,27 @@ Project TODO
 *   Flask Asnyc (Long Term)
 *   Loading Screen
 *   Forecasting
+*   News Trends
+*   Climate Change Effects on Toronto Weather
+    *   temperature
+    *   rain
+    *   find estimates
+*   Toronto Event Data
 *   Daily cached refresh of tables used for web content
 *   Flask Cache refresh
+
+*   ML Workflow for forecasting
+    *   Use Celery to schedule tasks
+        *   Forecasting
+        *   Writing results into database
+        *   Retraining
+        *   Monitoring   
+
+    *   Forecasting package
+        *   Catboost
+        *   Dash
+        *   FB Prophet
+
 *   Software Updates
     *   Plotly
     *   Flask Cache
