@@ -1,5 +1,6 @@
 /project-venv
 /test-venv
+/dev-venv
 **/__pycache__/ 
 /.vscode
 todata/models/data/rain

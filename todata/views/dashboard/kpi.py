@@ -77,7 +77,7 @@ KPI_COUNT = {
         "scaling": 0,
         "table": "development_application",
         "date": "date_submit",
-        "measure": "id",
+        "measure": "DISTINCT application_num",
     },
 }
 

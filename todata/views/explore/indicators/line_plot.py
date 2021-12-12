@@ -79,7 +79,7 @@ def line_plot():
             GROUP BY date_trunc('month', issued_date)
         ),
         dev AS (
-            SELECT date_trunc('month', date_submit) as datem, COUNT(date_submit) AS dev_applications
+            SELECT date_trunc('month', date_submit) as datem, COUNT(DISTINCT application_num) AS dev_applications
             FROM development_application
             GROUP BY date_trunc('month', date_submit)
         ),
