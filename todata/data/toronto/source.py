@@ -176,6 +176,7 @@ def toronto_water_use():
     url = 'https://www.toronto.ca/data/water/consumption/waterConsumption.json'
     water_raw = pd.read_json(url, convert_dates=['POSTED_DATE'])
     water = water_raw[['POSTED_DATE', 'TOR_DY_TOTAL']]
+    water.dropna(inplace=True)
     
     return water
 
@@ -186,5 +187,6 @@ def development_applications():
     url = 'https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/e16af182-c64f-46a8-a1db-45542f527d55?format=csv'
     dev = pd.read_csv(url)
     dev.drop(columns=['APPLICATION#', 'REFERENCE_FILE#'], inplace=True)
+    dev = dev[dev['_id'].apply(lambda x: str(x).isdigit())]
 
     return dev
