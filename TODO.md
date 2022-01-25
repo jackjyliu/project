@@ -1,16 +1,39 @@
 Project TODO
 ===
-*   Flask Asnyc (Long Term)
-*   Loading Screen
-*   Forecasting
-*   News Trends
-*   Climate Change Effects on Toronto Weather
-    *   temperature
-    *   rain
-    *   find estimates
-*   Toronto Event Data
-*   Daily cached refresh of tables used for web content
-*   Flask Cache refresh
+*   Pages To Do
+    *   Dashboard
+        *   Add events (Jan 23)
+    *   Explore
+        *   Indicators (Jan 23)
+            *   Index
+            *   MoM Change
+            *   YoY Change
+        *   Trails (Jan 23)
+        *   Neighbourhoods (Jan 26)   
+    *   Stories
+        *   Power (Jan 29)
+            *   Add prediction
+            *   Add Climate Change
+        *   Neighbuorhoods (Jan 31)
+            *   Changes in Composition
+            *   Real Estate Development
+        *   News Topics (Feb 6)
+            *   Trends
+    Final Review (Feb 14)
+
+*   Pending 
+    *   Flask Asnyc (Long Term)
+    *   Loading Screen
+    *   Forecasting
+    *   News Trends
+    *   Climate Change Effects on Toronto Weather
+        *   temperature
+        *   rain
+        *   find estimates
+    *   Toronto Event Data
+    *   Daily cached refresh of tables used for web content
+    *   Flask Cache refresh
+    *   Change trends to index
 
 *   ML Workflow for forecasting
     *   Use Celery to schedule tasks

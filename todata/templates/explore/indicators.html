@@ -22,11 +22,35 @@
                 <div class="card-body">
                     <h5 class="card-title">Line Plot</h5>
                     <h6 class="card-subtitle text-muted">Select Indicator</h6>
-                    <div>{{ line_plot|safe }}</div>
+                    <div>{{simple_line_plot|safe }}</div>
                 </div>
             </div>
         </div>
     </div>    
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mb-1">
+                <div class="card-body">
+                    <h5 class="card-title">Indexed Plot</h5>
+                    <h6 class="card-subtitle text-muted">2020-01 Value = 100</h6>
+                    <div>{{indexed_line_plot|safe }}</div>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mb-1">
+                <div class="card-body">
+                    <h5 class="card-title">Year-over-Year %</h5>
+                    <h6 class="card-subtitle text-muted">Select Indicator</h6>
+                    <div>{{yoy_line_plot|safe }}</div>
+                </div>
+            </div>
+        </div>
+    </div>  
 
 </div>
 
