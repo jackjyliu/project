@@ -11,6 +11,30 @@
             <div class="card border-0 mb-1">
                 <div class="card-body">
                     <h5 class="card-title">Toronto Monthly Indicators</h5>
+                    <p class="card-subtitle text-muted">Explore data from dashboard</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mb-1">
+                <div class="card-body">
+                    <p>
+                        <button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDictionary" aria-expanded="false" aria-controls="collapseDictionary">
+                          <h6>Data Dictionary</h6>
+                        </button>
+                      </p>
+                      <div class="collapse" id="collapseDictionary">
+                        <div class="card card-body border-0 mb-1">
+                            <ul class="list-group list-group-flush border-0 mb-1">
+                                {% for item in indicator_notes %}
+                                <li class="list-group-item"><b>{{ item.name }}</b>  {{ item.description }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>
@@ -33,7 +57,7 @@
             <div class="card border-0 mb-1">
                 <div class="card-body">
                     <h5 class="card-title">Indexed Plot</h5>
-                    <h6 class="card-subtitle text-muted">2020-01 Value = 100</h6>
+                    <p class="card-subtitle text-muted">2020-01 Value = 100</p>
                     <div>{{indexed_line_plot|safe }}</div>
                 </div>
             </div>
@@ -45,7 +69,7 @@
             <div class="card border-0 mb-1">
                 <div class="card-body">
                     <h5 class="card-title">Year-over-Year %</h5>
-                    <h6 class="card-subtitle text-muted">Select Indicator</h6>
+                    <p class="card-subtitle text-muted">Select Indicator</p>
                     <div>{{yoy_line_plot|safe }}</div>
                 </div>
             </div>

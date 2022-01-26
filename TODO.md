@@ -4,12 +4,8 @@ Project TODO
     *   Dashboard
         *   Add events (Jan 23)
     *   Explore
-        *   Indicators (Jan 23)
-            *   Index
-            *   MoM Change
-            *   YoY Change
-        *   Trails (Jan 23)
-        *   Neighbourhoods (Jan 26)   
+        *   Neighbourhoods (Jan 29)
+        *   Bikeshare 
     *   Stories
         *   Power (Jan 29)
             *   Add prediction
