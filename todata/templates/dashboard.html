@@ -136,7 +136,21 @@
                     {{ road_closure|safe }}
                 </div>
             </div>
-        </div>  
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card border-0 mb-1">
+              <div class="card-body">
+                  <h5 class="card-title">Calendar</h5>
+                  <ul class="list-group-flush text-muted p-0">
+                      {% for item in local_calendar %}
+                      <li class="list-group-item p-0 py-2 text-muted"><small><b>{{ item.date }}</b> {{ item.description }}</small></li>
+                      {% endfor %}
+                  </ul>
+              </div>
+            </div>
+        </div>
+
    </div>
 
 </div>
