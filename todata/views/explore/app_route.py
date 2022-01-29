@@ -1,4 +1,3 @@
-from operator import index
 from todata import app, cache
 from flask import render_template
 from todata.views.explore.indicators import indicator_notes
@@ -9,6 +8,8 @@ from todata.views.explore.trails.trail_notes import TRAIL_NOTES
 
 from todata.views.explore.indicators.line_plot import time_series_generator, simple_line_plot, yoy_line_plot, indexed_line_plot
 from todata.views.explore.indicators.indicator_notes import INDICATOR_NOTES
+
+from todata.views.explore.hoods.hood_map import hood_map
 
 @app.route("/explore/trails")
 @cache.cached(timeout=3600)
@@ -29,6 +30,14 @@ def indicators():
         "explore/indicators.html",
         simple_line_plot=simple_line_plot(ts),
         indexed_line_plot=indexed_line_plot(ts),
-        yoy_line_plot = yoy_line_plot(ts),
+        yoy_line_plot=yoy_line_plot(ts),
         indicator_notes=INDICATOR_NOTES
+    )
+
+@app.route("/explore/neighbourhoods")
+#@cache.cached(timeout=86400)
+def hoods():
+    return render_template(
+        "explore/hoods.html",
+        hood_map=hood_map()
     )

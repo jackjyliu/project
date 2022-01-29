@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Toronto Neighbourhoods{% endblock %}
+
+{% block content %}
+
+<div class="container-xxl">
+    
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mb-1">
+                <div class="card-body">
+                    <h5 class="card-title">Toronto Neighbourhoods Data</h5>
+                    <p class="card-subtitle text-muted">Explore data about different areas of Toronto from the 2016 census.<br>
+                        <em>Map will be updated in late 2022 following full release of 2021 census data</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mb-1">
+                <div class="card-body">
+                    <h5 class="card-title">2016 Census Data</h5>
+                    <h6 class="card-subtitle text-muted">Select Metric</h6>
+                    <div>{{ hood_map|safe }}</div>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+{% endblock %}

@@ -1,20 +1,21 @@
 Project TODO
 ===
 *   Pages To Do
-    *   Dashboard
-        *   Add events (Jan 23)
     *   Explore
         *   Neighbourhoods (Jan 29)
-        *   Bikeshare 
+            *   Side by side view
+            *   Data
+
     *   Stories
-        *   Power (Jan 29)
+        *   Power (Jan 30)
             *   Add prediction
             *   Add Climate Change
-        *   Neighbuorhoods (Jan 31)
-            *   Changes in Composition
-            *   Real Estate Development
+
+        *   Biking, Traffic Tickets (Jan 31)?
+
         *   News Topics (Feb 6)
             *   Trends
+
     Final Review (Feb 14)
 
 *   Pending 
