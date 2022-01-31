@@ -43,15 +43,19 @@ def update_toronto_temp():
     insert latest toronto temperature data
     """
 
+    """
     # get last inserted timestamp
     read_query = 'SELECT ts FROM weather_temperature WHERE temp_c IS NOT NULL ORDER BY ts DESC LIMIT 1'
     last_record = sql_read_pd('toronto', read_query)
     last_ts = last_record['ts'][0]
+    """
 
     # filter records to only new data
-    weather_data = toronto_data.toronto_temperature(start_year=max(2004,last_ts.year))
-    new_weather_data = weather_data[weather_data['ts'] > last_ts]
-    new_weather_data = new_weather_data.where(pd.notnull(new_weather_data), None)
+    # weather_data = toronto_data.toronto_temperature(start_year=max(2004,last_ts.year))
+    # new_weather_data = weather_data[weather_data['ts'] > last_ts]
+    weather_data = toronto_data.toronto_temperature(start_year=2022, end_year=datetime.date.today().year)
+    new_weather_data = weather_data.where(pd.notnull(weather_data), None)
+    #new_weather_data = new_weather_data.where(pd.notnull(new_weather_data), None)
 
     # write records into table
     write_db = 'toronto'
