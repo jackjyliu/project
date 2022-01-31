@@ -3,9 +3,8 @@ Project TODO
 *   Pages To Do
     *   Explore
         *   Neighbourhoods (Jan 29)
-            *   Side by side view
-            *   Data
-
+            *   Dropdown Touch Screen Issue
+        
     *   Stories
         *   Power (Jan 30)
             *   Add prediction

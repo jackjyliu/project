@@ -39,5 +39,6 @@ def indicators():
 def hoods():
     return render_template(
         "explore/hoods.html",
-        hood_map=hood_map()
+        hood_map_1=hood_map(),
+        hood_map_2=hood_map(),
     )
