@@ -4,7 +4,8 @@ from flask import render_template
 from todata.views.story.power.plots import (
     daily_power_usage,
     day_hour_heatmap,
-    temperature_scatter
+    temperature_scatter,
+    temp_effect
 )
 
 
@@ -15,5 +16,6 @@ def story_power():
         "story/power.html",
         daily_power_usage=daily_power_usage(),
         temperature_scatter=temperature_scatter(),
-        day_hour_heatmap=day_hour_heatmap()
+        day_hour_heatmap=day_hour_heatmap(),
+        temp_effect = temp_effect()
     )

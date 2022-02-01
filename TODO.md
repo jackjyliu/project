@@ -3,12 +3,10 @@ Project TODO
 *   Pages To Do
     *   Explore
         *   Neighbourhoods (Jan 29)
-            *   Dropdown Touch Screen Issue
+            *   Dropdown Touch Screen Issue (unsolvable?)
         
     *   Stories
         *   Power (Jan 30)
-            *   Add prediction
-            *   Add Climate Change
 
         *   Biking, Traffic Tickets (Jan 31)?
 

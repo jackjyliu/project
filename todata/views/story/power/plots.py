@@ -1,6 +1,8 @@
 """
 plotly visuals for toronto power data
 """
+import pandas as pd
+import platform
 
 import plotly.express as px
 import plotly.io as pio
@@ -30,7 +32,7 @@ def temperature_scatter():
         y="power_use_mwh",
         opacity=0.2,
         trendline="lowess",
-        trendline_options=dict(frac=0.5),
+        trendline_options=dict(frac=0.35),
         trendline_color_override="#555555"
     )
 
@@ -207,6 +209,38 @@ def seasonal_power_usage():
         hovermode="x unified",
         legend=dict(x=0.05, y=1),
         margin={"r": 0, "l": 0, "b": 0}
+    )
+
+    plot = pio.to_html(fig, full_html=False, config={"displayModeBar": False})
+
+    return plot
+
+
+def temp_effect():
+
+    # check platform to get file location for geojson
+    if platform.platform() == 'Linux-5.10.60.1-microsoft-standard-WSL2-x86_64-with-glibc2.29':
+        file_path = '/home/jliu/project/todata/static/stories/power/power_predictions.csv'
+    else:
+        file_path = '/home/project/todata/static/stories/power/power_predictions.csv'
+
+    temp = pd.read_csv(file_path)
+
+    fig = px.line(temp, x='day', y='power_mwh', color='temperature', range_y=[100000,200000] )
+    
+    fig.update_traces(hovertemplate=None)
+    fig.update_layout(
+        title="Simulated 2021 Power Usage",
+        title_x=0.5,
+        xaxis_title="date",
+        yaxis_title="MegawattHour",
+        legend=dict(x=0.05, y=1),
+        margin={"r": 0, "l": 0, "b": 0},
+        hovermode  = 'x unified',
+        xaxis=dict(
+            rangeslider=dict(visible=True),
+            type="date"
+        )
     )
 
     plot = pio.to_html(fig, full_html=False, config={"displayModeBar": False})
