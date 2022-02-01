@@ -177,6 +177,7 @@ def toronto_water_use():
     water_raw = pd.read_json(url, convert_dates=['POSTED_DATE'])
     water = water_raw[['POSTED_DATE', 'TOR_DY_TOTAL']]
     water.dropna(inplace=True)
+    water = water[(water['TOR_DY_TOTAL'] > 500) & (water['TOR_DY_TOTAL'] < 1500)]
     
     return water
 
