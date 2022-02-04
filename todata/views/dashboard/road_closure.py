@@ -53,7 +53,6 @@ def road_closure_map(api_data=road_closure_api()):
     active_closure['description'] = active_closure['description'].str.wrap(40)
     active_closure['description'] = active_closure['description'].apply(lambda x: x.replace('\n', '<br>'))
 
-    px.set_mapbox_access_token(MAPBOX_API_KEY)
     fig = px.scatter_mapbox(active_closure,
                             lat=active_closure.latitude,
                             lon=active_closure.longitude,

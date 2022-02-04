@@ -5,7 +5,7 @@ import pytz
 
 from todata.views.dashboard.news_psql import latest_news
 from todata.views.dashboard.weather_live import dashboard_weather
-from todata.views.dashboard.road_closure import road_closure_map
+#from todata.views.dashboard.road_closure import road_closure_map
 from todata.views.dashboard.kpi import kpi_package
 from todata.views.dashboard.calendar import CALENDAR
 
@@ -28,7 +28,7 @@ def dashboard():
         toronto_time=toronto_time,
         local_news=local_news,
         dw=dashboard_weather(),
-        road_closure=road_closure_map(),
+        #road_closure=road_closure_map(),
         kpi_package=kpi_view(),
         local_calendar=CALENDAR,
     )
