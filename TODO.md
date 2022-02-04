@@ -2,16 +2,24 @@ Project TODO
 ===
 *   Pages To Do
     *   Explore
+        *   Trails
+            *   Add pictures of trails to each description
         *   Neighbourhoods (Jan 29)
-            *   Dropdown Touch Screen Issue (unsolvable?)
+            *   Add more data
         
     *   Stories
-        *   Power (Jan 30)
-
-        *   Biking, Traffic Tickets (Jan 31)?
+        *   BikeShare System (Feb 4)
+            *   2021 Ridership Data
+                *   Hourly 
+                *   Week Day vs Weekend
+            *   Impact of Weather, Holidays, Events on Ridership
+            *   Most popular routes/stations - balance of bikes transfer
+            *   Member vs Casual
 
         *   News Topics (Feb 6)
-            *   Trends
+            *   Sentiment Analysis
+            *   Topic Modeling Trends
+            *   Correlation with events and holidays
 
     Final Review (Feb 14)
 

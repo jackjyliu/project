@@ -1,7 +1,7 @@
 """
 functions to load data into postgresql database
 """
-from datetime import datetime
+from datetime import datetime, date
 import todata.data.toronto.source as toronto_data
 import pandas as pd
 from todata.data.sql.functions import sql_read_pd, sql_write
@@ -53,7 +53,7 @@ def update_toronto_temp():
     # filter records to only new data
     # weather_data = toronto_data.toronto_temperature(start_year=max(2004,last_ts.year))
     # new_weather_data = weather_data[weather_data['ts'] > last_ts]
-    weather_data = toronto_data.toronto_temperature(start_year=2022, end_year=datetime.date.today().year)
+    weather_data = toronto_data.toronto_temperature(start_year=2022, end_year=date.today().year)
     new_weather_data = weather_data.where(pd.notnull(weather_data), None)
     #new_weather_data = new_weather_data.where(pd.notnull(new_weather_data), None)
 
