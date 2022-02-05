@@ -5,6 +5,8 @@ from datetime import datetime, date
 import todata.data.toronto.source as toronto_data
 import pandas as pd
 from todata.data.sql.functions import sql_read_pd, sql_write
+from todata.views.dashboard.road_closure import road_closure_api, road_closure_map
+import json
 
 
 def update_toronto_power():
@@ -260,6 +262,25 @@ def update_development_application():
                 COMMIT;
             """
 
+    sql_write(write_db, query, records)
+
+    return True
+
+
+def update_road_closure(data=toronto_data.toronto_road_closure_clean()):
+
+    road_closure = data
+    
+    road_closure['ts'] = datetime.now()
+
+    # write records into table
+    write_db = "toronto"
+    query = """
+                BEGIN;
+                INSERT INTO road_closures (id, road, latitude, longitude, starttime, endtime, description, type, ts) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
+                COMMIT;
+            """
+    records = [tuple(x) for x in road_closure.to_numpy()]
     sql_write(write_db, query, records)
 
     return True

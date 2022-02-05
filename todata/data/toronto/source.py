@@ -7,6 +7,7 @@ import calendar
 import pandas as pd
 import requests
 from io import BytesIO
+from todata.data.utils.datetime import utc_to_local_time
 
 
 def toronto_power(start_year=datetime.today().year, end_year=datetime.today().year):
@@ -191,3 +192,35 @@ def development_applications():
     dev = dev[dev['_id'].apply(lambda x: str(x).isdigit())]
 
     return dev
+
+
+def toronto_road_closure():
+    """
+    get live toronto road closure data from api,
+    return python dictionary
+    """
+    try:
+        # OpenWeather One Call API
+        api_call = "https://secure.toronto.ca/opendata/cart/road_restrictions.json?v=2.0"
+        response = requests.get(api_call)
+        response.raise_for_status()
+
+        # convert json to dictionary
+        return response.json()
+
+    except Exception as ex:
+        raise ex
+
+def toronto_road_closure_clean(road_closure=toronto_road_closure()):
+    """
+    get live toronto road closure data from api
+    """
+    api_data = road_closure
+    road_pd = pd.DataFrame(api_data['Closure'])
+    road_close = road_pd[['road', 'latitude', 'longitude', 'startTime', 'endTime', 'description', 'type']]
+    road_close['startTime'] = road_close['startTime'].astype('int').apply(lambda x: utc_to_local_time(x/1000))
+    road_close['endTime'] = road_close['endTime'].astype('int').apply(lambda x: utc_to_local_time(x/1000))
+    road_close['latitude'] = road_close['latitude'].astype(float)
+    road_close['longitude'] = road_close['longitude'].astype(float)
+
+    return road_close
