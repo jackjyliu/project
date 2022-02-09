@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Toronto Bike Share{% endblock %}
+
+{% block content %}
+
+<div class="container-xxl">
+    
+    <!--
+    <div class="row">
+        <div class="card border-0 text-left mb-3">
+            <div class="card-body">
+            <h4>Which factors drive power usage in Toronto?</h4>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item border-0 text-muted">1. Temperature</li>
+                <li class="list-group-item border-0 text-muted">2. Hour of Day</li>
+                <li class="list-group-item border-0 text-muted">3. Day of Week</li>
+              </ul>
+        </div>
+    </div>
+    -->
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mt-3 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Bike Share in Toronto</h5>
+                    <p class="card-text text-muted">Toronto has 6000+ bikes and 600+ stations mostly based in downtown, with a membership option.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mt-3 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Bike trips peaks May-Sep</h5>
+                    <p class="card-text text-muted">
+                        Closure of lakeshore road to car and open to bikes lead to 5 consecutive top ridership weekends between May 16 and June 12.
+                    </p>
+                    <div>
+                        {{ daily_trips|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mt-3 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Lakeshore most popular in May, Downtown most popular in July </h5>
+                    <p class="card-text text-muted"></p>
+                    <div>
+                        {{ month_map|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mt-3 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Downtown locations start getting busy at 8am</h5>
+                    <p class="card-text text-muted"></p>
+                    <div>
+                        {{ hour_map|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mt-3 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Weekday Trips Shows a Commuting Pattern</h5>
+                    <p class="card-text text-muted">
+                        
+                    </p>
+                    <div>
+                        {{ minute_trips|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mt-3 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Riders are travelling into the most central area between University and Yonge Street</h5>
+                    <p class="card-text text-muted"></p>
+                    <div>
+                        {{ net_flow_map|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

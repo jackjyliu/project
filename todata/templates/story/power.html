@@ -42,22 +42,6 @@
                     <h5 class="card-title">Features Impacting Power Use</h5>
                     <p class="card-text">Feeding power use data along with several time and environmental factors into an ML boosting model then into a SHAP explainer model reveals the impact of each feature.</p>
                     
-                    <p class="card-text text-muted">
-                        <br>
-                        <strong>SHAP</strong> values attempt to capture the effect of each feature independantly
-                        <br>
-                        <i>Features with the greatest impact are listed top to buttom
-                        <br>
-                        Red dots = higher value for the features (higher temperature, later hours in the day)
-                        <br>
-                        Dots to the right = increases power use</i>
-                    </p>
-
-                    <img src="/static/stories/power/shap_summary.png" alt="" width="" height="" class="card-img-top">   
-                    
-                    <br>
-                    <br>
-
                     <p class="card-text">Top <strong>3</strong> impactful features</p>
                     <ul class='card-text'>
                     
@@ -72,6 +56,22 @@
                         <li><strong>Holidays</strong> shows significant power reduction, workplaces are closed, and people may be enjoying the outdoors</li>
                         <li><strong>High humidity, daylight, and air pressure</strong> these factors make for hot, muggy days which may lead to indoor AC use, but most of this effect is captured by temperature</li>
                     </ul>   
+
+                    <img src="/static/stories/power/shap_summary.png" alt="" width="" height="" class="card-img-top">   
+                    
+                    <br>
+                    <br>
+                    <p class="card-text text-muted">
+                        <br>
+                        <strong>SHAP</strong> values attempt to capture the effect of each feature independantly
+                        <br>
+                        <i>Features with the greatest impact are listed top to buttom
+                        <br>
+                        Red dots = higher value for the features (higher temperature, later hours in the day)
+                        <br>
+                        Dots to the right = increases power use</i>
+                    </p>
+
 
                 </div>
             </div>
@@ -100,7 +100,7 @@
         <div class="col">
             <div class="card border-0 mt-3 mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">The Other Major Impact Is Temperature</h5>
+                    <h5 class="card-title">Temperature is the other key factor</h5>
                     <p class="card-text text-muted">
                         <ul class='card-text'></ul>
                         <li>Power use lowest around 13 C and increase at both hotter and colder temperatures. Usage during hours of the hottest summer afternoons can triple the lowest midnight hours.</li>
@@ -119,7 +119,7 @@
         <div class="col">
             <div class="card border-0 mt-3 mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Impact of Temperature Increase</h5>
+                    <h5 class="card-title">Temperature increase will significantly increase peak power usage</h5>
                     <p class="card-text text-muted">
                         Simulated 2021 power usage at different temperatures
                         <ul class='card-text text-muted'></ul>
