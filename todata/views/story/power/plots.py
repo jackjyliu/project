@@ -226,7 +226,13 @@ def temp_effect():
 
     temp = pd.read_csv(file_path)
 
-    fig = px.line(temp, x='day', y='power_mwh', color='temperature', range_y=[100000,200000] )
+    fig = px.line(temp, x='day', y='power_mwh', color='temperature', range_y=[100000,200000],
+                color_discrete_map={
+                    'actual':'#2171b5',
+                    'temp +1c':'#f9d5e5',
+                    'temp +2c':'#eeac99',
+                    'temp +3c':'#e06377'
+                })
     
     fig.update_traces(hovertemplate=None)
     fig.update_layout(

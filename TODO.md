@@ -11,9 +11,6 @@ Project TODO
         
     *   Stories
         *   BikeShare System (Feb 4)
-            *   2021 Ridership Data
-                *   Hourly 
-                *   Week Day vs Weekend
             *   Impact of Weather, Holidays, Events on Ridership
             *   Most popular routes/stations - balance of bikes transfer
             *   Member vs Casual
