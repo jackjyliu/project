@@ -26,7 +26,8 @@
             <div class="card border-0 mt-3 mb-3">
                 <div class="card-body">
                     <h5 class="card-title">Bike Share in Toronto</h5>
-                    <p class="card-text text-muted">Toronto has 6000+ bikes and 600+ stations mostly based in downtown, with a membership option.
+                    <p class="card-text">Toronto has 6000+ bikes and 600+ stations mostly centered around downtown.
+                        <br> Let's take a look at how Torontonians used this service in 2021.
                     </p>
                 </div>
             </div>
@@ -37,9 +38,10 @@
         <div class="col">
             <div class="card border-0 mt-3 mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Bike trips peaks May-Sep</h5>
-                    <p class="card-text text-muted">
-                        Closure of lakeshore road to car and open to bikes lead to 5 consecutive top ridership weekends between May 16 and June 12.
+                    <h5 class="card-title">1. Bike trips peaks May-Sep</h5>
+                    <p class="card-text">
+                        Bike use is seasonal with lows during the winter, picking up in the spring, peaks in the summer, and slowdowns in the fall.
+                        <br>5 consecutive top ridership weekends between May 16 and June 12 due to conversion of Lakeshore from cars to bike lanes. 
                     </p>
                     <div>
                         {{ daily_trips|safe }}
@@ -53,8 +55,10 @@
         <div class="col">
             <div class="card border-0 mt-3 mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Lakeshore most popular in May, Downtown most popular in July </h5>
-                    <p class="card-text text-muted"></p>
+                    <h5 class="card-title">2. Lakeshore most popular in May, Downtown most popular in July </h5>
+                    <p class="card-text">Most popular bike stations are concentrated around Lakeshore and between Yonge and University
+                    <br><i class="text-muted">Press play or move slider to see different months. (bigger circle = more trips)</i></p>
+                    <h6 class="card-text text-center text-muted">Monthly Trips by Bike Station</h6>
                     <div>
                         {{ month_map|safe }}
                     </div>   
@@ -67,8 +71,11 @@
         <div class="col">
             <div class="card border-0 mt-3 mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Downtown locations start getting busy at 8am</h5>
-                    <p class="card-text text-muted"></p>
+                    <h5 class="card-title">3. Downtown locations start getting busy at 8am and continues until 6pm</h5>
+                    <p class="card-text">Central Downtown locations always have traffic, with bikes departing past midnight.
+                    <br>Further away locations become quiet after 10pm.
+                    <br><i class="text-muted">Press play or move slider to see different hour. (bigger circle = more trips)</i></p>
+                    <h6 class="card-text text-center text-muted">Hourly Trips by Bike Station</h6>
                     <div>
                         {{ hour_map|safe }}
                     </div>   
@@ -81,9 +88,10 @@
         <div class="col">
             <div class="card border-0 mt-3 mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Weekday Trips Shows a Commuting Pattern</h5>
-                    <p class="card-text text-muted">
-                        
+                    <h5 class="card-title">4. Weekday Trips Shows a Commuting Pattern</h5>
+                    <p class="card-text">
+                        Weekday trips shows 2 peaks at 8am and 5pm, there's a spike of trips at exactly 5pm.
+                        <br>Weekends trips follows a gradual pattern busiest between noon and 7pm.
                     </p>
                     <div>
                         {{ minute_trips|safe }}
@@ -97,8 +105,13 @@
         <div class="col">
             <div class="card border-0 mt-3 mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Riders are travelling into the most central area between University and Yonge Street</h5>
-                    <p class="card-text text-muted"></p>
+                    <h5 class="card-title">5. Riders are travelling between central downtown areas and the surrounding areas</h5>
+                    <p class="card-text">
+                        At 6am, riders start making their way into the downtown (blue in the center, red in surrounding area).
+                        <br>Around 3pm, the reverse pattern appears and lasts until midnight.
+                        <br><i class="text-muted">Press play or move slider to see different hours. (blue = net bike flow into station, red = out of station)</i></p>
+                    </p>
+                    <h6 class="card-text text-center text-muted">Hourly Bike Flow by Bike Station</h6>
                     <div>
                         {{ net_flow_map|safe }}
                     </div>   
