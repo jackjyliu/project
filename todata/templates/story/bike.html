@@ -105,6 +105,23 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col">
+            <div class="card border-light border-1 mt-2 mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">6. Rain puts a damper on ridership</h5>
+                    <p class="card-text">
+                        Ridership decreases significantly during the periods of rain.
+                        <br>Noon of July 8 had 66 trips vs 654 and 430 of the two surrounding days. 
+                    </p>
+                    <div>
+                        {{ rain_plot|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 {% endblock %}

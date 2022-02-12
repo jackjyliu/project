@@ -1,4 +1,3 @@
-from numpy import mintypecode
 from todata import app, cache
 from flask import render_template
 
@@ -14,7 +13,8 @@ from todata.views.story.bike.plots import (
     minute_trips,
     month_map,
     hour_map,
-    net_flow_map
+    net_flow_map,
+    rain_plot
 )
 
 
@@ -39,4 +39,5 @@ def story_bike():
         month_map=month_map(),
         hour_map=hour_map(),
         net_flow_map=net_flow_map(),
+        rain_plot=rain_plot()
     )

@@ -2,7 +2,6 @@
 plotly visuals for toronto power data
 """
 import pandas as pd
-import platform
 
 import plotly.express as px
 import plotly.io as pio
@@ -40,10 +39,12 @@ def temperature_scatter():
         title="Power vs Temperature",
         title_x=0.5,
         xaxis_title="Temperature C",
-        yaxis_title="MegawattHour",
+        yaxis_title="MegaWattHour",
         margin={"r": 0, "l": 0, "b": 0}
     )
 
+    fig.update_traces(hovertemplate="Temperature %{x}c<br>%{y} MWh")
+    
     plot = pio.to_html(fig, full_html=False, config={"displayModeBar": False})
 
     return plot
@@ -73,11 +74,13 @@ def day_hour_heatmap():
         title_x=0.5,
         xaxis_title="Hour",
         yaxis_title="Day (1=Monday)",
-        coloraxis_colorbar={"title": "MegawattHour"},
+        coloraxis_colorbar={"title": "MegaWattHour"},
         yaxis={"autorange": "reversed"},
         plot_bgcolor="white",
         margin={"r": 0, "l": 0, "b": 0},
     )
+    fig.update_traces(hovertemplate="%{x}:00<br>Day %{y}<br>%{z} MWh")
+
     """
     fig.add_annotation(
         text="Source: IESO",
@@ -122,7 +125,7 @@ def daily_power_usage():
     fig.update_layout(
         title="Daily Usage",
         xaxis_title="Date",
-        yaxis_title="MegawattHour",
+        yaxis_title="MegaWattHour",
         legend_title=None,
         title_x=0.5,
         showlegend=True,
@@ -156,73 +159,8 @@ def daily_power_usage():
     return plot
 
 
-def seasonal_power_usage():
-
-    df = sql_read_pd(
-        "toronto",
-        """
-                        SELECT  ROUND(AVG(power_use_mwh)) AS avg_power_usage,
-                                EXTRACT(MONTH FROM ts) AS month,
-                                EXTRACT(HOUR FROM ts) as hour
-                        FROM power_demand
-                        WHERE power_use_mwh > 1
-                        GROUP BY month, hour
-                        ORDER BY month, hour                        
-                        """
-    )
-
-    # group hourly use into 4 seasons
-    season_map = {
-        1: "Dec-Feb",
-        2: "Dec-Feb",
-        3: "Mar-May",
-        4: "Mar-May",
-        5: "Mar-May",
-        6: "Jun-Aug",
-        7: "Jun-Aug",
-        8: "Jun-Aug",
-        9: "Sep-Nov",
-        10: "Sep-Nov",
-        11: "Sep-Nov",
-        12: "Dec-Feb"
-    }
-
-    df["season"] = df["month"].map(season_map)
-    df.drop(columns=["month"], inplace=True)
-    df = df.groupby(["season", "hour"]).mean().reset_index()
-    df["avg_power_usage"] = df["avg_power_usage"].round(0)
-    pvt = df.pivot(
-        index="hour", columns="season", values="avg_power_usage"
-    ).reset_index()
-
-    # plot into 4 line graphs
-    fig = px.line(pvt, x="hour", y=["Dec-Feb", "Mar-May", "Jun-Aug", "Sep-Nov"])
-    fig.update_traces(hovertemplate=None)
-    fig.update_layout(
-        title="Seasonal Usage Pattern",
-        title_x=0.5,
-        xaxis_title="Hour",
-        yaxis_title="MegawattHour",
-        legend_title="Months",
-        showlegend=True,
-        plot_bgcolor="white",
-        hovermode="x unified",
-        legend=dict(x=0.05, y=1),
-        margin={"r": 0, "l": 0, "b": 0}
-    )
-
-    plot = pio.to_html(fig, full_html=False, config={"displayModeBar": False})
-
-    return plot
-
-
 def temp_effect():
-
-    # check platform to get file location for geojson
-    if platform.platform() == 'Linux-5.10.60.1-microsoft-standard-WSL2-x86_64-with-glibc2.29':
-        file_path = '/home/jliu/project/todata/static/stories/power/power_predictions.csv'
-    else:
-        file_path = '/home/project/todata/static/stories/power/power_predictions.csv'
+    file_path = './todata/static/stories/power/power_predictions.csv'
 
     temp = pd.read_csv(file_path)
 
@@ -239,7 +177,7 @@ def temp_effect():
         title="Simulated 2021 Power Usage",
         title_x=0.5,
         xaxis_title="date",
-        yaxis_title="MegawattHour",
+        yaxis_title="MegaWattHour",
         legend=dict(x=0.05, y=1),
         margin={"r": 0, "l": 0, "b": 0},
         hovermode  = 'x unified',

@@ -10,8 +10,20 @@
         <div class="col">
             <div class="card border-light border-1 mt-2 mb-2">
                 <div class="card-body">
-                    <h5 class="card-title">Daily Electrical Power Use in Toronto</h5>
-                    <p class="card-text text-muted">in MegaWattHours with smoothed average</p>
+                    <h5 class="card-title">Electricity Power Use in Toronto</h5>
+                    <p class="card-text">What drives power use in Toronto?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-light border-1 mt-2 mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">Daily Power Use</h5>
+                    <p class="card-text text-muted">Use top left buttons or bottom slider to explore different time periods</p>
                     <div>
                         {{ daily_power_usage|safe }}
                     </div>   
@@ -25,7 +37,7 @@
             <div class="card border-light border-1 mt-2 mb-2">
                 <div class="card-body">
                     <h5 class="card-title">Features Impacting Power Use</h5>
-                    <p class="card-text">Feeding power use data along with several time and environmental factors into an ML boosting model then into a SHAP explainer model reveals the impact of each feature.</p>
+                    <p class="card-text">Feeding power use data along with several time and environmental features into an ML boosting model then into a SHAP explainer model reveals the impact of each feature.</p>
                     
                     <p class="card-text">Top <strong>3</strong> impactful features</p>
                     <ul class='card-text'>
@@ -35,7 +47,7 @@
                         <li><strong>Weekday vs Weekend</strong> is also very impactful with up to 1500 MWh throughout the week.
                     </ul>
                     <p class="card-text">
-                        There's a few minor factors that also have some impact
+                        There's a few minor features that also have some impact
                     </p>
                     <ul class='card-text'>
                         <li><strong>Holidays</strong> shows significant power reduction, workplaces are closed, and people may be enjoying the outdoors</li>
@@ -67,7 +79,7 @@
         <div class="col">
             <div class="card border-light border-1 mt-2 mb-2">
                 <div class="card-body">
-                    <h5 class="card-title">2 Time Cycles Drive Power Use</h5>
+                    <h5 class="card-title">Power use is highly cyclical</h5>
                     <p class="card-text">
                         1. <b>Daily</b> power use tends to peak around 5pm and drops to a low around 3am
                         <br>
