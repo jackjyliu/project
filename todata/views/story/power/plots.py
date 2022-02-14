@@ -36,7 +36,7 @@ def temperature_scatter():
     )
 
     fig.update_layout(
-        title="Power vs Temperature",
+        title="Hourly Power vs Temperature",
         title_x=0.5,
         xaxis_title="Temperature C",
         yaxis_title="MegaWattHour",

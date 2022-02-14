@@ -11,13 +11,12 @@ Project TODO
         
     *   Stories
         *   BikeShare System (Feb 4)
-            *   Impact of Weather, Holidays, Events on Ridership
-            *   Most popular routes/stations - balance of bikes transfer
-            *   Member vs Casual
+            *   Most popular routes/stations
 
         *   News Topics (Feb 6)
             *   Sentiment Analysis
-            *   Topic Modeling Trends
+            *   NER for trending people
+            *   Topic model for get topic trends
             *   Correlation with events and holidays
 
     Final Review (Feb 14)
