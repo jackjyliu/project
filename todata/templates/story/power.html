@@ -36,10 +36,10 @@
         <div class="col">
             <div class="card border-light border-1 mt-2 mb-2">
                 <div class="card-body">
-                    <h5 class="card-title">Features Impacting Power Use</h5>
-                    <p class="card-text">Feeding power use data along with several time and environmental features into an ML boosting model then into a SHAP explainer model reveals the impact of each feature.</p>
+                    <h5 class="card-title">Factors Impacting Power Use</h5>
+                    <p class="card-text">Feeding power use data along with several time and environmental factors into an ML boosting model then into a SHAP explainer model reveals the impact of each factor.</p>
                     
-                    <p class="card-text">Top <strong>3</strong> impactful features</p>
+                    <p class="card-text">Top <strong>3</strong> impactful factors</p>
                     <ul class='card-text'>
                     
                         <li><strong>Hour</strong> of day is the most important factor with 2200 MWh swing throughout the day (average hourly use = 5800 MWh)</li>
@@ -47,7 +47,7 @@
                         <li><strong>Weekday vs Weekend</strong> is also very impactful with up to 1500 MWh throughout the week.
                     </ul>
                     <p class="card-text">
-                        There's a few minor features that also have some impact
+                        There's a few minor factors that also have some impact
                     </p>
                     <ul class='card-text'>
                         <li><strong>Holidays</strong> shows significant power reduction, workplaces are closed, and people may be enjoying the outdoors</li>
@@ -60,11 +60,11 @@
                     <br>
                     <p class="card-text text-muted">
                         <br>
-                        <strong>SHAP</strong> values attempt to capture the effect of each feature independantly
+                        <strong>SHAP</strong> values attempt to capture the effect of each factor independantly
                         <br>
-                        <i>Features with the greatest impact are listed top to buttom
+                        <i>Factors with the greatest impact are listed top to buttom
                         <br>
-                        Red dots = higher value for the features (higher temperature, later hours in the day)
+                        Red dots = higher value for the factors (higher temperature, later hours in the day)
                         <br>
                         Dots to the right = increases power use</i>
                     </p>
@@ -127,6 +127,19 @@
                     <div>
                         {{ temp_effect|safe }}
                     </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-light border-0 mt-2 mb-2">
+                <div class="card-body">
+                    <p class="card-text text-muted">
+                        Sources: IESO (Power); Environment Canada (Weather)
+                        <br>Models: Catboost (ML Gradient Boosting); SHAP (ML Model Explainer)
+                    </p>
                 </div>
             </div>
         </div>

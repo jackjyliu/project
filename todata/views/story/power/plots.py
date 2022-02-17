@@ -102,22 +102,22 @@ def daily_power_usage():
     df = sql_read_pd(
         "toronto",
         """
-                        WITH daily_use AS(
-                        SELECT  DATE_TRUNC('day', ts) AS date, 
-                                SUM(power_use_mwh) AS power_use_mwh
-                        FROM power_demand
-                        WHERE power_use_mwh > 100 AND ts > '2010-01-01'
-                        GROUP BY date
-                        ORDER BY date)
+        WITH daily_use AS(
+        SELECT  DATE_TRUNC('day', ts) AS date, 
+                SUM(power_use_mwh) AS power_use_mwh
+        FROM power_demand
+        WHERE power_use_mwh > 100 AND ts > '2010-01-01'
+        GROUP BY date
+        ORDER BY date)
 
-                        SELECT  date,
-                                power_use_mwh,
-                                ROUND(AVG(power_use_mwh)
-                                OVER(ORDER BY date ASC ROWS BETWEEN 30 PRECEDING AND 30 FOLLOWING),0)
-                                AS smoothed_avg
-                        FROM daily_use
-                        ORDER BY date
-                        """
+        SELECT  date,
+                power_use_mwh,
+                ROUND(AVG(power_use_mwh)
+                OVER(ORDER BY date ASC ROWS BETWEEN 30 PRECEDING AND 30 FOLLOWING),0)
+                AS smoothed_avg
+        FROM daily_use
+        ORDER BY date
+        """
     )
 
     fig = px.line(df, x="date", y=["power_use_mwh", "smoothed_avg"])

@@ -1,7 +1,6 @@
 Project TODO
 ===
 *   Pages To Do
-    *   Sources for pages
     *   Dashboard
         *   Update Road Hazards
     *   Explore
@@ -95,7 +94,6 @@ Data Sources
 ---
 *   TTC
 *   Traffic?
-*   Population Data for per capita calcs
 
 Dashboard
 ---

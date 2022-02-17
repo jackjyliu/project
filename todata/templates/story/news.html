@@ -30,7 +30,8 @@
                         This data was feed into through natural language processing (NLP) models to generate topic, sentiment, and keywords data.
                         <br>
                         Pretrained NLP models provided by Hugging Face.
-                    </p>
+                    </p>    
+                    <p class="card-text text-muted">3 news headline samples</p>
                     <div>
                         {{ data_sample|safe }}
                     </div>   
@@ -45,7 +46,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Most popular keywords</h5>
                     <p class="card-text">
-                       Explore the news keywords by category with at least 30 apperances.
+                       Explore top news keywords by category with at least 30 hits.
                         <br>
                     </p>
                     <div>
@@ -62,7 +63,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Topics Trending</h5>
                     <p class="card-text">
-                        News related to <strong>health</strong> (mostly COVID-19) decreased steadily throughout 2021. (double click on health legend)
+                        News related to <strong>health</strong> (mostly COVID-19) decreased steadily throughout 2021.
                         <br>
                         Other catorgories show no clear trend.
                     </p>
@@ -97,7 +98,7 @@
                 <div class="card-body">
                     <h5 class="card-title">News Sentiment</h5>
                     <p class="card-text">
-                        Sentiment analysis by topic shows a few clear trends
+                        Sentiment analysis by topic shows a few trends
                         <li><strong>Sports, Business, Entertainment</strong> stories shew towards more positive stories</li>
                         <li><strong>Health, Crime, Politics</strong> stories shew negative</li>
                         <li>All <strong>Other</strong> topics are balanced
@@ -105,6 +106,19 @@
                     <div>
                         {{ sentiment_count|safe }}
                     </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-light border-0 mt-2 mb-2">
+                <div class="card-body">
+                    <p class="card-text text-muted">
+                        Sources: Bing API (News)
+                        <br>Models: Facebook Bart (topics); Roberta (NER keywords); Cardiffnlp (Sentiment Analysis)
+                    </p>
                 </div>
             </div>
         </div>

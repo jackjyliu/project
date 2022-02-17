@@ -26,7 +26,7 @@ from todata.views.story.news.plots import (
 )
 
 @app.route("/story/power")
-#@cache.cached(timeout=3600)
+@cache.cached(timeout=86400)
 def story_power():
     return render_template(
         "story/power.html",
@@ -37,7 +37,7 @@ def story_power():
     )
 
 @app.route("/story/bike")
-#@cache.cached(timeout=3600)
+@cache.cached(timeout=86400)
 def story_bike():
     return render_template(
         "story/bike.html",
@@ -50,7 +50,7 @@ def story_bike():
     )
 
 @app.route("/story/news")
-#@cache.cached(timeout=3600)
+@cache.cached(timeout=86400)
 def story_news():
     return render_template(
         "story/news.html",

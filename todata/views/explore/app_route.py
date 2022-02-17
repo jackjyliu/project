@@ -35,7 +35,7 @@ def indicators():
     )
 
 @app.route("/explore/neighbourhoods")
-#@cache.cached(timeout=86400)
+@cache.cached(timeout=86400)
 def hoods():
     return render_template(
         "explore/hoods.html",
