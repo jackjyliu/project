@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Toronto Bike Share{% endblock %}
+
+{% block content %}
+
+<div class="container-xxl">
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-light border-1 mt-2 mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">News Headlines in Toronto</h5>
+                    <p class="card-text">Daily local Toronto news stories from Jan 19, 2021 - Feb 14, 2021 
+                        <br> What's being reported on in Toronto?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-light border-1 mt-2 mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">What news data looks like</h5>
+                    <p class="card-text">
+                        Headline and news description was collect daily from Bing News API.
+                        <br>
+                        This data was feed into through natural language processing (NLP) models to generate topic, sentiment, and keywords data.
+                        <br>
+                        Pretrained NLP models provided by Hugging Face.
+                    </p>
+                    <div>
+                        {{ data_sample|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-light border-1 mt-2 mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">Most popular keywords</h5>
+                    <p class="card-text">
+                       Explore the news keywords by category with at least 30 apperances.
+                        <br>
+                    </p>
+                    <div>
+                        {{ ner_words|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <div class="card border-light border-1 mt-2 mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">Topics Trending</h5>
+                    <p class="card-text">
+                        News related to <strong>health</strong> (mostly COVID-19) decreased steadily throughout 2021. (double click on health legend)
+                        <br>
+                        Other catorgories show no clear trend.
+                    </p>
+                    <div>
+                        {{ topic_pct|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-light border-1 mt-2 mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">Weekday vs Weekend News</h5>
+                    <p class="card-text">
+                        Weekend news shifts towards <strong>sports</strong> stories <i>vs</i> more <strong>business</strong> and <strong>health</strong> stories during weekdays
+                        <br>
+                    </p>
+                    <div>
+                        {{ topic_week|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-light border-1 mt-2 mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">News Sentiment</h5>
+                    <p class="card-text">
+                        Sentiment analysis by topic shows a few clear trends
+                        <li><strong>Sports, Business, Entertainment</strong> stories shew towards more positive stories</li>
+                        <li><strong>Health, Crime, Politics</strong> stories shew negative</li>
+                        <li>All <strong>Other</strong> topics are balanced
+                    </p>
+                    <div>
+                        {{ sentiment_count|safe }}
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

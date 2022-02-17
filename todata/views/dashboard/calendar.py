@@ -1,10 +1,10 @@
 CALENDAR = [
     {'date': 'Jan 31'
-    ,'description': 'Phase 1 Reopening: 50% restaurants, theatres, museums; 500p limit on sports: 10p indoor gathering'},
+    ,'description': 'Phase 1 Reopening: 50% restaurants, theatres, museums; 500p limit on sports and concerts'},
     {'date': 'Feb 21'
     ,'description': 'Family Day'},
     {'date': 'Feb 17'
-    ,'description': 'Phase 2 Reopening: 100% restaurants, theatres, museums; 50% sports; 25p indoor gathering'},
+    ,'description': 'Phase 2 Reopening: 100% restaurants, theatres, museums; 50% sports and concerts'},
     {'date': 'Mar 1'
     ,'description': 'Phase 3 Reopening: no capacity limits, mask rules still active'},
     {'date': 'Apr 15'

@@ -1,23 +1,18 @@
 Project TODO
 ===
 *   Pages To Do
+    *   Sources for pages
     *   Dashboard
         *   Update Road Hazards
     *   Explore
         *   Trails
-            *   Add pictures of trails to each description
-        *   Neighbourhoods (Jan 29)
+            *   Add pictures of trails to each description (optional)
+        *   Neighbourhoods (Jan 29) (optional)
             *   Add more data
         
     *   Stories
         *   BikeShare System (Feb 4)
-            *   Most popular routes/stations
-
-        *   News Topics (Feb 6)
-            *   Sentiment Analysis
-            *   NER for trending people
-            *   Topic model for get topic trends
-            *   Correlation with events and holidays
+            *   Most popular routes/stations (optional)
 
     Final Review (Feb 14)
 
