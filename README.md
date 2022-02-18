@@ -26,3 +26,19 @@ Technologies
 *   Nginx and Gunicorn as webserver and proxy to serve website
 
 ![Architecture](https://github.com/jackjyliu/project/blob/main/todata/static/img/arch_diagram_v4.svg)
+
+Folder Structure
+---
+.
+├── config                  # Webserver config files for Amazon EC2
+└── todata                  # Main project folder
+    ├── data                  # Data module and functions in python
+    │   ├── api                 # API and ETL
+    │   ├── files               # Static files
+    │   ├── sql                 # Functions to read, write to Amazon RDS SQL server
+    │   ├── toronto             # Toronto Data APIs and ETL
+    │   └── utils               # Utilities to format data
+    ├── static                # Images and files for webpages
+    ├── tasks                 # Scheduled ETL modules to run with Celery
+    ├── templates             # HTML templates for webpages
+    └── views                 # Flask modules, logic, visualization for webpages
