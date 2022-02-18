@@ -37,3 +37,6 @@ logs/
 
 CENTRELINE_WGS84.geojson
 todata/data/web
+
+package_list.md
+setup.py

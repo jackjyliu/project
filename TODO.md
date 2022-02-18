@@ -51,7 +51,6 @@ Project TODO
 
 This Week
 ---
-*   Webscrapping: beautiful soup for selenium (for local events next week)
 *   Flight Info YYZ
 *   expand statcan api
 *   add traffic data to dashboard
@@ -64,31 +63,12 @@ This Week
 
 Latest City Developments
 ---
-*   New Business Licences
-*   New Development Applications
-*   City Politics
-*   Events
-
-Indicators (current, MoM, YoY)
----
-*   temp
-*   rain
-*   news topics
-*   traffic
+*  More Events
 
 Data Stories (interesting stories about Toronto data)
 ---
 *   Traffic / TTC Data
-*   News word analysis
-    *   tf-idf for most common words?
-    *   trending words
-*   Power
-    *   deep dive into each factor
-*   Neighbourhood Transition
-    *   Age
-    *   Children
-    *   Language
-    *   Income
+
 
 Data Sources
 ---
