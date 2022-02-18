@@ -72,7 +72,7 @@ KPI_COUNT = {
         "measure": "licence_no",
     },
     "development application": {
-        "kpi_title": "Development Application",
+        "kpi_title": "Real Estate Development Application",
         "unit": "applications",
         "scaling": 0,
         "table": "development_application",

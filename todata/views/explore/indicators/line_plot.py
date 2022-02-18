@@ -127,6 +127,7 @@ def multi_plot(df, addAll=True):
             type="date"
         ),
         margin={"r": 5, "l": 0, "b": 0, "t":20},
+        hovermode='x unified'
     )
 
     # convert to html code

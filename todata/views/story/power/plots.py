@@ -21,7 +21,7 @@ def temperature_scatter():
         SELECT p.power_use_mwh, t.temp_c
         FROM power_demand p TABLESAMPLE BERNOULLI(10)
         LEFT JOIN weather_temperature t ON p.ts = t.ts
-        WHERE power_use_mwh > 1 AND t.temp_c IS NOT NULL AND p.ts > '2018-01-01'
+        WHERE power_use_mwh > 1 AND t.temp_c IS NOT NULL AND p.ts > '2016-01-01'
         """
     )
 

@@ -11,7 +11,7 @@
             <div class="card border-0 mb-1">
                 <div class="card-body">
                     <h5 class="card-title">Toronto Monthly Indicators</h5>
-                    <p class="card-subtitle text-muted">Explore data from dashboard</p>
+                    <p class="card-subtitle text-muted">Explore indicators data from dashboard</p>
                 </div>
             </div>
         </div>
@@ -44,25 +44,25 @@
         <div class="col">
             <div class="card border-0 mb-1">
                 <div class="card-body">
-                    <h5 class="card-title">Line Plot</h5>
-                    <h6 class="card-subtitle text-muted">Select Indicator</h6>
-                    <div>{{simple_line_plot|safe }}</div>
-                </div>
-            </div>
-        </div>
-    </div>    
-
-    <div class="row">
-        <div class="col">
-            <div class="card border-0 mb-1">
-                <div class="card-body">
-                    <h5 class="card-title">Indexed Plot</h5>
-                    <p class="card-subtitle text-muted">2020-01 Value = 100</p>
+                    <h5 class="card-title">Indexed Values</h5>
+                    <p class="card-subtitle text-muted">All values normalized with 2020-01 value = 100</p>
                     <div>{{indexed_line_plot|safe }}</div>
                 </div>
             </div>
         </div>
     </div>  
+
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mb-1">
+                <div class="card-body">
+                    <h5 class="card-title">Original Values</h5>
+                    <p class="card-subtitle text-muted">Select Indicator</p>
+                    <div>{{simple_line_plot|safe }}</div>
+                </div>
+            </div>
+        </div>
+    </div>    
 
     <div class="row">
         <div class="col">

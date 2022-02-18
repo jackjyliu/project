@@ -1,6 +1,4 @@
 CALENDAR = [
-    {'date': 'Jan 31'
-    ,'description': 'Phase 1 Reopening: 50% restaurants, theatres, museums; 500p limit on sports and concerts'},
     {'date': 'Feb 21'
     ,'description': 'Family Day'},
     {'date': 'Feb 17'

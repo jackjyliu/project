@@ -1,21 +1,25 @@
 WITH bus AS (
     SELECT date_trunc('month', issued_date) as datem, COUNT(issued_date) AS licence_issued
     FROM business_licence
+    WHERE issued_date > '2016-12-31'
     GROUP BY date_trunc('month', issued_date)
 ),
 dev AS (
-    SELECT date_trunc('month', date_submit) as datem, COUNT(date_submit) AS dev_applications
+    SELECT date_trunc('month', date_submit) as datem, COUNT(DISTINCT application_num) AS dev_applications
     FROM development_application
+    WHERE date_submit > '2016-12-31'
     GROUP BY date_trunc('month', date_submit)
 ),
 power AS (
     SELECT date_trunc('month', ts) as ts, SUM(power_use_mwh) AS power_mwh
     FROM power_demand
+    WHERE ts > '2016-12-31'
     GROUP BY date_trunc('month', ts)
 ),
 water AS (
     SELECT date_trunc('month', ts) as ts, SUM(water_megalitre) AS water_megalitre
     FROM water_use
+    WHERE ts > '2016-12-31'
     GROUP BY date_trunc('month', ts)
 )
 
@@ -34,8 +38,8 @@ SELECT
     , w.water_megalitre
     
 FROM 
-    generate_series(timestamp '2000-01-01'
-                    , timestamp '2021-02-01'
+    generate_series(timestamp '2017-01-01'
+                    , CURRENT_TIMESTAMP - INTERVAL '1 month'
                     , interval '1 month'
                     ) AS tm
 
@@ -51,4 +55,5 @@ LEFT JOIN dev ON tm = dev.datem
 LEFT JOIN power p ON tm = p.ts
 LEFT JOIN water w ON tm = w.ts
 
+WHERE tm > '2016-12-31'
 ORDER BY tm ASC
