@@ -29,6 +29,7 @@ Technologies
 
 Folder Structure
 ---
+```
 .
 ├── config                  # Webserver config files for Amazon EC2
 └── todata                  # Main project folder
@@ -42,3 +43,4 @@ Folder Structure
     ├── tasks                 # Scheduled ETL modules to run with Celery
     ├── templates             # HTML templates for webpages
     └── views                 # Flask modules, logic, visualization for webpages
+```
