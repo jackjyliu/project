@@ -1,6 +1,5 @@
-[Website Highlighting Toronto Data](https://todata.ca/)
+[Website Highlighting Toronto Data (todata.ca)](https://todata.ca/)
 ===
-[todata.ca](https://todata.ca/)
 Content
 ---
 *	Dashboard: weather, calendar, road closures, local news
