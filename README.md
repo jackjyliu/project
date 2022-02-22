@@ -7,12 +7,12 @@ Content
     *   Indicators
     *   Neighbourhood Information
     *   Parks and Trails
-    *   More to come
+    *   _More to come_
 *	Stories about specific areas
     *   Power Use
     *   Bike Share Patterns
     *   Local News Info
-    *   More to come
+    *   _More to come_
 
 Technologies
 ---

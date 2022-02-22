@@ -152,7 +152,7 @@ def rain_plot():
     )
 
     fig.add_trace(
-        go.Bar(x=rain['Start Time'], y=rain['rain_mm'], name="Rain mm", opacity=0.25),
+        go.Bar(x=rain['Start Time'], y=rain['rain_mm'], name="Rain (mm)", opacity=0.25),
         secondary_y=True,
     )
 
@@ -169,7 +169,7 @@ def rain_plot():
 
     # Set y-axes titles
     fig.update_yaxes(title_text="Trips", secondary_y=False)
-    fig.update_yaxes(title_text="Rain mm", secondary_y=True)
+    fig.update_yaxes(title_text="Rain (mm)", secondary_y=True)
 
     plot = pio.to_html(fig, full_html=False, auto_play=False, config={"displayModeBar": False})
 

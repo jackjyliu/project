@@ -1,6 +1,4 @@
 CALENDAR = [
-    {'date': 'Feb 21'
-    ,'description': 'Family Day'},
     {'date': 'Feb 17'
     ,'description': 'Phase 2 Reopening: 100% restaurants, theatres, museums; 50% sports and concerts'},
     {'date': 'Mar 1'
@@ -13,4 +11,12 @@ CALENDAR = [
     ,'description': 'Ontario Election deadline'},
     {'date': 'Jul 1'
     ,'description': 'Canada Day'},
+    {'date': 'Aug 1'
+    ,'description': 'Civic Day'},
+    {'date': 'Sep 6'
+    ,'description': 'Labour Day'},
+    {'date': 'Oct 11'
+    ,'description': 'Thanksgiving'},
+    {'date': 'Oct 24'
+    ,'description': 'Toronto Mayoral Election'},
 ]

@@ -73,4 +73,4 @@ def road_closure_map(api_data=road_closure_api()):
         return plot
     
     except:
-        return False
+        return "Road service unavailable, working to restore, sorry for the inconvenience."
