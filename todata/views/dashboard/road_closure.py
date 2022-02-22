@@ -39,8 +39,9 @@ def road_closure_map(api_data=road_closure_api()):
     try:
         road_pd = pd.DataFrame(api_data['Closure'])
         road_close = road_pd[['id', 'road', 'latitude', 'longitude', 'startTime', 'endTime', 'description', 'type']]
-        road_close = road_close[(road_close['type'] == 'HAZARD') | (road_close['type'] == 'HAZARD')]
-        road_close = road_close[~road_close['description'].str.contains('CafeTO|Farmers')]
+       #road_close = road_close[(road_close['type'] == 'HAZARD') | (road_close['type'] == 'HAZARD')]
+       #road_close = road_close[~road_close['description'].str.contains('CafeTO|Farmers')]
+        road_close['road'] = road_close['road'].fillna('Road Closure')
         road_close['startTime'] = road_close['startTime'].astype('int').apply(lambda x: utc_to_local_time(x/1000))
         road_close['endTime'] = road_close['endTime'].astype('int').apply(lambda x: utc_to_local_time(x/1000))
         road_close['latitude'] = road_close['latitude'].astype(float)
