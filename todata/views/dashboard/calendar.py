@@ -1,6 +1,4 @@
 CALENDAR = [
-    {'date': 'Feb 17'
-    ,'description': 'Phase 2 Reopening: 100% restaurants, theatres, museums; 50% sports and concerts'},
     {'date': 'Mar 1'
     ,'description': 'Phase 3 Reopening: no capacity limits, mask rules still active'},
     {'date': 'Apr 15'

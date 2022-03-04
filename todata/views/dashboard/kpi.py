@@ -11,6 +11,7 @@ KPI_SUM = {
         "table": "power_demand",
         "date": "ts",
         "measure": "power_use_mwh",
+        'description': 'electricity usage in MwH'
     },
     "water use": {
         "kpi_title": "Water Use",
@@ -19,6 +20,7 @@ KPI_SUM = {
         "table": "water_use",
         "date": "ts",
         "measure": "water_megalitre",
+        'description': 'water usage in Megalitre'
     },
     "ei": {
         "kpi_title": "EI Recipients",
@@ -27,6 +29,7 @@ KPI_SUM = {
         "table": "statcan_ei",
         "date": "series_date",
         "measure": "persons",
+        'description': 'people collecting Employment Insurance'
     },
     "manufacture": {
         "kpi_title": "GTA Manufacturer Sales",
@@ -35,6 +38,7 @@ KPI_SUM = {
         "table": "statcan_manufacture",
         "date": "series_date",
         "measure": "sales",
+        'description': 'dollar value of goods sold by manufacturers in GTA'
     },
     "retail": {
         "kpi_title": "GTA Retail Sales",
@@ -43,6 +47,7 @@ KPI_SUM = {
         "table": "statcan_retail",
         "date": "series_date",
         "measure": "sales",
+        'description': 'dollar value of goods sold by retailers in GTA'
     },
     "housing_starts": {
         "kpi_title": "GTA Housing Starts",
@@ -51,6 +56,7 @@ KPI_SUM = {
         "table": "statcan_housing_starts",
         "date": "series_date",
         "measure": "units",
+        'description': 'number of housing units starting construction, single house = 1 unit, 100-unit condo = 100 units'
     },
     "flights": {
         "kpi_title": "YYZ Flights",
@@ -59,6 +65,7 @@ KPI_SUM = {
         "table": "statcan_flights",
         "date": "series_date",
         "measure": "flights",
+        'description': 'flight departures and arrivals at Pearson International Airport'
     },
 }
 
@@ -70,6 +77,7 @@ KPI_COUNT = {
         "table": "business_licence",
         "date": "issued_date",
         "measure": "licence_no",
+        'description': 'business licences issued by City of Toronto'
     },
     "development application": {
         "kpi_title": "Real Estate Development Application",
@@ -78,6 +86,7 @@ KPI_COUNT = {
         "table": "development_application",
         "date": "date_submit",
         "measure": "DISTINCT application_num",
+        'description': 'real estate development applications submitted'
     },
 }
 
