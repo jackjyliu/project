@@ -1,10 +1,10 @@
 CALENDAR = [
-    {'date': 'Mar 1'
-    ,'description': 'Phase 3 Reopening: no capacity limits, mask rules still active'},
     {'date': 'Mar 21'
-    ,'description': 'End of mask rules'},
+    ,'description': 'End of public mask rules'},
     {'date': 'Apr 15'
     ,'description': 'Good Friday'},
+    {'date': 'Apr 27'
+    ,'description': 'End of remaining public health measures'},
     {'date': 'May 23'
     ,'description': 'Victoria Day'},
     {'date': 'June 2'
