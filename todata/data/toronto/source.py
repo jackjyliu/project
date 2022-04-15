@@ -160,7 +160,7 @@ def toronto_business_licence():
     get toronto business license data as pandas dataframe
     """
 
-    licence = pd.read_csv("https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/173e493c-31da-48db-85dd-60b2b6ce8f66",
+    licence = pd.read_csv("https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/57b2285f-4f80-45fb-ae3e-41a02c3a137f/resource/169e90ba-3ae0-43dd-8b2f-919e87002f50/download/business.licences.csv",
         encoding='latin1', 
         parse_dates=['Issued', 'Cancel Date'],
         dtype={'Business Phone': 'object'},
@@ -186,7 +186,7 @@ def development_applications():
     """
     return toronto development applications data as dataframe
     """
-    url = 'https://ckan0.cf.opendata.inter.prod-toronto.ca/download_resource/e16af182-c64f-46a8-a1db-45542f527d55?format=csv'
+    url = 'https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/0aa7e480-9b48-4919-98e0-6af7615b7809/resource/060be258-88ef-4fa3-a159-cbb60c9c1d47/download/development-applications-data.csv'
     dev = pd.read_csv(url)
     dev.drop(columns=['APPLICATION#', 'REFERENCE_FILE#'], inplace=True)
     dev = dev[dev['_id'].apply(lambda x: str(x).isdigit())]
