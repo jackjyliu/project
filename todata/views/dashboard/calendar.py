@@ -1,14 +1,10 @@
 CALENDAR = [
-    {'date': 'Mar 21'
-    ,'description': 'End of public mask rules'},
-    {'date': 'Apr 15'
-    ,'description': 'Good Friday'},
-    {'date': 'Apr 27'
-    ,'description': 'End of remaining public health measures'},
     {'date': 'May 23'
     ,'description': 'Victoria Day'},
     {'date': 'June 2'
     ,'description': 'Ontario Election deadline'},
+    {'date': 'June 11'
+    ,'description': 'End of remaining public health measures'},
     {'date': 'Jul 1'
     ,'description': 'Canada Day'},
     {'date': 'Aug 1'
