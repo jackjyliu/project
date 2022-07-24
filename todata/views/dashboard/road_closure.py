@@ -21,7 +21,7 @@ def road_closure_api():
     """
     try:
         # OpenWeather One Call API
-        api_call = "https://secure.toronto.ca/opendata/cart/road_restrictions.json?v=2.0"
+        api_call = "https://secure.toronto.ca/opendata/cart/road_restrictions/v2?format=json"
         response = requests.get(api_call)
         response.raise_for_status()
 
