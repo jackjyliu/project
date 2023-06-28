@@ -39,19 +39,11 @@ SOURCE = {
         'table': 'statcan_ei',
         'column': 'persons'
     },
-    'retail_sales':{
-        'info': 'retail sales amounts for GTA',
-        'unit': 'CAD',
-        'productID': 20100008,
-        'coordinate': '9.1.1.0.0.0.0.0.0.0',
-        'table': 'statcan_retail',
-        'column': 'sales'
-    },
     'flights':{
         'info': 'YYZ aircraft movements',
         'unit': 'flights',
-        'productID': 23100002,
-        'coordinate': '1.35.1.2.0.0.0.0.0.0',
+        'productID': 23100296,
+        'coordinate': '1.161.1.0.0.0.0.0.0.0',
         'table': 'statcan_flights',
         'column': 'flights',   
     },

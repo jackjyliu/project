@@ -1,5 +1,11 @@
 Project TODO
 ===
+*   Onboard new data sources
+
+*   write data monitoring and tests
+
+*   redo calendar by storing calendar events in a table and select top 10 >= current date
+
 *   Pages To Do
     *   Dashboard
         *   Update Road Hazards
