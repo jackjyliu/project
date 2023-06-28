@@ -148,8 +148,8 @@ def update_business_licence():
     query = """ 
             BEGIN;
                 INSERT INTO business_licence (
-                    category,
                     licence_no,
+                    category,
                     operating_name,
                     issued_date,
                     client_name,
@@ -163,12 +163,13 @@ def update_business_licence():
                     conditions_2,
                     plate_no,
                     endorsements,
-                    cancel_date) 
+                    cancel_date,
+                    last_update_date) 
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 ON CONFLICT (licence_no) DO UPDATE
                     SET 
-                        category = excluded.category,
                         licence_no = excluded.licence_no,
+                        category = excluded.category,
                         operating_name = excluded.operating_name,
                         issued_date = excluded.issued_date,
                         client_name = excluded.client_name,
@@ -182,7 +183,8 @@ def update_business_licence():
                         conditions_2 = excluded.conditions_2,
                         plate_no = excluded.plate_no,
                         endorsements = excluded.endorsements,
-                        cancel_date = excluded.cancel_date;
+                        cancel_date = excluded.cancel_date
+                        last_update_date = excluded.last_update_date;
                 COMMIT;
             """
     records = [tuple(x) for x in licence.to_numpy()]

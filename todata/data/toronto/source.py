@@ -160,11 +160,16 @@ def toronto_business_licence():
     get toronto business license data as pandas dataframe
     """
 
-    licence = pd.read_csv("https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/57b2285f-4f80-45fb-ae3e-41a02c3a137f/resource/169e90ba-3ae0-43dd-8b2f-919e87002f50/download/business.licences.csv",
+    licence = pd.read_csv("https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/57b2285f-4f80-45fb-ae3e-41a02c3a137f/resource/169e90ba-3ae0-43dd-8b2f-919e87002f50/download/Business%20licences%20data.csv",
         encoding='latin1', 
-        parse_dates=['Issued', 'Cancel Date'],
+        parse_dates=['Issued', 'Cancel Date', 'Last Record Update'],
         dtype={'Business Phone': 'object'},
         low_memory=False)
+    
+    # reorder columns to match database table
+    cols = licence.columns.tolist()
+    cols[0] , cols[1] = cols[1] , cols[0]
+    licence = licence[cols]
 
     return licence
 
