@@ -138,7 +138,7 @@ def update_toronto_daylight(start_year=2000, end_year=2022):
 
 def update_business_licence():
 
-    # reformat data to sql insertion
+    # reformat data for sql insertion
     licence = toronto_data.toronto_business_licence()
     licence['Cancel Date'] = licence['Cancel Date'].astype(object)
     licence = licence.where(pd.notnull(licence), None)
@@ -165,7 +165,7 @@ def update_business_licence():
                     endorsements,
                     cancel_date,
                     last_update_date) 
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 ON CONFLICT (licence_no) DO UPDATE
                     SET 
                         licence_no = excluded.licence_no,
@@ -183,7 +183,7 @@ def update_business_licence():
                         conditions_2 = excluded.conditions_2,
                         plate_no = excluded.plate_no,
                         endorsements = excluded.endorsements,
-                        cancel_date = excluded.cancel_date
+                        cancel_date = excluded.cancel_date,
                         last_update_date = excluded.last_update_date;
                 COMMIT;
             """
