@@ -1,14 +1,14 @@
 CALENDAR = [
-    {'date': 'Aug 1'
-    ,'description': 'Civic Day'},
-    {'date': 'Sep 6'
+    {'date': 'Jul 1'
+    ,'description': 'Canada Day'},
+    {'date': 'Aug 7'
+    ,'description': 'Civic Holiday'},
+    {'date': 'Sep 4'
     ,'description': 'Labour Day'},
     {'date': 'Sep 30'
     ,'description': 'Truth and Reconciliation'},    
-    {'date': 'Oct 11'
+    {'date': 'Oct 9'
     ,'description': 'Thanksgiving'},
-    {'date': 'Oct 24'
-    ,'description': 'Toronto Mayoral Election'},
     {'date': 'Nov 11'
     ,'description': 'Remembrance Day'},
     {'date': 'Dec 25'
