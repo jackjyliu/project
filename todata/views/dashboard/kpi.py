@@ -31,6 +31,15 @@ KPI_SUM = {
         "measure": "persons",
         'description': 'people collecting Employment Insurance'
     },
+    "gas_price": {
+        "kpi_title": "Toronto Gas Price",
+        "unit": "cents/L",
+        "scaling": 0,
+        "table": "statcan_gas_price",
+        "date": "series_date",
+        "measure": "cents",
+        'description': 'Monthly average retail prices for gasoline'
+    },
     "manufacture": {
         "kpi_title": "GTA Manufacturer Sales",
         "unit": "Million$",
@@ -39,15 +48,6 @@ KPI_SUM = {
         "date": "series_date",
         "measure": "sales",
         'description': 'dollar value of goods sold by manufacturers in GTA'
-    },
-    "retail": {
-        "kpi_title": "GTA Retail Sales",
-        "unit": "Million$",
-        "scaling": -6,
-        "table": "statcan_retail",
-        "date": "series_date",
-        "measure": "sales",
-        'description': 'dollar value of goods sold by retailers in GTA'
     },
     "housing_starts": {
         "kpi_title": "GTA Housing Starts",
