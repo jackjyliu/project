@@ -1,18 +1,28 @@
-CALENDAR = [
-    {'date': 'Jul 1'
-    ,'description': 'Canada Day'},
-    {'date': 'Aug 7'
-    ,'description': 'Civic Holiday'},
-    {'date': 'Sep 4'
-    ,'description': 'Labour Day'},
-    {'date': 'Sep 30'
-    ,'description': 'Truth and Reconciliation'},    
-    {'date': 'Oct 9'
-    ,'description': 'Thanksgiving'},
-    {'date': 'Nov 11'
-    ,'description': 'Remembrance Day'},
-    {'date': 'Dec 25'
-    ,'description': 'Christmas'},
-    {'date': 'Dec 26'
-    ,'description': 'Boxing Day'}
-]
+"""
+get latest 10 events for dashboard calendar
+"""
+
+from todata.data.sql.functions import sql_read
+
+def calendar():
+
+    # load latest 10 events from RDS
+    sql_raw = sql_read('toronto',
+                        """
+                        select
+                            substring(event_date::varchar, 6, 5) as short_date,
+                            event_name
+                        from toronto_calendar
+                        where event_date >= current_date
+                        order by event_date
+                        limit 10;
+                        """) 
+    
+    # convert list of tuples to dictionary with date as key and name as value
+    calendar = list()
+
+    for event in sql_raw:
+        calendar_event = {'date': event[0], 'name': event[1]}
+        calendar.append(calendar_event)
+
+    return calendar

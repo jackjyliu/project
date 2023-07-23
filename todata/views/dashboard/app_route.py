@@ -7,7 +7,7 @@ from todata.views.dashboard.news_psql import latest_news
 from todata.views.dashboard.weather_live import dashboard_weather
 from todata.views.dashboard.road_closure import road_closure_map
 from todata.views.dashboard.kpi import kpi_package
-from todata.views.dashboard.calendar import CALENDAR
+from todata.views.dashboard.calendar import calendar
 
 @cache.cached(timeout=86400, key_prefix='kpi_cache')
 def kpi_view():
@@ -30,5 +30,5 @@ def dashboard():
         dw=dashboard_weather(),
         road_closure=road_closure_map(),
         kpi_package=kpi_view(),
-        local_calendar=CALENDAR,
+        local_calendar=calendar(),
     )
