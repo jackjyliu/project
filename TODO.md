@@ -1,67 +1,31 @@
 Project TODO
 ===
-*   Onboard new data sources
 
-*   write data monitoring and tests
-
-*   redo calendar by storing calendar events in a table and select top 10 >= current date
-
-*   Pages To Do
-    *   Dashboard
-        *   Update Road Hazards
-    *   Explore
-        *   Trails
-            *   Add pictures of trails to each description 
-            *   Add more data
-        
-    *   Stories
-        *   BikeShare System 
-            *   Most popular routes/stations
-
-*   Pending 
-    *   Flask Asnyc (Long Term)
-    *   Climate Change Effects on Toronto Weather
-        *   temperature
-        *   rain
-        *   find estimates
-
-*   ML Workflow for forecasting
-    *   Use Celery to schedule tasks
-        *   Forecasting
-        *   Writing results into database
-        *   Retraining
-        *   Monitoring   
-
-    *   Forecasting package
-        *   Catboost
-        *   Dash
-        *   FB Prophet
-
-Latest City Developments
+Data
 ---
-*  More Events
+* Find Toronto events data
+* Find pollution forecast data
+* Update bikeshare data
+* Find TTC data
 
-Data Stories (interesting stories about Toronto data)
----
-*   Traffic / TTC Data
 
-Data Sources
+Infrastructure
 ---
-*   TTC
-*   Traffic
-
-Dashboard
----
-*   Toronto Indicators
-    *   Traffic/TTC/Road Closures
-    *   Events Next Week
-    *   Other useful daily data
-
-Web
----
-*   Page Layout: grid + responsive
-    *   add scrollspy for progress tracking + section jumping
-
-Code
----
+* Write data monitoring and tests
+* Switch to Redis for page cache?
+* ML Workflow for forecasting
+    * Use Celery to schedule tasks
+    * Forecasting
+    * Writing results into database
+    * Retraining
+    * Monitoring
+* Store Road Hazards in database
+* explore using async
+*   add scrollspy for progress tracking + section jumping
 *   Move credentials to main root folder or swtich to environ?
+
+Features
+---
+* Best walking time in the next 48hr recommendation
+* Toronto events recommendation
+* TTC/Traffic delay forecast
