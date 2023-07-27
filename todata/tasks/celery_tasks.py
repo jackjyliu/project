@@ -11,6 +11,7 @@ import todata.data.api.update as api
 def hourly_load():
     api.update_weather()
     api.update_pollution()
+    api.update_aqicn()
     return True
 
 

@@ -1,5 +1,6 @@
 from todata.data.api.open_weather import current_weather, current_pollution
 from todata.data.api.bing_news import bing_news
+from todata.data.api.aqicn import aqicn_pollution
 from todata.data.api.statcan import get_data_series, SOURCE
 from todata.data.sql.functions import sql_write
 import json
@@ -46,6 +47,26 @@ def update_pollution():
 
     return True
 
+def update_aqicn():
+
+    # call api
+    pollution = aqicn_pollution()
+
+    # convert to json
+    insert_records = json.dumps(pollution)
+
+    # write records into table
+    write_db = "toronto"
+    query = """
+                BEGIN;
+                INSERT INTO pollution_aqicn_api (ts, result) VALUES (CURRENT_TIMESTAMP, %s);
+                COMMIT;
+            """
+    records = (insert_records,) # comma is required for single record
+    sql_write(write_db, query, records, single_insert=True)
+
+    return True
+
 
 def update_news():
 
@@ -62,7 +83,7 @@ def update_news():
                 INSERT INTO news_bing (ts, result) VALUES (CURRENT_TIMESTAMP, %s);
                 COMMIT;
             """
-    records = (insert_records,)
+    records = (insert_records,) # comma is required for single record
     sql_write(write_db, query, records, single_insert=True)
 
     return True
