@@ -218,7 +218,7 @@ def update_toronto_water():
 
 def update_development_application():
 
-        # reformat data to sql insertion
+    # reformat data to sql insertion
     dev = toronto_data.development_applications()
     dev = dev.where(pd.notnull(dev), None)
 
@@ -232,7 +232,7 @@ def update_development_application():
                     app_type,
                     date_submit,
                     description,
-                    date_hearing,
+                    --date_hearing,
                     postal,
                     status,
                     street_direction,
@@ -244,13 +244,13 @@ def update_development_application():
                     application_num,
                     reference_num)
 
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 ON CONFLICT (id) DO UPDATE
                     SET 
                         app_type = excluded.app_type,
                         date_submit = excluded.date_submit,
                         description = excluded.description,
-                        date_hearing = excluded.date_hearing,
+                        --date_hearing = excluded.date_hearing,
                         postal = excluded.postal,
                         status = excluded.status,
                         street_direction = excluded.street_direction,

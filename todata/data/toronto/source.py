@@ -192,10 +192,10 @@ def development_applications():
     """
     return toronto development applications data as dataframe
     """
-    url = 'https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/0aa7e480-9b48-4919-98e0-6af7615b7809/resource/060be258-88ef-4fa3-a159-cbb60c9c1d47/download/development-applications-data.csv'
+    url = 'https://ckan0.cf.opendata.inter.prod-toronto.ca/dataset/0aa7e480-9b48-4919-98e0-6af7615b7809/resource/77f8a66a-bd43-40e6-b6c9-12a2b03a5032/download/Development%20Applications.csv'
     dev = pd.read_csv(url)
-    dev.drop(columns=['APPLICATION#', 'REFERENCE_FILE#'], inplace=True)
     dev = dev[dev['_id'].apply(lambda x: str(x).isdigit())]
+    dev = dev[['_id', 'APPLICATION_TYPE', 'DATE_SUBMITTED', 'DESCRIPTION', 'POSTAL', 'STATUS', 'STREET_DIRECTION', 'STREET_NAME', 'STREET_NUM', 'STREET_TYPE', 'X', 'Y', 'APPLICATION#', 'REFERENCE_FILE#']]
 
     return dev
 
